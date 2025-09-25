@@ -58,13 +58,13 @@ export const Features = () => {
                             {/* Light mode image (hidden in dark mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/tests.png"
+                                src="/images/features/tests-light.png"
                                 className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/tests.png"
+                                src="/images/features/tests-dark.png"
                                 className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
                             />
                         </AlternateImageMockup>
@@ -92,13 +92,13 @@ export const Features = () => {
                             {/* Light mode image (hidden in dark mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/exams.png"
+                                src="/images/features/exams-light.png"
                                 className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/exams.png"
+                                src="/images/features/exams-dark.png"
                                 className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
                             />
                         </AlternateImageMockup>
@@ -124,13 +124,13 @@ export const Features = () => {
                             {/* Light mode image (hidden in dark mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/vocab.png"
+                                src="/images/features/vocab-light.png"
                                 className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/vocab.png"
+                                src="/images/features/vocab-dark.png"
                                 className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
                             />
                         </AlternateImageMockup>
@@ -156,13 +156,13 @@ export const Features = () => {
                             {/* Light mode image (hidden in dark mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/subject.png"
+                                src="/images/features/subject-light.png"
                                 className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/subject.png"
+                                src="/images/features/subject-dark.png"
                                 className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
                             />
                         </AlternateImageMockup>
@@ -186,13 +186,13 @@ export const Features = () => {
                             {/* Light mode image (hidden in dark mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/AI.png"
+                                src="/images/features/AI-light.png"
                                 className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/AI.png"
+                                src="/images/features/AI-dark.png"
                                 className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
                             />
                         </AlternateImageMockup>
@@ -218,13 +218,13 @@ export const Features = () => {
                             {/* Light mode image (hidden in dark mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/charts.png"
+                                src="/images/features/charts-light.png"
                                 className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/charts.png"
+                                src="/images/features/charts-dark.png"
                                 className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
                             />
                         </AlternateImageMockup>
@@ -248,13 +248,13 @@ export const Features = () => {
                             {/* Light mode image (hidden in dark mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/flash-cards.png"
+                                src="/images/features/flash-cards-light.png"
                                 className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
-                                src="/images/features/flash-cards.png"
+                                src="/images/features/flash-cards-dark.png"
                                 className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
                             />
                         </AlternateImageMockup>

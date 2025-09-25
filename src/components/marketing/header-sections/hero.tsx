@@ -8,7 +8,7 @@ import { Button } from "@/components/base/buttons/button";
 import { MetricsMini } from "@/components/marketing/metrics/metrics-mini";
 import { MainTitle } from "./main-title";
 
-export const HeroSection = () => {
+export const HeroSection = (props: { title?: React.ReactNode }) => {
     return (
         <Fragment>
             <section className="relative py-16 shadow-xs lg:flex lg:h-screen lg:items-center lg:py-12">
@@ -23,11 +23,7 @@ export const HeroSection = () => {
                             </BadgeGroup>
                         </a>
 
-                        {/* <h1 className="mt-4 text-display-md font-semibold text-primary md:text-display-lg">
-                            با تست‌هلپر نمره دلخواهتو بگیر <br />
-                            IELTS, TOEFL, GRE, PTE
-                        </h1> */}
-                        <MainTitle />
+                        {props.title ? <h1 className="mt-4 text-display-md font-semibold text-primary md:text-display-lg">{props.title}</h1> : <MainTitle />}
                         <p className="mt-4 text-md text-balance text-tertiary md:mt-6 md:max-w-lg md:text-md">
                             صدها نمونه سؤال واقعی تافل، آیلتس و جی‌آرای، در محیطی کاملاً مشابه آزمون اصلی، همراه با امکانات آموزشی جامع، برای آمادگی کامل و کسب
                             بهترین نمره در مسیر اپلای تحصیلی و مهاجرت

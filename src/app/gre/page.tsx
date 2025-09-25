@@ -4,10 +4,10 @@ import { FAQ } from "@/components/marketing/faq/faq-accordion";
 import { Features } from "@/components/marketing/features/features";
 import { FooterMain } from "@/components/marketing/footers/footer-main";
 import { Header } from "@/components/marketing/header-navigation/header";
+import { HeroSection } from "@/components/marketing/header-sections/hero";
 import { SocialProof } from "@/components/marketing/social-proof/social-proof";
 import { Team } from "@/components/marketing/team-sections/team";
 import { Testimonial } from "@/components/marketing/testimonials/testimonial";
-import { GreHeroSection } from "./gre-hero";
 
 export const metadata = {
     title: "GRE — TestHelper",
@@ -18,7 +18,14 @@ const GrePage = () => {
     return (
         <Fragment>
             <Header />
-            <GreHeroSection />
+            <HeroSection
+                title={
+                    <>
+                        با تست‌هلپر، <br />
+                        جی‌آر‌ای دیگه غول نیست
+                    </>
+                }
+            />
             <Testimonial />
             <Features />
             <Team />
