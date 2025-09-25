@@ -9,6 +9,7 @@ import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { UntitledLogoMinimal } from "@/components/foundations/logo/untitledui-logo-minimal";
 import { cx } from "@/utils/cx";
 import { DropdownMenuSimpleWithFooter } from "./dropdown-menu-simple-with-footer";
+import { ThemeToggle } from "./theme-toggle";
 
 type HeaderNavItem = {
     label: string;
@@ -17,7 +18,7 @@ type HeaderNavItem = {
 };
 
 const headerNavItems: HeaderNavItem[] = [
-    { label: "آزمون‌ها", href: "#tests" },
+    { label: "آزمون‌ها", href: "/#tests" },
     { label: "تعرفه‌ها", href: "/pricing", menu: <DropdownMenuSimpleWithFooter /> },
     { label: "بلاگ", href: "/blog" },
     { label: "درباره ما", href: "/about-us" },
@@ -26,14 +27,10 @@ const headerNavItems: HeaderNavItem[] = [
 ];
 
 const footerNavItems = [
-    { label: "About us", href: "/" },
-    { label: "Press", href: "/products" },
-    { label: "Careers", href: "/resources" },
-    { label: "Legal", href: "/pricing" },
-    { label: "Support", href: "/pricing" },
-    { label: "Contact", href: "/pricing" },
-    { label: "Sitemap", href: "/pricing" },
-    { label: "Cookie settings", href: "/pricing" },
+    { label: "About us", href: "/about-us" },
+    { label: "Support", href: "/support" },
+    { label: "Contact", href: "/contact-us" },
+    { label: "Blog", href: "/blog" },
 ];
 
 const MobileNavItem = (props: { className?: string; label: string; href?: string; children?: ReactNode }) => {
@@ -81,6 +78,7 @@ const MobileFooter = () => {
                 </ul>
             </div> */}
             <div className="flex flex-col gap-3">
+                <ThemeToggle />
                 <Button size="lg">ورود/ثبت‌نام</Button>
             </div>
         </div>
@@ -178,6 +176,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                         {/* <Button color="secondary" size={isFloating ? "md" : "lg"}>
                             تعیین سطح
                         </Button> */}
+                        <ThemeToggle />
                         <Button color="primary" size={isFloating ? "md" : "lg"}>
                             ورود/ثبت‌نام
                         </Button>

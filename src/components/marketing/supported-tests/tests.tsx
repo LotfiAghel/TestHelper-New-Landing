@@ -81,8 +81,8 @@ export const Tests = () => {
                             </div>
 
                             <div className="text-xs font-medium sm:text-sm">{test.exams}</div>
-                            <Button color="primary" size="sm" className="mt-auto self-end">
-                                <Link href={test.url}>شروع رایگان</Link>
+                            <Button color="primary" href={test.url} size="sm" className="mt-auto self-end">
+                                شروع رایگان
                             </Button>
                         </div>
                     ))}

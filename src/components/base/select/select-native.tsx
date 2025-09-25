@@ -55,7 +55,7 @@ export const NativeSelect = ({ label, hint, options, className, selectClassName,
                 </select>
                 <ChevronDown
                     aria-hidden="true"
-                    className="pointer-events-none absolute right-3.5 size-5 text-fg-quaternary in-data-input-wrapper:right-0 in-data-input-wrapper:size-4 in-data-input-wrapper:stroke-[2.625px] in-data-input-wrapper:in-data-trailing:in-data-[input-size=sm]:right-3"
+                    className="pointer-events-none absolute end-3.5 size-5 text-fg-quaternary in-data-input-wrapper:end-0 in-data-input-wrapper:size-4 in-data-input-wrapper:stroke-[2.625px] in-data-input-wrapper:in-data-trailing:in-data-[input-size=sm]:end-3"
                 />
             </div>
 

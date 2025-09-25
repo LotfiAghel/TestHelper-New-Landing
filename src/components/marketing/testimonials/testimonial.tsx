@@ -2,7 +2,6 @@
 
 import { Star01 } from "@untitledui/icons";
 import Link from "next/link";
-import { Avatar } from "@/components/base/avatar/avatar";
 import { Marquee, MarqueeContent, MarqueeFade, MarqueeItem } from "@/components/base/marqee/marquee";
 import { Telegram } from "@/components/foundations/social-icons";
 
@@ -209,7 +208,7 @@ export const Testimonial = () => {
                                     <div className="flex flex-row items-center gap-3">
                                         <img alt={`${review.author.name}`} className="size-12 rounded-full border-2" src={review.author.avatarUrl} />
                                         <div className="min-w-0 flex-1 text-xs sm:text-sm">
-                                            <div className="flex flex-row items-center gap-2">
+                                            <div className="flex flex-row items-center gap-2 text-primary">
                                                 {review.author.name}
                                                 <Link href={review.source.url} target="_blank">
                                                     {<review.source.platform size={14} className="text-utility-blue-500" />}
@@ -232,7 +231,7 @@ export const Testimonial = () => {
                                     </div>
                                 </div>
 
-                                <p className="line-clamp-3 text-xs leading-relaxed text-muted-foreground">{review.quote}</p>
+                                <p className="line-clamp-3 text-xs leading-relaxed text-secondary">{review.quote}</p>
                             </div>
                         </MarqueeItem>
                     ))}

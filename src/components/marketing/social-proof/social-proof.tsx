@@ -14,36 +14,12 @@ export const SocialProof = () => {
                         <img alt="ACT" src="/images/logos/act-logo.png" className="h-4 md:h-6 dark:hidden" />
 
                         {/* Dark mode images (hidden in light mode) */}
-                        <img
-                            alt="Odeaolabs"
-                            src="https://www.untitledui.com/logos/logotype/white/odeaolabs.svg"
-                            className="h-9 opacity-85 not-dark:hidden md:h-12"
-                        />
-                        <img
-                            alt="Kintsugi"
-                            src="https://www.untitledui.com/logos/logotype/white/kintsugi.svg"
-                            className="h-9 opacity-85 not-dark:hidden md:h-12"
-                        />
-                        <img
-                            alt="Stackedlab"
-                            src="https://www.untitledui.com/logos/logotype/white/stackedlab.svg"
-                            className="h-9 opacity-85 not-dark:hidden md:h-12"
-                        />
-                        <img
-                            alt="Magnolia"
-                            src="https://www.untitledui.com/logos/logotype/white/magnolia.svg"
-                            className="h-9 opacity-85 not-dark:hidden md:h-12"
-                        />
-                        <img
-                            alt="Warpspeed"
-                            src="https://www.untitledui.com/logos/logotype/white/warpspeed.svg"
-                            className="h-9 opacity-85 not-dark:hidden md:h-12"
-                        />
-                        <img
-                            alt="Sisyphus"
-                            src="https://www.untitledui.com/logos/logotype/white/sisyphus.svg"
-                            className="h-9 opacity-85 not-dark:hidden md:h-12"
-                        />
+                        <img alt="Duolingo" src="/images/logos/duolingo-logo.svg" className="h-9 opacity-85 not-dark:hidden md:h-12" />
+                        <img alt="IELTS" src="/images/logos/ielts-logo.svg" className="h-7 opacity-85 not-dark:hidden md:h-10" />
+                        <img alt="TOEFL" src="/images/logos/toefl-logo.svg" className="h-7 opacity-85 not-dark:hidden md:h-10" />
+                        <img alt="GRE" src="/images/logos/gre-logo.svg" className="h-9 opacity-85 not-dark:hidden md:h-12" />
+                        <img alt="PTE" src="/images/logos/pte-logo.svg" className="h-9 opacity-85 not-dark:hidden md:h-12" />
+                        <img alt="ACT" src="/images/logos/act-logo.png" className="h-4 opacity-85 not-dark:hidden md:h-6" />
                     </div>
                 </div>
             </div>

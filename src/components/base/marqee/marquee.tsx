@@ -22,7 +22,7 @@ export type MarqueeFadeProps = HTMLAttributes<HTMLDivElement> & {
 export const MarqueeFade = ({ className, side, ...props }: MarqueeFadeProps) => (
     <div
         className={cx(
-            "absolute top-0 bottom-0 z-10 h-full w-24 from-white to-transparent",
+            "absolute top-0 bottom-0 z-10 h-full w-24 from-white to-transparent dark:from-black",
             side === "left" ? "left-0 bg-gradient-to-r" : "right-0 bg-gradient-to-l",
             className,
         )}
