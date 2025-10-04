@@ -4,21 +4,13 @@ import type { FC, HTMLAttributes } from "react";
 import { ChartBreakoutSquare, MessageChatCircle, ZapFast } from "@untitledui/icons";
 // import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
 import { CheckItemText } from "@/components/marketing/pricing/base-components/pricing-tier-card";
+import { FlowPattern } from "@/components/shared-assets/background-patterns/flow-pattern";
 import { cx } from "@/utils/cx";
 
 const AlternateImageMockup: FC<HTMLAttributes<HTMLDivElement>> = (props) => {
     return (
-        <div
-            className={cx(
-                "size-full rounded-[9.03px] bg-primary p-[0.9px] shadow-modern-mockup-outer-md ring-[0.56px] ring-utility-gray-300 ring-inset md:rounded-[20.08px] md:p-0.5 md:shadow-modern-mockup-outer-lg md:ring-[1.25px] lg:absolute lg:w-auto lg:max-w-none",
-                props.className,
-            )}
-        >
-            <div className="size-full rounded-[7.9px] bg-primary p-0.5 shadow-modern-mockup-inner-md md:rounded-[17.57px] md:p-[3.5px] md:shadow-modern-mockup-inner-lg">
-                <div className="relative size-full overflow-hidden rounded-[6.77px] ring-[0.56px] ring-utility-gray-200 md:rounded-[15.06px] md:ring-[1.25px]">
-                    {props.children}
-                </div>
-            </div>
+        <div className={cx("relative -ml-4 w-full bg-tertiary px-4 py-6 md:ml-0 md:h-140 md:w-auto md:rounded-3xl md:p-10 lg:h-100", props.className)}>
+            <div className="relative flex h-full w-full">{props.children}</div>
         </div>
     );
 };
@@ -59,15 +51,18 @@ export const Features = () => {
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/tests-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/tests-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                             />
                         </AlternateImageMockup>
+                        <div className="absolute bottom-0 left-0 hidden -translate-x-1/3 md:block md:translate-y-12 lg:translate-y-1/4">
+                            <FlowPattern className="text-fg-brand-secondary" />
+                        </div>
                     </div>
                 </div>
 
@@ -93,15 +88,18 @@ export const Features = () => {
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/exams-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/exams-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                             />
                         </AlternateImageMockup>
+                        <div className="absolute right-0 bottom-0 hidden translate-x-1/3 translate-y-1/4 md:block">
+                            <FlowPattern className="text-fg-brand-secondary" />
+                        </div>
                     </div>
                 </div>
 
@@ -125,15 +123,18 @@ export const Features = () => {
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/vocab-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/vocab-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                             />
                         </AlternateImageMockup>
+                        <div className="absolute bottom-0 left-0 hidden -translate-x-1/3 md:block md:translate-y-12 lg:translate-y-1/4">
+                            <FlowPattern className="text-fg-brand-secondary" />
+                        </div>
                     </div>
                 </div>
 
@@ -157,15 +158,18 @@ export const Features = () => {
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/subject-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/subject-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                             />
                         </AlternateImageMockup>
+                        <div className="absolute right-0 bottom-0 hidden translate-x-1/3 translate-y-1/4 md:block">
+                            <FlowPattern className="text-fg-brand-secondary" />
+                        </div>
                     </div>
                 </div>
 
@@ -187,15 +191,18 @@ export const Features = () => {
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/AI-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/AI-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                             />
                         </AlternateImageMockup>
+                        <div className="absolute bottom-0 left-0 hidden -translate-x-1/3 md:block md:translate-y-12 lg:translate-y-1/4">
+                            <FlowPattern className="text-fg-brand-secondary" />
+                        </div>
                     </div>
                 </div>
 
@@ -219,15 +226,18 @@ export const Features = () => {
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/charts-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/charts-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                             />
                         </AlternateImageMockup>
+                        <div className="absolute right-0 bottom-0 hidden translate-x-1/3 translate-y-1/4 md:block">
+                            <FlowPattern className="text-fg-brand-secondary" />
+                        </div>
                     </div>
                 </div>
 
@@ -249,15 +259,18 @@ export const Features = () => {
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/flash-cards-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/flash-cards-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
+                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                             />
                         </AlternateImageMockup>
+                        <div className="absolute bottom-0 left-0 hidden -translate-x-1/3 md:block md:translate-y-12 lg:translate-y-1/4">
+                            <FlowPattern className="text-fg-brand-secondary" />
+                        </div>
                     </div>
                 </div>
             </div>
