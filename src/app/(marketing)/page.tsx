@@ -1,4 +1,4 @@
-import { HomeScreen } from "./home-screen";
+import { HomePage } from "./home";
 
 export const metadata = {
     title: "تست‌هلپر | آمادگی آزمون‌های آیلتس، تافل، GRE و PTE",
@@ -19,4 +19,4 @@ export const metadata = {
     ],
 };
 
-export default HomeScreen;
+export default HomePage;

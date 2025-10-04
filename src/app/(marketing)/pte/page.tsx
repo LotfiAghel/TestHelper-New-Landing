@@ -5,9 +5,9 @@ import { FAQ } from "@/components/marketing/faq/faq-accordion";
 import { Features } from "@/components/marketing/features/features";
 import { FooterMain } from "@/components/marketing/footers/footer-main";
 import { Header } from "@/components/marketing/header-navigation/header";
-import { HeroSection } from "@/components/marketing/header-sections/hero";
+import { HeroSection } from "@/components/marketing/header-section/hero";
 import { SocialProof } from "@/components/marketing/social-proof/social-proof";
-import { Team } from "@/components/marketing/team-sections/team";
+import { Team } from "@/components/marketing/team/team";
 import { Testimonial } from "@/components/marketing/testimonials/testimonial";
 
 export const metadata = {
@@ -113,8 +113,7 @@ export const metadata = {
     },
     openGraph: {
         title: "آزمون PTE | ماک PTE رایگان، ثبت‌نام و منابع | تست‌هلپر",
-        description:
-            "ماک PTE رایگان، ثبت‌نام و هزینه، کلاس‌ها و آموزش تضمینی، منابع و نمونه‌سؤالات، و تبدیل نمره PTE به آیلتس برای آمادگی کامل در تست‌هلپر.",
+        description: "ماک PTE رایگان، ثبت‌نام و هزینه، کلاس‌ها و آموزش تضمینی، منابع و نمونه‌سؤالات، و تبدیل نمره PTE به آیلتس برای آمادگی کامل در تست‌هلپر.",
         url: "/pte",
         type: "website",
     },

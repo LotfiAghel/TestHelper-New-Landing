@@ -5,9 +5,9 @@ import { FAQ } from "@/components/marketing/faq/faq-accordion";
 import { Features } from "@/components/marketing/features/features";
 import { FooterMain } from "@/components/marketing/footers/footer-main";
 import { Header } from "@/components/marketing/header-navigation/header";
-import { HeroSection } from "@/components/marketing/header-sections/hero";
+import { HeroSection } from "@/components/marketing/header-section/hero";
 import { SocialProof } from "@/components/marketing/social-proof/social-proof";
-import { Team } from "@/components/marketing/team-sections/team";
+import { Team } from "@/components/marketing/team/team";
 import { Testimonial } from "@/components/marketing/testimonials/testimonial";
 
 export const metadata = {
@@ -72,8 +72,7 @@ export const metadata = {
     },
     openGraph: {
         title: "آزمون آیلتس (IELTS) | ماک آیلتس رایگان، ثبت‌نام و منابع | تست‌هلپر",
-        description:
-            "ماک آیلتس آنلاین رایگان، ثبت‌نام، کلاس‌ها و دوره‌های آیلتس، اهداف نمره 6 تا 7.5، و منابع آموزشی کامل برای سطوح B2/C1/C2 در تست‌هلپر.",
+        description: "ماک آیلتس آنلاین رایگان، ثبت‌نام، کلاس‌ها و دوره‌های آیلتس، اهداف نمره 6 تا 7.5، و منابع آموزشی کامل برای سطوح B2/C1/C2 در تست‌هلپر.",
         url: "/ielts",
         type: "website",
     },

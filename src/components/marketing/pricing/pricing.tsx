@@ -1,7 +1,7 @@
 "use client";
 
 import { LayersThree01, LayersTwo01, Zap } from "@untitledui/icons";
-import { PricingTierCardIcon } from "@/components/marketing/pricing-sections/base-components/pricing-tier-card";
+import { PricingTierCardIcon } from "@/components/marketing/pricing/base-components/pricing-tier-card";
 
 const plans = [
     {

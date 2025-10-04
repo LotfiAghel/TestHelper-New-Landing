@@ -5,15 +5,14 @@ import { FAQ } from "@/components/marketing/faq/faq-accordion";
 import { Features } from "@/components/marketing/features/features";
 import { FooterMain } from "@/components/marketing/footers/footer-main";
 import { Header } from "@/components/marketing/header-navigation/header";
-import { HeroSection } from "@/components/marketing/header-sections/hero";
+import { HeroSection } from "@/components/marketing/header-section/hero";
 import { SocialProof } from "@/components/marketing/social-proof/social-proof";
-import { Team } from "@/components/marketing/team-sections/team";
+import { Team } from "@/components/marketing/team/team";
 import { Testimonial } from "@/components/marketing/testimonials/testimonial";
 
 export const metadata = {
     title: "آزمون GRE | ماک GRE، منابع، تاریخ آزمون و نمره | تست‌هلپر",
-    description:
-        "آمادگی آزمون GRE: ماک GRE، بهترین منابع و کتاب‌ها، راهنمای نمره‌دهی، تاریخ و ثبت‌نام، آشنایی با GRE General و Subject، آموزش و نکات مهم.",
+    description: "آمادگی آزمون GRE: ماک GRE، بهترین منابع و کتاب‌ها، راهنمای نمره‌دهی، تاریخ و ثبت‌نام، آشنایی با GRE General و Subject، آموزش و نکات مهم.",
     keywords: [
         "gre آزمون چیست",
         "gre آموزش",
@@ -56,8 +55,7 @@ export const metadata = {
     },
     openGraph: {
         title: "آزمون GRE | ماک GRE، منابع، تاریخ آزمون و نمره | تست‌هلپر",
-        description:
-            "ماک GRE، منابع و کتاب‌ها، راهنمای نمره‌دهی، تاریخ و ثبت‌نام، و معرفی GRE General و Subject برای آمادگی کامل در تست‌هلپر.",
+        description: "ماک GRE، منابع و کتاب‌ها، راهنمای نمره‌دهی، تاریخ و ثبت‌نام، و معرفی GRE General و Subject برای آمادگی کامل در تست‌هلپر.",
         url: "/gre",
         type: "website",
     },
