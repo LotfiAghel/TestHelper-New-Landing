@@ -78,7 +78,6 @@ const MobileFooter = () => {
                 </ul>
             </div> */}
             <div className="flex flex-col gap-3">
-                <ThemeToggle />
                 <Button size="lg">ورود/ثبت‌نام</Button>
             </div>
         </div>
@@ -115,7 +114,6 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                     <div className="flex flex-1 items-center gap-5">
                         <UntitledLogo className="h-8 md:max-lg:hidden" />
                         <UntitledLogoMinimal className="hidden h-8 md:inline-block lg:hidden" />
-
                         {/* Desktop navigation */}
                         <nav className="max-md:hidden">
                             <ul className="flex items-center gap-0.5">
@@ -181,6 +179,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                             ورود/ثبت‌نام
                         </Button>
                     </div>
+                    <ThemeToggle className="md:hidden" />
 
                     {/* Mobile menu and menu trigger */}
                     <AriaDialogTrigger>

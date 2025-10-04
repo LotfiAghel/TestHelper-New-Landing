@@ -1,12 +1,14 @@
 "use client";
 
 import * as React from "react";
+import { HTMLAttributes } from "react";
 import { Moon01, Sun } from "@untitledui/icons";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/base/buttons/button";
 import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
+import { cx } from "@/utils/cx";
 
-export function ThemeToggle() {
+export function ThemeToggle(props: HTMLAttributes<HTMLElement>) {
     const { theme, setTheme } = useTheme();
 
     const toggleTheme = () => {
@@ -14,7 +16,7 @@ export function ThemeToggle() {
     };
 
     return (
-        <Button className="size-9 rounded-full" aria-label="Toggle theme" color="secondary" size="md" onClick={toggleTheme}>
+        <Button {...props} className={cx("size-9 rounded-full", props.className)} aria-label="Toggle theme" color="secondary" size="md" onClick={toggleTheme}>
             <Sun className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
             <Moon01 className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
             <span className="sr-only">Toggle theme</span>
