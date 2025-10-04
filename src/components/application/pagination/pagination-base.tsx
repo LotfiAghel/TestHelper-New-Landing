@@ -170,7 +170,7 @@ const PaginationRoot = ({ total, siblingCount = 1, page, onPageChange, children,
 
     return (
         <PaginationContext.Provider value={paginationContextValue}>
-            <nav aria-label="Pagination Navigation" style={style} className={className}>
+            <nav dir="ltr" aria-label="Pagination Navigation" style={style} className={className}>
                 {children}
             </nav>
         </PaginationContext.Provider>

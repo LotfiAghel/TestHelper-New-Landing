@@ -44,7 +44,7 @@ interface MobilePaginationProps {
 
 const MobilePagination = ({ page = 1, total = 10, className, onPageChange }: MobilePaginationProps) => {
     return (
-        <nav aria-label="Pagination" className={cx("flex items-center justify-between md:hidden", className)}>
+        <nav dir="ltr" aria-label="Pagination" className={cx("flex items-center justify-between md:hidden", className)}>
             <Button
                 aria-label="Go to previous page"
                 iconLeading={ArrowLeft}
@@ -107,8 +107,8 @@ export const PaginationPageDefault = ({ rounded, page = 1, total = 10, className
                             )}
                         </div>
 
-                        <div className="flex justify-center text-sm whitespace-pre text-fg-secondary md:hidden">
-                            Page <span className="font-medium">{currentPage}</span> of <span className="font-medium">{total}</span>
+                        <div dir="rtl" className="flex justify-center text-sm whitespace-pre text-fg-secondary md:hidden">
+                            صفحه <span className="font-medium">{currentPage}</span> از <span className="font-medium">{total}</span>
                         </div>
                     </>
                 )}
@@ -247,7 +247,7 @@ interface PaginationCardMinimalProps {
 
 export const PaginationCardMinimal = ({ page = 1, total = 10, align = "left", onPageChange, className }: PaginationCardMinimalProps) => {
     return (
-        <div className={cx("border-t border-secondary px-4 py-3 md:px-6 md:pt-3 md:pb-4", className)}>
+        <div dir="ltr" className={cx("border-t border-secondary px-4 py-3 md:px-6 md:pt-3 md:pb-4", className)}>
             <MobilePagination page={page} total={total} onPageChange={onPageChange} />
 
             <nav aria-label="Pagination" className={cx("hidden items-center gap-3 md:flex", align === "center" && "justify-between")}>
@@ -287,6 +287,7 @@ export const PaginationButtonGroup = ({ align = "left", page = 1, total = 10, ..
 
     return (
         <div
+            dir="ltr"
             className={cx(
                 "flex border-t border-secondary px-4 py-3 md:px-6 md:pt-3 md:pb-4",
                 align === "left" && "justify-start",
