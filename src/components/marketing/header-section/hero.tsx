@@ -13,7 +13,7 @@ export const HeroSection = (props: { title?: React.ReactNode }) => {
         <Fragment>
             <section className="relative py-16 shadow-xs lg:flex lg:h-screen lg:items-center lg:py-12">
                 <div className="mx-auto flex w-full max-w-container items-center px-4 md:px-8">
-                    <div className="flex flex-col items-start md:max-w-3xl lg:w-1/2 lg:pe-8">
+                    <div className="flex flex-col items-center md:max-w-3xl md:items-start lg:w-1/2 lg:pe-8">
                         <a href="#" className="rounded-[10px] outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2">
                             <BadgeGroup
                                 className="hidden cursor-auto md:flex"
@@ -30,8 +30,12 @@ export const HeroSection = (props: { title?: React.ReactNode }) => {
                             </BadgeGroup>
                         </a>
 
-                        {props.title ? <h1 className="mt-4 text-display-md font-semibold text-primary md:text-display-lg">{props.title}</h1> : <MainTitle />}
-                        <p className="mt-4 text-md text-balance text-tertiary md:mt-6 md:max-w-lg md:text-md">
+                        {props.title ? (
+                            <h1 className="mt-4 text-center text-display-md font-semibold text-primary md:text-start md:text-display-lg">{props.title}</h1>
+                        ) : (
+                            <MainTitle />
+                        )}
+                        <p className="mt-4 text-center text-balance text-tertiary md:mt-6 md:max-w-lg md:text-start md:text-md">
                             صدها نمونه سؤال واقعی تافل، آیلتس و جی‌آرای، در محیطی کاملاً مشابه آزمون اصلی، همراه با امکانات آموزشی جامع، برای آمادگی کامل و کسب
                             بهترین نمره در مسیر اپلای تحصیلی و مهاجرت
                         </p>
