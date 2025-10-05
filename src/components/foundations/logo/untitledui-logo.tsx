@@ -15,7 +15,7 @@ export const UntitledLogo = (props: HTMLAttributes<HTMLOrSVGElement>) => {
             <div className="aspect-[0.3] h-full" />
 
             {/* Logomark */}
-            <h1 className="text-xl font-bold text-primary">تست‌هلپر</h1>
+            <h1 className="text-xl font-bold text-primary md:max-lg:hidden">تست‌هلپر</h1>
         </div>
     );
 };
