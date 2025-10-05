@@ -19,7 +19,7 @@ const reviews = [
             test: "تافل",
             testScore: 105,
             stars: 5,
-            avatarUrl: "/images/avatars/female-01.svg",
+            avatarUrl: "/images/avatars/female-01.png",
         },
     },
     {
@@ -35,7 +35,7 @@ const reviews = [
             test: "تافل",
             testScore: 103,
             stars: 5,
-            avatarUrl: "/images/avatars/female-02.svg",
+            avatarUrl: "/images/avatars/female-02.png",
         },
     },
     {
@@ -52,7 +52,7 @@ const reviews = [
             test: "تافل",
             testScore: 100,
             stars: 5,
-            avatarUrl: "/images/avatars/female-03.svg",
+            avatarUrl: "/images/avatars/male-01.png",
         },
     },
     {
@@ -68,7 +68,7 @@ const reviews = [
             test: "تافل",
             testScore: 108,
             stars: 5,
-            avatarUrl: "/images/avatars/female-01.svg",
+            avatarUrl: "/images/avatars/female-03.png",
         },
     },
     {
@@ -84,7 +84,7 @@ const reviews = [
             test: "تافل",
             testScore: 119,
             stars: 5,
-            avatarUrl: "/images/avatars/female-02.svg",
+            avatarUrl: "/images/avatars/female-04.png",
         },
     },
     {
@@ -100,7 +100,7 @@ const reviews = [
             test: "تافل",
             testScore: 112,
             stars: 5,
-            avatarUrl: "/images/avatars/female-03.svg",
+            avatarUrl: "/images/avatars/female-05.png",
         },
     },
     // {
@@ -116,7 +116,7 @@ const reviews = [
     //         test: "تافل",
     //         testScore: 102,
     //         stars: 5,
-    //         avatarUrl: "/images/avatars/female-01.svg",
+    //         avatarUrl: "/images/avatars/female-01.png",
     //     },
     // },
     {
@@ -132,7 +132,7 @@ const reviews = [
             test: "تافل",
             testScore: 100,
             stars: 5,
-            avatarUrl: "/images/avatars/male-02.svg",
+            avatarUrl: "/images/avatars/male-02.png",
         },
     },
     {
@@ -148,7 +148,7 @@ const reviews = [
             test: "تافل",
             testScore: 108,
             stars: 5,
-            avatarUrl: "/images/avatars/male-02.svg",
+            avatarUrl: "/images/avatars/male-03.png",
         },
     },
     {
@@ -164,7 +164,7 @@ const reviews = [
             test: "تافل",
             testScore: 111,
             stars: 5,
-            avatarUrl: "/images/avatars/female-03.svg",
+            avatarUrl: "/images/avatars/male-04.png",
         },
     },
     {
@@ -180,7 +180,7 @@ const reviews = [
             test: "تافل",
             testScore: 110,
             stars: 5,
-            avatarUrl: "/images/avatars/male-01.svg",
+            avatarUrl: "/images/avatars/male-04.png",
         },
     },
 ];
