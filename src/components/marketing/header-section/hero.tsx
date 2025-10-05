@@ -15,7 +15,14 @@ export const HeroSection = (props: { title?: React.ReactNode }) => {
                 <div className="mx-auto flex w-full max-w-container items-center px-4 md:px-8">
                     <div className="flex flex-col items-start md:max-w-3xl lg:w-1/2 lg:pe-8">
                         <a href="#" className="rounded-[10px] outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2">
-                            <BadgeGroup className="hidden md:flex" size="lg" addonText="تست‌هلپر" iconTrailing={Translate01} theme="light" color="brand">
+                            <BadgeGroup
+                                className="hidden cursor-auto md:flex"
+                                size="lg"
+                                addonText="تست‌هلپر"
+                                iconTrailing={Translate01}
+                                theme="light"
+                                color="brand"
+                            >
                                 پلتفرم آزمون‌های بین‌المللی زبان
                             </BadgeGroup>
                             <BadgeGroup className="md:hidden" size="md" addonText="تست‌هلپر" iconTrailing={Translate01} theme="modern" color="brand">
