@@ -7,6 +7,7 @@ import { useBreakpoint } from "@/hooks/use-breakpoint";
 import { cx } from "@/utils/cx";
 import type { PaginationRootProps } from "./pagination-base";
 import { Pagination } from "./pagination-base";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface PaginationProps extends Partial<Omit<PaginationRootProps, "children">> {
     /** Whether the pagination buttons are rounded. */
@@ -25,6 +26,7 @@ const PaginationItem = ({ value, rounded, isCurrent }: { value: number; rounded?
                     isSelected && "bg-primary_hover text-secondary",
                 )
             }
+            
         >
             {value}
         </Pagination.Item>
@@ -32,13 +34,9 @@ const PaginationItem = ({ value, rounded, isCurrent }: { value: number; rounded?
 };
 
 interface MobilePaginationProps {
-    /** The current page. */
     page?: number;
-    /** The total number of pages. */
     total?: number;
-    /** The class name of the pagination component. */
     className?: string;
-    /** The function to call when the page changes. */
     onPageChange?: (page: number) => void;
 }
 
@@ -70,10 +68,18 @@ const MobilePagination = ({ page = 1, total = 10, className, onPageChange }: Mob
 
 export const PaginationPageDefault = ({ rounded, page = 1, total = 10, className, ...props }: PaginationProps) => {
     const isDesktop = useBreakpoint("md");
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const goToPage = (page: number) => {
+        const params = new URLSearchParams(searchParams.toString());
+        params.set('page', `${page}`);
+        router.push(`?${params.toString()}`);
+    };
 
     return (
         <Pagination.Root
             {...props}
+            onPageChange={(page) => goToPage(page)}
             page={page}
             total={total}
             className={cx("flex w-full items-center justify-between gap-3 border-t border-secondary pt-4 md:pt-5", className)}
@@ -116,13 +122,13 @@ export const PaginationPageDefault = ({ rounded, page = 1, total = 10, className
 
             <div className="hidden flex-1 justify-end md:flex">
                 <Pagination.NextTrigger asChild>
-                    <Button iconTrailing={ArrowRight} color="link-gray" size="sm">
+                    <Button onClick={() => goToPage(page + 1)} iconTrailing={ArrowRight} color="link-gray" size="sm">
                         {isDesktop ? "Next" : undefined}
                     </Button>
                 </Pagination.NextTrigger>
             </div>
             <Pagination.NextTrigger asChild className="md:hidden">
-                <Button iconTrailing={ArrowRight} color="secondary" size="sm">
+                <Button  onClick={() => goToPage(page + 1)} iconTrailing={ArrowRight} color="secondary" size="sm">
                     {isDesktop ? "Next" : undefined}
                 </Button>
             </Pagination.NextTrigger>

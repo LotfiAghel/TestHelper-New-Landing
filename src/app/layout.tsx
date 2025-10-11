@@ -1,9 +1,11 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import { Vazirmatn } from "next/font/google";
 import { RouteProvider } from "@/providers/router-provider";
 import { Theme } from "@/providers/theme";
 import "@/styles/globals.css";
 import { cx } from "@/utils/cx";
+import UserContextProvider from "@/context/userContext";
 
 const inter = Vazirmatn({
     subsets: ["arabic"],
@@ -27,12 +29,15 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="fa" dir="rtl" suppressHydrationWarning>
-            <body className={cx(inter.variable, "bg-primary antialiased")}>
-                <RouteProvider>
-                    <Theme>{children}</Theme>
-                </RouteProvider>
-            </body>
-        </html>
+        <>
+            <GoogleAnalytics gaId="G-6PK22LDCQY" />
+            <html lang="fa" dir="rtl" suppressHydrationWarning>
+                <body className={cx(inter.variable, "bg-primary antialiased")}>
+                        <RouteProvider>
+                            <Theme>{children}</Theme>
+                        </RouteProvider>
+                </body>
+            </html>
+        </>
     );
 }

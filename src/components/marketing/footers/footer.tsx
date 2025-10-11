@@ -127,10 +127,7 @@ const footerNavList = [
     {
         label: "Social",
         items: [
-            {
-                label: "Twitter",
-                href: "#",
-            },
+           
             {
                 label: "LinkedIn",
                 href: "#",

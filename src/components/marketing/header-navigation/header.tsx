@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "@untitledui/icons";
 import { Button as AriaButton, Dialog as AriaDialog, DialogTrigger as AriaDialogTrigger, Popover as AriaPopover } from "react-aria-components";
 import { Button } from "@/components/base/buttons/button";
@@ -10,6 +10,12 @@ import { UntitledLogoMinimal } from "@/components/foundations/logo/untitledui-lo
 import { cx } from "@/utils/cx";
 import { DropdownMenuSimpleWithFooter } from "./dropdown-menu-simple-with-footer";
 import { ThemeToggle } from "./theme-toggle";
+import UserContextProvider, { getUserContext } from "@/context/userContext";
+import LoginModal from "./LoginModal";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import UserProfile from './UserProfile';
+import { VerifyCookie } from "@/utils/login";
+import Link from "next/link";
 
 type HeaderNavItem = {
     label: string;
@@ -23,7 +29,6 @@ const headerNavItems: HeaderNavItem[] = [
     { label: "بلاگ", href: "/blog" },
     { label: "درباره ما", href: "/about-us" },
     { label: "تماس با ما", href: "/contact-us" },
-    { label: "تعیین سطح", href: "/placement" },
 ];
 
 const footerNavItems = [
@@ -39,9 +44,11 @@ const MobileNavItem = (props: { className?: string; label: string; href?: string
     if (props.href) {
         return (
             <li>
-                <a href={props.href} className="flex items-center justify-between px-4 py-3 text-md font-semibold text-primary hover:bg-primary_hover">
+                <Link href={props.href}
+
+                    className="flex items-center justify-between px-4 py-3 text-md font-semibold text-primary hover:bg-primary_hover">
                     {props.label}
-                </a>
+                </Link>
             </li>
         );
     }
@@ -91,10 +98,16 @@ interface HeaderProps {
     className?: string;
 }
 
-export const Header = ({ items = headerNavItems, isFullWidth, isFloating, className }: HeaderProps) => {
-    const headerRef = useRef<HTMLElement>(null);
+export const HeaderComponent = ({ items = headerNavItems, isFullWidth, isFloating, className }: HeaderProps) => {
 
-    return (
+    const headerRef = useRef<HTMLElement>(null);
+    const { user, setUser } = getUserContext();
+    const [isOpen, setIsOpen] = useState(false);
+
+  
+
+    return (<>
+        <LoginModal type={''} isOpen={isOpen} setIsOpen={setIsOpen} setUser={setUser} />
         <header
             ref={headerRef}
             className={cx(
@@ -157,12 +170,12 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                                                 </AriaPopover>
                                             </AriaDialogTrigger>
                                         ) : (
-                                            <a
+                                            <Link
                                                 href={navItem.href}
                                                 className="flex cursor-pointer items-center gap-0.5 rounded-lg px-1.5 py-1 text-md font-semibold text-secondary outline-focus-ring transition duration-100 ease-linear hover:text-secondary_hover focus:outline-offset-2 focus-visible:outline-2"
                                             >
                                                 <span className="px-0.5">{navItem.label}</span>
-                                            </a>
+                                            </Link>
                                         )}
                                     </li>
                                 ))}
@@ -175,9 +188,9 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                             تعیین سطح
                         </Button> */}
                         <ThemeToggle />
-                        <Button color="primary" size={isFloating ? "md" : "lg"}>
+                        {user ? <UserProfile profileUser={user} type={''} /> :<Button onClick={() => setIsOpen(true)} color="primary" size={isFloating ? "md" : "lg"}>
                             ورود/ثبت‌نام
-                        </Button>
+                        </Button>}
                     </div>
                     <ThemeToggle className="md:hidden" />
 
@@ -242,5 +255,17 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                 </div>
             </div>
         </header>
+    </>
     );
 };
+
+export const Header = () => {
+    return (<GoogleOAuthProvider
+        clientId={
+            "706367811187-qj0fme26bcctej0egr9ho9vdu3sga4ct.apps.googleusercontent.com"
+        }
+    >
+        <HeaderComponent />
+    </GoogleOAuthProvider>)
+
+}

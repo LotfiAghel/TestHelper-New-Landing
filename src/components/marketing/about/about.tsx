@@ -1,9 +1,3 @@
-"use client";
-
-import { type Article, Simple03Horizontal, Simple03Vertical } from "@/components/marketing/blog/base-components/blog-cards";
-import { useBreakpoint } from "@/hooks/use-breakpoint";
-import { cx } from "@/utils/cx";
-
 export const About = () => {
     return (
         <section className="py-8 shadow-xs sm:py-12 lg:py-16">

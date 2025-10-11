@@ -3,15 +3,19 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "dev": "next dev --turbopack",
+        "dev-remote": "NEXT_PUBLIC_API_SERVER=https://testhelper.com/toefl-api next dev",
+        "dev": "next dev",
         "build": "next build",
         "start": "next start"
     },
     "dependencies": {
+        "@next/third-parties": "^15.5.4",
+        "@react-oauth/google": "^0.12.2",
         "@tailwindcss/postcss": "^4.1.11",
         "@tailwindcss/typography": "^0.5.16",
         "@untitledui/file-icons": "^0.0.8",
         "@untitledui/icons": "^0.0.19",
+        "html-react-parser": "^5.2.6",
         "motion": "^12.23.12",
         "next": "^15.4.6",
         "next-themes": "^0.4.6",
@@ -20,6 +24,7 @@
         "react-aria-components": "^1.12.0",
         "react-dom": "19.1.1",
         "react-fast-marquee": "^1.6.5",
+        "react-ga4": "^2.1.0",
         "react-hotkeys-hook": "^5.1.0",
         "tailwind-merge": "^3.3.1",
         "tailwindcss": "^4.1.11",
