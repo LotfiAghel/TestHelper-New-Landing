@@ -15,8 +15,6 @@ COPY package.json ./
 COPY src src
 COPY public public
 COPY postcss.config.mjs ./
-COPY .env ./
-COPY components.json ./
 COPY next.config.mjs ./
 COPY tsconfig.json ./
 
