@@ -37,7 +37,7 @@ export const BlogContent = ({ blogItem, allPosts, headers }: {
                     </div>
                     <img
                         className="mt-12 h-60 w-full object-cover md:mt-16 md:h-160"
-                        src={`${strapiBaseUrl}${blogItem.mainimage.url}`}
+                        src={`${strapiBaseUrl}${blogItem?.mainimage?.url}`}
                         alt={blogItem.title}
                     />
                 </div>
