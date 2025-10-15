@@ -23,243 +23,153 @@ const AlternateImageMockup: FC<HTMLAttributes<HTMLDivElement>> = (props) => {
     );
 };
 
-export const Features = () => {
+interface Feature {
+    title: string;
+    description: string;
+    items: string[];
+    imageLightSrc: string;
+    imageDarkSrc: string;
+    imagePosition: "left" | "right";
+}
+
+interface FeaturesProps {
+    heading?: string;
+    description?: string;
+    customFeatures?: Feature[];
+}
+
+const defaultFeatures: Feature[] = [
+    {
+        title: "پلتفرم جامع آزمون‌ها",
+        description: "محیط ویژه برای تمرین آزمون‌ها، پاسخ‌های تشریحی، تصحیح رایتینگ و اسپیکینگ، و مرور کامل مهارت‌ها.",
+        items: [
+            "تمرین در محیط مشابه آزمون اصلی",
+            "دسترسی به پاسخ‌های تشریحی و نکات کلیدی",
+            "پوشش کامل مهارت‌های شنیداری، گفتاری، خواندن و نوشتن",
+        ],
+        imageLightSrc: "/images/features/tests-light.png",
+        imageDarkSrc: "/images/features/tests-dark.png",
+        imagePosition: "right",
+    },
+    {
+        title: "منابع معتبر و به‌روز",
+        description: "بیش از ۵۰۰ آزمون واقعی و اصلی در محیط کاملاً مشابه آزمون اصلی برای تمرین دقیق.",
+        items: [
+            "بانک سؤال‌های واقعی و استاندارد",
+            "به‌روزرسانی مستمر بر اساس تغییرات آزمون‌ها",
+            "کیفیت و سطح دشواری نزدیک به آزمون واقعی",
+        ],
+        imageLightSrc: "/images/features/exams-light.png",
+        imageDarkSrc: "/images/features/exams-dark.png",
+        imagePosition: "left",
+    },
+    {
+        title: "سیستم‌های یادگیری لغات",
+        description: "مرور زمان‌بندی شده با روش‌های لایتنر و تیک8 برای انتقال کلمات به حافظه بلندمدت.",
+        items: [
+            "مرور هوشمند با فاصله‌های زمانی",
+            "لیست لغات اختصاصی هر آزمون",
+            "پیگیری پیشرفت و نرخ یادگیری",
+        ],
+        imageLightSrc: "/images/features/vocab-light.png",
+        imageDarkSrc: "/images/features/vocab-dark.png",
+        imagePosition: "right",
+    },
+    {
+        title: "دسته‌بندی موضوعی",
+        description: "امکان تمرین بر اساس موضوع و مهارت خاص، مثل متن‌ها یا فایل‌های صوتی مرتبط با «تاریخ هنر».",
+        items: [
+            "فیلتر بر اساس موضوع و مهارت",
+            "تمرین هدفمند روی نقاط ضعف",
+            "یافتن سریع محتوای مرتبط",
+        ],
+        imageLightSrc: "/images/features/subject-light.png",
+        imageDarkSrc: "/images/features/subject-dark.png",
+        imagePosition: "left",
+    },
+    {
+        title: "تصحیح هوش مصنوعی",
+        description: "تصحیح سریع و دقیق رایتینگ و اسپیکینگ.",
+        items: [
+            "فیدبک فوری با پرامپت اختصاصی (ChatGPT-Pro)",
+            "نمره‌دهی منطبق با معیارهای رسمی",
+            "پیشنهاد بهبود واژگان و گرامر",
+        ],
+        imageLightSrc: "/images/features/AI-light.png",
+        imageDarkSrc: "/images/features/AI-dark.png",
+        imagePosition: "right",
+    },
+    {
+        title: "نمودارهای تحلیلی",
+        description: "داشبورد و نمودارهای تحلیلی برای بررسی پیشرفت، نقاط ضعف و بهینه‌سازی یادگیری.",
+        items: [
+            "پیگیری روند نمرات در طول زمان",
+            "تحلیل عملکرد در مهارت‌ها و موضوعات",
+            "گزارش‌های آماده برای برنامه‌ریزی مطالعه",
+        ],
+        imageLightSrc: "/images/features/charts-light.png",
+        imageDarkSrc: "/images/features/charts-dark.png",
+        imagePosition: "left",
+    },
+    {
+        title: "فلش‌کارت‌های ضروری",
+        description: "مجموعه لغات مهم هر آزمون و امکان یادگیری با روش‌های لایتنر و تیک8.",
+        items: [
+            "فلش‌کارت‌های از پیش آماده",
+            "هماهنگ با سیستم‌های لایتنر و تیک8",
+            "مرور سریع روی موبایل و دسکتاپ",
+        ],
+        imageLightSrc: "/images/features/flash-cards-light.png",
+        imageDarkSrc: "/images/features/flash-cards-dark.png",
+        imagePosition: "right",
+    },
+];
+
+export const Features = ({ heading, description, customFeatures }: FeaturesProps = {}) => {
+    const features = customFeatures || defaultFeatures;
     return (
         <section className="flex flex-col gap-8 overflow-hidden py-8 shadow-xs sm:gap-8 sm:py-12 md:gap-12 md:py-16 lg:gap-16 lg:py-16">
             <div className="mx-auto w-full max-w-container px-4 md:px-8">
                 <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
                     {/* <span className="text-sm font-semibold text-brand-secondary md:text-md">Features</span> */}
-                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">امکانات ویژه تست‌هلپر</h2>
-                    <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">تست‌هلپر مثل یه جعبه‌ابزار کامله؛ هرچی لازم داری اینجاست.</p>
+                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">
+                        {heading || "امکانات ویژه تست‌هلپر"}
+                    </h2>
+                    <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
+                        {description || "تست‌هلپر مثل یه جعبه‌ابزار کامله؛ هرچی لازم داری اینجاست."}
+                    </p>
                 </div>
             </div>
 
             <div className="mx-auto flex w-full max-w-container flex-col gap-12 px-4 sm:gap-16 md:gap-20 md:px-8 lg:gap-24">
-                <div className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
-                    <div className="max-w-xl flex-1 self-center">
-                        {/* <FeaturedIcon icon={MessageChatCircle} size="lg" color="brand" theme="light" /> */}
-                        <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">پلتفرم جامع آزمون‌ها</h2>
-                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            محیط ویژه برای تمرین آزمون‌ها، پاسخ‌های تشریحی، تصحیح رایتینگ و اسپیکینگ، و مرور کامل مهارت‌ها.
-                        </p>
-                        <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {[
-                                "تمرین در محیط مشابه آزمون اصلی",
-                                "دسترسی به پاسخ‌های تشریحی و نکات کلیدی",
-                                "پوشش کامل مهارت‌های شنیداری، گفتاری، خواندن و نوشتن",
-                            ].map((feat) => (
-                                <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
-                            ))}
-                        </ul>
-                    </div>
+                {features.map((feature, index) => (
+                    <div key={index} className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
+                        <div className={`max-w-xl flex-1 self-center ${feature.imagePosition === "left" ? "lg:order-last" : ""}`}>
+                            <h3 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">{feature.title}</h3>
+                            <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">{feature.description}</p>
+                            <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
+                                {feature.items.map((item) => (
+                                    <CheckItemText key={item} size="md" iconStyle="outlined" color="primary" text={item} />
+                                ))}
+                            </ul>
+                        </div>
 
-                    <div className="relative w-full flex-1 lg:h-112">
-                        <AlternateImageMockup className="lg:right-0">
-                            {/* Light mode image (hidden in dark mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/tests-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
-                            />
-                            {/* Dark mode image (hidden in light mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/tests-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
-                            />
-                        </AlternateImageMockup>
+                        <div className="relative w-full flex-1 lg:h-112">
+                            <AlternateImageMockup className={feature.imagePosition === "right" ? "lg:right-0" : "lg:left-0"}>
+                                <img
+                                    alt={`${feature.title} mockup`}
+                                    src={feature.imageLightSrc}
+                                    className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
+                                />
+                                <img
+                                    alt={`${feature.title} mockup`}
+                                    src={feature.imageDarkSrc}
+                                    className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
+                                />
+                            </AlternateImageMockup>
+                        </div>
                     </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
-                    <div className="max-w-xl flex-1 self-center lg:order-last">
-                        {/* <FeaturedIcon icon={ZapFast} size="lg" color="brand" theme="light" /> */}
-                        <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">منابع معتبر و به‌روز</h2>
-                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            بیش از ۵۰۰ آزمون واقعی و اصلی در محیط کاملاً مشابه آزمون اصلی برای تمرین دقیق.
-                        </p>
-                        <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["بانک سؤال‌های واقعی و استاندارد", "به‌روزرسانی مستمر بر اساس تغییرات آزمون‌ها", "کیفیت و سطح دشواری نزدیک به آزمون واقعی"].map(
-                                (feat) => (
-                                    <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
-                                ),
-                            )}
-                        </ul>
-                    </div>
-
-                    <div className="relative w-full flex-1 lg:h-112">
-                        <AlternateImageMockup className="lg:left-0">
-                            {/* Light mode image (hidden in dark mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/exams-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
-                            />
-                            {/* Dark mode image (hidden in light mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/exams-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
-                            />
-                        </AlternateImageMockup>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
-                    <div className="max-w-xl flex-1 self-center">
-                        {/* <FeaturedIcon icon={ChartBreakoutSquare} size="lg" color="brand" theme="light" /> */}
-                        <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">سیستم‌های یادگیری لغات</h2>
-                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            مرور زمان‌بندی شده با روش‌های لایتنر و تیک8 برای انتقال کلمات به حافظه بلندمدت.
-                        </p>
-                        <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["مرور هوشمند با فاصله‌های زمانی", "لیست لغات اختصاصی هر آزمون", "پیگیری پیشرفت و نرخ یادگیری"].map((feat) => (
-                                <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="relative w-full flex-1 lg:h-112">
-                        <AlternateImageMockup className="lg:right-0">
-                            {/* Light mode image (hidden in dark mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/vocab-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
-                            />
-                            {/* Dark mode image (hidden in light mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/vocab-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
-                            />
-                        </AlternateImageMockup>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
-                    <div className="max-w-xl flex-1 self-center lg:order-last">
-                        {/* <FeaturedIcon icon={ZapFast} size="lg" color="brand" theme="light" /> */}
-                        <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">دسته‌بندی موضوعی</h2>
-                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            امکان تمرین بر اساس موضوع و مهارت خاص، مثل متن‌ها یا فایل‌های صوتی مرتبط با «تاریخ هنر».
-                        </p>
-                        <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["فیلتر بر اساس موضوع و مهارت", "تمرین هدفمند روی نقاط ضعف", "یافتن سریع محتوای مرتبط"].map((feat) => (
-                                <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="relative w-full flex-1 lg:h-112">
-                        <AlternateImageMockup className="lg:left-0">
-                            {/* Light mode image (hidden in dark mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/subject-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
-                            />
-                            {/* Dark mode image (hidden in light mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/subject-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
-                            />
-                        </AlternateImageMockup>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
-                    <div className="max-w-xl flex-1 self-center">
-                        {/* <FeaturedIcon icon={ChartBreakoutSquare} size="lg" color="brand" theme="light" /> */}
-                        <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">تصحیح هوش مصنوعی</h2>
-                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">تصحیح سریع و دقیق رایتینگ و اسپیکینگ.</p>
-                        <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["فیدبک فوری با پرامپت اختصاصی (ChatGPT-Pro)", "نمره‌دهی منطبق با معیارهای رسمی", "پیشنهاد بهبود واژگان و گرامر"].map((feat) => (
-                                <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="relative w-full flex-1 lg:h-112">
-                        <AlternateImageMockup className="lg:right-0">
-                            {/* Light mode image (hidden in dark mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/AI-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
-                            />
-                            {/* Dark mode image (hidden in light mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/AI-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
-                            />
-                        </AlternateImageMockup>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
-                    <div className="max-w-xl flex-1 self-center lg:order-last">
-                        {/* <FeaturedIcon icon={ZapFast} size="lg" color="brand" theme="light" /> */}
-                        <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">نمودارهای تحلیلی</h2>
-                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            داشبورد و نمودارهای تحلیلی برای بررسی پیشرفت، نقاط ضعف و بهینه‌سازی یادگیری.
-                        </p>
-                        <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["پیگیری روند نمرات در طول زمان", "تحلیل عملکرد در مهارت‌ها و موضوعات", "گزارش‌های آماده برای برنامه‌ریزی مطالعه"].map((feat) => (
-                                <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="relative w-full flex-1 lg:h-112">
-                        <AlternateImageMockup className="lg:left-0">
-                            {/* Light mode image (hidden in dark mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/charts-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
-                            />
-                            {/* Dark mode image (hidden in light mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/charts-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
-                            />
-                        </AlternateImageMockup>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
-                    <div className="max-w-xl flex-1 self-center">
-                        {/* <FeaturedIcon icon={ChartBreakoutSquare} size="lg" color="brand" theme="light" /> */}
-                        <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">فلش‌کارت‌های ضروری</h2>
-                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">مجموعه لغات مهم هر آزمون و امکان یادگیری با روش‌های لایتنر و تیک8.</p>
-                        <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["فلش‌کارت‌های از پیش آماده", "هماهنگ با سیستم‌های لایتنر و تیک8", "مرور سریع روی موبایل و دسکتاپ"].map((feat) => (
-                                <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="relative w-full flex-1 lg:h-112">
-                        <AlternateImageMockup className="lg:right-0">
-                            {/* Light mode image (hidden in dark mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/flash-cards-light.png"
-                                className="size-full object-contain lg:w-auto lg:max-w-none dark:hidden"
-                            />
-                            {/* Dark mode image (hidden in light mode) */}
-                            <img
-                                alt="Dashboard mockup showing application interface"
-                                src="/images/features/flash-cards-dark.png"
-                                className="size-full object-contain not-dark:hidden lg:w-auto lg:max-w-none"
-                            />
-                        </AlternateImageMockup>
-                    </div>
-                </div>
+                ))}
             </div>
         </section>
     );
