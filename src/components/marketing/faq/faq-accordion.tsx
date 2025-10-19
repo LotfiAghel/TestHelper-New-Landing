@@ -46,14 +46,68 @@ const defaultFaqs = [
     },
 ];
 
+interface FAQItemProps {
+    faq: { question: string; answer: string };
+    isOpen: boolean;
+    onToggle: () => void;
+    index: number;
+}
+
+export const FAQItem = ({ faq, isOpen, onToggle, index }: FAQItemProps) => {
+    const contentId = `faq-content-${index}`;
+
+    return (
+        <div className={`${isOpen ? "bg-tertiary" : "bg-transparent"} rounded-2xl p-5 transition duration-300 ease-in-out md:p-6`}>
+            <h3>
+                <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={contentId}
+                    onClick={onToggle}
+                    className="flex w-full cursor-pointer gap-2 rounded-md text-right outline-focus-ring select-none focus-visible:outline-2 focus-visible:outline-offset-2 md:flex-row-reverse md:gap-4"
+                >
+                    <span className="flex-1 text-md font-semibold text-primary">{faq.question}</span>
+                    {isOpen ? (
+                        <MinusCircle className="flex size-6 items-center text-fg-quaternary" />
+                    ) : (
+                        <PlusCircle className="flex size-6 items-center text-fg-quaternary" />
+                    )}
+                </button>
+            </h3>
+
+            {isOpen && (
+                <div id={contentId} className={`h-auto overflow-hidden opacity-100`}>
+                    <div className="pt-1 pl-8 md:pr-10 md:pl-0">
+                        <p className="text-md text-tertiary">{faq.answer}</p>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+interface FAQListProps {
+    faqs: Array<{ question: string; answer: string }>;
+}
+
+export const FAQList = ({ faqs }: FAQListProps) => {
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+    return (
+        <div className="flex flex-col gap-2">
+            {faqs.map((faq, idx) => (
+                <FAQItem key={idx} faq={faq} index={idx} isOpen={openIndex === idx} onToggle={() => setOpenIndex(openIndex === idx ? null : idx)} />
+            ))}
+        </div>
+    );
+};
+
 interface FAQProps {
     customFaqs?: Array<{ question: string; answer: string }>;
 }
 
 export const FAQ = ({ customFaqs }: FAQProps = {}) => {
     const faqs = customFaqs || defaultFaqs;
-    // default to first item open (index 0) to match many marketing examples; change to `null` if you prefer all closed
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
         <section className="py-8 shadow-xs sm:py-12 md:py-24 lg:py-16">
@@ -64,43 +118,7 @@ export const FAQ = ({ customFaqs }: FAQProps = {}) => {
                 </div>
 
                 <div className="mx-auto mt-12 max-w-3xl md:mt-16">
-                    <div className="flex flex-col gap-2">
-                        {faqs.map((faq, idx) => {
-                            const isOpen = openIndex === idx;
-                            const contentId = `faq-content-${idx}`;
-                            return (
-                                <div
-                                    key={idx}
-                                    className={`${isOpen ? "bg-tertiary" : "bg-transparent"} rounded-2xl p-5 transition duration-300 ease-in-out md:p-6`}
-                                >
-                                    <h3>
-                                        <button
-                                            type="button"
-                                            aria-expanded={isOpen}
-                                            aria-controls={contentId}
-                                            onClick={() => setOpenIndex(isOpen ? null : idx)}
-                                            className="flex w-full cursor-pointer gap-2 rounded-md text-right outline-focus-ring select-none focus-visible:outline-2 focus-visible:outline-offset-2 md:flex-row-reverse md:gap-4"
-                                        >
-                                            <span className="flex-1 text-md font-semibold text-primary">{faq.question}</span>
-                                            {isOpen ? (
-                                                <MinusCircle className="flex size-6 items-center text-fg-quaternary" />
-                                            ) : (
-                                                <PlusCircle className="flex size-6 items-center text-fg-quaternary" />
-                                            )}
-                                        </button>
-                                    </h3>
-
-                                    {isOpen && (
-                                        <div id={contentId} className={`overflow-hidden ${isOpen ? "h-auto opacity-100" : "h-0 opacity-0"}`}>
-                                            <div className="pt-1 pl-8 md:pr-10 md:pl-0">
-                                                <p className="text-md text-tertiary">{faq.answer}</p>
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            );
-                        })}
-                    </div>
+                    <FAQList faqs={faqs} />
                 </div>
             </div>
         </section>
