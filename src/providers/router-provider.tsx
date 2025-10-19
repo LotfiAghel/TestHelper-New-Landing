@@ -14,7 +14,9 @@ declare module "react-aria-components" {
 export const RouteProvider = ({ children }: PropsWithChildren) => {
     const router = useRouter();
 
-    return <UserContextProvider>
-        <RouterProvider navigate={router.push}>{children}</RouterProvider>;
-    </UserContextProvider>
+    return (
+        <UserContextProvider>
+            <RouterProvider navigate={router.push}>{children}</RouterProvider>
+        </UserContextProvider>
+    );
 };
