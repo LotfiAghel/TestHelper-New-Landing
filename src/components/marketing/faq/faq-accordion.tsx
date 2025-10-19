@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { MinusCircle, PlusCircle } from "@untitledui/icons";
 
-const faqs = [
+const defaultFaqs = [
     {
         question: "تست‌هلپر دقیقاً چیه؟",
         answer: "تست‌هلپر یه پلتفرمه برای تمرین و شبیه‌سازی آزمون‌های بین‌المللی زبان مثل آیلتس، تافل و جی‌آرای. اینجا می‌تونی با شرایط خیلی شبیه آزمون اصلی تمرین کنی و آمادگی واقعی به دست بیاری.",
@@ -46,7 +46,12 @@ const faqs = [
     },
 ];
 
-export const FAQ = () => {
+interface FAQProps {
+    customFaqs?: Array<{ question: string; answer: string }>;
+}
+
+export const FAQ = ({ customFaqs }: FAQProps = {}) => {
+    const faqs = customFaqs || defaultFaqs;
     // default to first item open (index 0) to match many marketing examples; change to `null` if you prefer all closed
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
