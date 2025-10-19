@@ -6,9 +6,9 @@ import Link from "next/link";
 import { BadgeGroup } from "@/components/base/badges/badge-groups";
 import { Button } from "@/components/base/buttons/button";
 import { MetricsMini } from "@/components/marketing/metrics/metrics-mini";
-import { MainTitle } from "./main-title";
+import { MainSubtitle, MainTitle } from "./main-title";
 
-export const HeroSection = (props: { title?: React.ReactNode }) => {
+export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.ReactNode }) => {
     return (
         <Fragment>
             <section className="py-16 shadow-xs lg:h-screen lg:items-center lg:py-12">
@@ -28,11 +28,11 @@ export const HeroSection = (props: { title?: React.ReactNode }) => {
                         ) : (
                             <MainTitle />
                         )}
-                        <p className="mt-4 max-w-lg text-center text-balance text-tertiary md:mt-6 md:text-start md:text-lg">
-                            صدها نمونه سؤال واقعی تافل، آیلتس و جی‌آرای، در محیطی کاملاً مشابه آزمون اصلی، همراه با امکانات آموزشی جامع، برای آمادگی کامل و کسب
-                            بهترین نمره در مسیر اپلای تحصیلی و مهاجرت
-                        </p>
-
+                        {props.subtitle ? (
+                            <h2 className="mt-4 max-w-lg text-center text-balance text-tertiary md:mt-6 md:text-start md:text-lg">{props.subtitle}</h2>
+                        ) : (
+                            <MainSubtitle />
+                        )}
                         <div className="mt-6 flex w-full flex-col-reverse items-stretch gap-3 md:mt-8 md:flex-row md:items-start">
                             <Button href="/toefl" color="primary" size="xl">
                                 شروع رایگان

@@ -15,3 +15,12 @@ export const MainTitle = () => {
         </h1>
     );
 };
+
+export const MainSubtitle = () => {
+    return (
+        <h2 className="mt-4 max-w-lg text-center text-balance text-tertiary md:mt-6 md:text-start md:text-lg">
+            صدها نمونه سؤال واقعی تافل، آیلتس و جی‌آرای، در محیطی کاملاً مشابه آزمون اصلی، همراه با امکانات آموزشی جامع، برای آمادگی کامل و کسب بهترین نمره در
+            مسیر اپلای تحصیلی و مهاجرت
+        </h2>
+    );
+};
