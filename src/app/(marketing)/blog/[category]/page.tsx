@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 
     const posts = await res.json()
     // console.error(posts)
-    return posts.map((post) => ({
+    return posts.map((post: any) => ({
         slug: post.slug,
         category: post.category || '',
     }));
@@ -34,8 +34,9 @@ async function getPost(category: string) {
 }
 
 
-export default async function page({ params, searchParams }: { params: PageParams; searchParams: Promise<SearchParams> }) {
-    const { category } = params || { category: 'all' }
+export default async function page({ params, searchParams }: { params: Promise<PageParams>; searchParams: Promise<SearchParams> }) {
+    const resolvedParams = await params;
+    const { category } = resolvedParams || { category: 'all' }
     const articles = await getPost(category);
     const searchResult = await searchParams;
 

@@ -59,7 +59,7 @@ export const BlogContent = ({ blogItem, allPosts, headers }: { blogItem: DetailA
                                             <div key={index} className="prose-slate [&_h3]:m-0! [&_p]:m-0!">
                                                 <h2>سؤالات متداول</h2>
                                                 <FAQList
-                                                    faqs={item.Item.map((item) => ({
+                                                    faqs={item.Item.map((item: any) => ({
                                                         ...item,
                                                         question: item.Question,
                                                         answer: item.Answer,
@@ -71,7 +71,7 @@ export const BlogContent = ({ blogItem, allPosts, headers }: { blogItem: DetailA
                                     if (item.__component.endsWith(".banner")) {
                                         // ror(item);
                                         return (
-                                            <Link key={index} href={item.URL}>
+                                            <Link key={index} href={item.URL || "/"}>
                                                 <Image
                                                     width={item.Image.width}
                                                     height={item.Image.height}
@@ -84,7 +84,8 @@ export const BlogContent = ({ blogItem, allPosts, headers }: { blogItem: DetailA
                                     return (
                                         <Fragment key={index}>
                                             {HTMLReactParser(item.content ?? "", {
-                                                transform(reactNode) {
+                                                transform(reactNode): any {
+                                                    if (!reactNode) return;
                                                     if (reactNode.type == "ul") {
                                                         return (
                                                             <ul dir="auto" style={reactNode.props.style} className={reactNode.props?.className}>

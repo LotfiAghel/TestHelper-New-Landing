@@ -24,6 +24,9 @@ export interface NewContent {
     __component: string
     id: number
     content: string
+    Item?: any
+    URL?: string
+    Image?: any
 }
 
 export interface Mainimage {

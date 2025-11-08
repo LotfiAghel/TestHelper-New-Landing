@@ -8,8 +8,9 @@ type Params = {
   category: string;
 };
 
-export async function generateMetadata({ params }: { params: Params }) {
-  const { post } = await getPost(params);
+export async function generateMetadata({ params }: { params: Promise<Params> }) {
+  const resolvedParams = await params;
+  const { post } = await getPost(resolvedParams);
 
   if (!post) {
     return defaultMetadata;
@@ -50,7 +51,7 @@ export async function generateStaticParams() {
 
   const posts = await res.json()
 
-  return posts.map((post) => ({
+  return posts.map((post: any) => ({
     slug: post.slug,
     category: post.category ? post?.category?.toLowerCase() : 'all',
   }));
@@ -74,8 +75,9 @@ async function getPost(params: Params) {
 }
 
 
-export default async function BlogDetailsPage1({ params }: { params: Params }) {
-  const { post, allposts } = await getPost(params);
+export default async function BlogDetailsPage1({ params }: { params: Promise<Params> }) {
+  const resolvedParams = await params;
+  const { post, allposts } = await getPost(resolvedParams);
   let headers: string[] = [];
   const findHeaders = (value: string) => {
     const [titles, text] = replaceTitlesWithLinks(value);
@@ -100,7 +102,7 @@ export default async function BlogDetailsPage1({ params }: { params: Params }) {
   }
 
   post.title = findHeaders(post.title);
-  post.NewContent = post.NewContent.map(item => {
+  post.NewContent = post.NewContent.map((item: any) => {
     if (item.__component.endsWith("faq") || item.__component.endsWith(".banner"))
       return item;
     item.content = findHeaders(item.content)
