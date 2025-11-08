@@ -1,6 +1,7 @@
 "use client";
 
-import type { FC, HTMLAttributes } from "react";
+import { memo, type FC, type HTMLAttributes } from "react";
+import Image from "next/image";
 import { ChartBreakoutSquare, MessageChatCircle, ZapFast } from "@untitledui/icons";
 // import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
 import { CheckItemText } from "@/components/marketing/pricing/base-components/pricing-tier-card";
@@ -15,7 +16,7 @@ const AlternateImageMockup: FC<HTMLAttributes<HTMLDivElement>> = (props) => {
     );
 };
 
-export const Features = () => {
+const FeaturesComponent = () => {
     return (
         <section className="flex flex-col gap-8 overflow-hidden py-8 shadow-xs sm:gap-8 sm:py-12 md:gap-12 md:py-16 lg:gap-16 lg:py-16">
             <div className="mx-auto w-full max-w-container px-4 md:px-8">
@@ -48,16 +49,22 @@ export const Features = () => {
                     <div className="relative w-full flex-1 lg:h-112">
                         <AlternateImageMockup className="lg:right-0">
                             {/* Light mode image (hidden in dark mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/tests-light.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                             {/* Dark mode image (hidden in light mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/tests-dark.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                         </AlternateImageMockup>
                         <div className="absolute bottom-0 left-0 hidden -translate-x-1/3 md:block md:translate-y-12 lg:translate-y-1/4">
@@ -85,16 +92,22 @@ export const Features = () => {
                     <div className="relative w-full flex-1 lg:h-112">
                         <AlternateImageMockup className="lg:left-0">
                             {/* Light mode image (hidden in dark mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/exams-light.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                             {/* Dark mode image (hidden in light mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/exams-dark.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                         </AlternateImageMockup>
                         <div className="absolute right-0 bottom-0 hidden translate-x-1/3 translate-y-1/4 md:block">
@@ -120,16 +133,22 @@ export const Features = () => {
                     <div className="relative w-full flex-1 lg:h-112">
                         <AlternateImageMockup className="lg:right-0">
                             {/* Light mode image (hidden in dark mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/vocab-light.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                             {/* Dark mode image (hidden in light mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/vocab-dark.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                         </AlternateImageMockup>
                         <div className="absolute bottom-0 left-0 hidden -translate-x-1/3 md:block md:translate-y-12 lg:translate-y-1/4">
@@ -155,16 +174,22 @@ export const Features = () => {
                     <div className="relative w-full flex-1 lg:h-112">
                         <AlternateImageMockup className="lg:left-0">
                             {/* Light mode image (hidden in dark mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/subject-light.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                             {/* Dark mode image (hidden in light mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/subject-dark.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                         </AlternateImageMockup>
                         <div className="absolute right-0 bottom-0 hidden translate-x-1/3 translate-y-1/4 md:block">
@@ -188,16 +213,22 @@ export const Features = () => {
                     <div className="relative w-full flex-1 lg:h-112">
                         <AlternateImageMockup className="lg:right-0">
                             {/* Light mode image (hidden in dark mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/AI-light.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                             {/* Dark mode image (hidden in light mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/AI-dark.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                         </AlternateImageMockup>
                         <div className="absolute bottom-0 left-0 hidden -translate-x-1/3 md:block md:translate-y-12 lg:translate-y-1/4">
@@ -223,16 +254,22 @@ export const Features = () => {
                     <div className="relative w-full flex-1 lg:h-112">
                         <AlternateImageMockup className="lg:left-0">
                             {/* Light mode image (hidden in dark mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/charts-light.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                             {/* Dark mode image (hidden in light mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/charts-dark.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                         </AlternateImageMockup>
                         <div className="absolute right-0 bottom-0 hidden translate-x-1/3 translate-y-1/4 md:block">
@@ -256,16 +293,22 @@ export const Features = () => {
                     <div className="relative w-full flex-1 lg:h-112">
                         <AlternateImageMockup className="lg:right-0">
                             {/* Light mode image (hidden in dark mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/flash-cards-light.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                             {/* Dark mode image (hidden in light mode) */}
-                            <img
+                            <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/flash-cards-dark.png"
                                 className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                width={1200}
+                                height={800}
+                                quality={85}
                             />
                         </AlternateImageMockup>
                         <div className="absolute bottom-0 left-0 hidden -translate-x-1/3 md:block md:translate-y-12 lg:translate-y-1/4">
@@ -277,3 +320,5 @@ export const Features = () => {
         </section>
     );
 };
+
+export const Features = memo(FeaturesComponent);
