@@ -5,7 +5,15 @@ import { strapiBaseUrl } from "@/utils/consts";
 import { Article } from "@/components/marketing/blog/base-components/blog-cards";
 import React from 'react'
 
-export async function generateStaticParams(statParam) {
+type PageParams = {
+    category: string;
+};
+
+type SearchParams = {
+    page?: string;
+};
+
+export async function generateStaticParams() {
     const res = await fetch(`${strapiBaseUrl}/api/blog-posts/all/onlylinks`, {
         next: { revalidate: 60 },
     });
@@ -18,7 +26,7 @@ export async function generateStaticParams(statParam) {
     }));
 }
 
-async function getPost(category) {
+async function getPost(category: string) {
     const res = await fetch(`${strapiBaseUrl}/api/blog-posts/category/${category}`, {
         next: { revalidate: 60 },
     });
@@ -26,7 +34,7 @@ async function getPost(category) {
 }
 
 
-export default async function page({ params, searchParams }) {
+export default async function page({ params, searchParams }: { params: PageParams; searchParams: Promise<SearchParams> }) {
     const { category } = params || { category: 'all' }
     const articles = await getPost(category);
     const searchResult = await searchParams;

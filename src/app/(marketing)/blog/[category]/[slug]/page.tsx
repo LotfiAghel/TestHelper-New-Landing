@@ -3,8 +3,12 @@ import { FooterMain } from "@/components/marketing/footers/footer-main";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { defaultMetadata, strapiBaseUrl } from "@/utils/consts";
 
+type Params = {
+  slug: string;
+  category: string;
+};
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params }: { params: Params }) {
   const { post } = await getPost(params);
 
   if (!post) {
@@ -52,7 +56,7 @@ export async function generateStaticParams() {
   }));
 }
 
-async function getPost(params) {
+async function getPost(params: Params) {
   const { slug, category } = params;
 
   const data = await fetch(`${strapiBaseUrl}/api/blog-posts/slug/${slug}`, {
@@ -70,17 +74,17 @@ async function getPost(params) {
 }
 
 
-export default async function BlogDetailsPage1({ params }) {
+export default async function BlogDetailsPage1({ params }: { params: Params }) {
   const { post, allposts } = await getPost(params);
-  let headers = [];
+  let headers: string[] = [];
   const findHeaders = (value: string) => {
     const [titles, text] = replaceTitlesWithLinks(value);
     headers = headers.concat(titles);
     return text;
   }
 
-  function replaceTitlesWithLinks(text) {
-    const titles = [];
+  function replaceTitlesWithLinks(text: string): [string[], string] {
+    const titles: string[] = [];
     const regex = /##(.*?)##/g;
 
     const matches = text.matchAll(regex);
