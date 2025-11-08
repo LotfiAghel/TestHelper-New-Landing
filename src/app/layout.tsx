@@ -12,6 +12,9 @@ const inter = Vazirmatn({
     display: "swap",
     variable: "--font-inter",
     weight: "400",
+    preload: true,
+    fallback: ['system-ui', 'arial'],
+    adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -30,14 +33,18 @@ export default function RootLayout({
 }>) {
     return (
         <>
-            <GoogleAnalytics gaId="G-6PK22LDCQY" />
             <html lang="fa" dir="rtl" suppressHydrationWarning>
+                <head>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+                </head>
                 <body className={cx(inter.variable, "bg-primary antialiased")}>
                         <RouteProvider>
                             <Theme>{children}</Theme>
                         </RouteProvider>
                 </body>
             </html>
+            <GoogleAnalytics gaId="G-6PK22LDCQY" />
         </>
     );
 }

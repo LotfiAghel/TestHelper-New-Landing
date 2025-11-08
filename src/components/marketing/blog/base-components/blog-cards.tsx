@@ -21,6 +21,7 @@ export type Article = {
     title: string;
     SeoDescription: string;
     SeoKeywords: string;
+    summary?: string;
     mainimage: Mainimage;
     link: string;
 }
@@ -34,25 +35,25 @@ export interface Mainimage {
 const tags = {
     "toefl": {
         name: 'TOEFL',
-        color: "success",
+        color: "success" as const,
         href: "/blog/toefl",
     },
     "ielts": {
         name: "Ielts",
-        color: "pink",
+        color: "pink" as const,
         href: "/blog/ielts",
     },
     "all": {
         name: "All",
-        color: "gray-blue",
+        color: "gray-blue" as const,
         href: "/blog/all",
     },
     "gre": {
         name: "Guide",
-        color: "indigo",
+        color: "indigo" as const,
         href: "/blog/gre",
     },
-}
+};
 
 
 export const Simple01Vertical = ({ article, imageClassName }: { article: Article; imageClassName?: string }) => (
@@ -156,7 +157,7 @@ export const Simple03Vertical = ({
     titleClassName?: string;
     className?: string;
 }) => {
-    const tag = tags[article.category];
+    const tag = tags[article.category as keyof typeof tags] || tags.all;
     return (
         <article className={cx("flex flex-col gap-4", className)}>
             <a href={article.link} className="overflow-hidden rounded-2xl" tabIndex={-1}>
@@ -322,7 +323,7 @@ export const Simple04Vertical = ({ article, imageClassName, className }: { artic
 // );
 
 export const Simple03Horizontal = ({ article, imageClassName }: { article: Article; imageClassName?: string }) => {
-    const tag = tags[article.category];
+    const tag = tags[article.category as keyof typeof tags] || tags.all;
     return (
     <article className="flex flex-col gap-4 xl:flex-row xl:items-start">
         <a href={article.link} className="shrink-0 overflow-hidden rounded-2xl" tabIndex={-1}>

@@ -3,6 +3,10 @@ import { FooterMain } from "@/components/marketing/footers/footer-main";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { defaultMetadata, strapiBaseUrl } from "@/utils/consts";
 
+type Params = {
+  slug: string;
+  category: string;
+};
 
 export async function generateMetadata({
   params
@@ -87,7 +91,7 @@ export default async function BlogDetailsPage1({ params }: {
     return text;
   }
 
-  function replaceTitlesWithLinks(text:string) {
+  function replaceTitlesWithLinks(text: string) {
     const titles = [];
     const regex = /##(.*?)##/g;
 

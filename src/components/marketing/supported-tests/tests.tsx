@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/base/buttons/button";
@@ -53,7 +54,7 @@ const tests = [
     },
 ];
 
-export const Tests = () => {
+const TestsComponent = () => {
     return (
         <section id="tests" className="py-8 shadow-xs sm:py-12 lg:py-16">
             <div className="mx-auto max-w-container px-4 md:px-8">
@@ -91,3 +92,5 @@ export const Tests = () => {
         </section>
     );
 };
+
+export const Tests = memo(TestsComponent);

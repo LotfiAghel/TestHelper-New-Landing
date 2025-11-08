@@ -5,6 +5,10 @@ import { Header } from "@/components/marketing/header-navigation/header";
 import { strapiBaseUrl } from "@/utils/consts";
 import { Article } from "@/components/marketing/blog/base-components/blog-cards";
 
+type SearchParams = {
+  page?: string;
+};
+
 async function getPost() {
   const res = await fetch(`${strapiBaseUrl}/api/blog-posts/all/onlylinks`, {
     next: {
@@ -14,7 +18,7 @@ async function getPost() {
   return res.json();
 }
 
-const BlogPage = async ({ searchParams }) => {
+const BlogPage = async ({ searchParams }: { searchParams: Promise<SearchParams> }) => {
   const articles: Article[] = await getPost();
   const searchResult = await searchParams;
  
