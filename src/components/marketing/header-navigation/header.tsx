@@ -104,7 +104,7 @@ export const HeaderComponent = ({ items = headerNavItems, isFullWidth, isFloatin
     const { user, setUser } = getUserContext();
     const [isOpen, setIsOpen] = useState(false);
 
-  
+
 
     return (<>
         <LoginModal type={''} isOpen={isOpen} setIsOpen={setIsOpen} setUser={setUser} />
@@ -188,7 +188,7 @@ export const HeaderComponent = ({ items = headerNavItems, isFullWidth, isFloatin
                             تعیین سطح
                         </Button> */}
                         <ThemeToggle />
-                        {user ? <UserProfile profileUser={user} type={''} /> :<Button onClick={() => setIsOpen(true)} color="primary" size={isFloating ? "md" : "lg"}>
+                        {user ? <UserProfile profileUser={user} type={''} /> : <Button onClick={() => setIsOpen(true)} color="primary" size={isFloating ? "md" : "lg"}>
                             ورود/ثبت‌نام
                         </Button>}
                     </div>
@@ -260,12 +260,8 @@ export const HeaderComponent = ({ items = headerNavItems, isFullWidth, isFloatin
 };
 
 export const Header = () => {
-    return (<GoogleOAuthProvider
-        clientId={
-            "706367811187-qj0fme26bcctej0egr9ho9vdu3sga4ct.apps.googleusercontent.com"
-        }
-    >
+    return (
         <HeaderComponent />
-    </GoogleOAuthProvider>)
+    )
 
 }

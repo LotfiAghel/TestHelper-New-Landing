@@ -201,41 +201,41 @@ const TestimonialComponent = () => {
                 <MarqueeFade side="right" />
                 <MarqueeContent direction="right" autoFill={true} speed={60}>
                     {shuffledReviews.map((review, index) => (
-                        <MarqueeItem key={index}>
-                            <div
-                                dir="rtl"
-                                className="flex w-[240px] flex-col items-start gap-2 rounded-xl bg-tertiary p-4 sm:w-[340px] lg:justify-between lg:p-6"
-                            >
-                                <div className="flex flex-col gap-2">
-                                    <div className="flex flex-row items-center gap-3">
-                                        <Image alt={`${review.author.name}`} className="size-12 rounded-full border-2" src={review.author.avatarUrl} width={48} height={48} />
-                                        <div className="min-w-0 flex-1 text-xs sm:text-sm">
-                                            <div className="flex flex-row items-center gap-2 text-primary">
-                                                {review.author.name}
-                                                <Link href={review.source.url} target="_blank">
+                        <Link href={review.source.url} target="_blank">
+                            <MarqueeItem key={index}>
+                                <div
+                                    dir="rtl"
+                                    className="flex w-[240px] flex-col items-start gap-2 rounded-xl bg-tertiary p-4 sm:w-[340px] lg:justify-between lg:p-6"
+                                >
+                                    <div className="flex flex-col gap-2">
+                                        <div className="flex flex-row items-center gap-3">
+                                            <Image alt={`${review.author.name}`} className="size-12 rounded-full border-2" src={review.author.avatarUrl} width={48} height={48} />
+                                            <div className="min-w-0 flex-1 text-xs sm:text-sm">
+                                                <div className="flex flex-row items-center gap-2 text-primary">
+                                                    {review.author.name}
                                                     {<review.source.platform size={14} className="text-utility-blue-500" />}
-                                                </Link>
-                                            </div>
+                                                </div>
 
-                                            <div className="inline-block rounded-md bg-brand-secondary px-2 text-tertiary">
-                                                {review.author.test} • {review.author.testScore}
+                                                <div className="inline-block rounded-md bg-brand-secondary px-2 text-tertiary">
+                                                    {review.author.test} • {review.author.testScore}
+                                                </div>
                                             </div>
                                         </div>
+                                        {/* Star Rating */}
+                                        <div className="flex w-fit items-center justify-center gap-1">
+                                            {Array.from({ length: 5 }).map((_, starIndex) => (
+                                                <Star01
+                                                    key={starIndex}
+                                                    className={`size-4 ${starIndex < review.author.stars ? "fill-yellow-500 text-yellow-500" : "text-disabled"}`}
+                                                />
+                                            ))}
+                                        </div>
                                     </div>
-                                    {/* Star Rating */}
-                                    <div className="flex w-fit items-center justify-center gap-1">
-                                        {Array.from({ length: 5 }).map((_, starIndex) => (
-                                            <Star01
-                                                key={starIndex}
-                                                className={`size-4 ${starIndex < review.author.stars ? "fill-yellow-500 text-yellow-500" : "text-disabled"}`}
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
 
-                                <p className="line-clamp-3 text-xs leading-relaxed text-secondary">{review.quote}</p>
-                            </div>
-                        </MarqueeItem>
+                                    <p className="line-clamp-3 text-xs leading-relaxed text-secondary">{review.quote}</p>
+                                </div>
+                            </MarqueeItem>
+                        </Link>
                     ))}
                 </MarqueeContent>
             </Marquee>

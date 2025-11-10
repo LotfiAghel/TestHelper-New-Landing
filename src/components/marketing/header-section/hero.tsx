@@ -8,8 +8,11 @@ import { BadgeGroup } from "@/components/base/badges/badge-groups";
 import { Button } from "@/components/base/buttons/button";
 import { MetricsMini } from "@/components/marketing/metrics/metrics-mini";
 import { MainSubtitle, MainTitle } from "./main-title";
+import { usePathname } from "next/navigation";
 
 export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.ReactNode }) => {
+    const pathname = usePathname().replace('/', '');
+    console.error(pathname)
     return (
         <Fragment>
             <section className="py-16 shadow-xs lg:h-screen lg:items-center lg:py-12">
@@ -35,7 +38,7 @@ export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.R
                             <MainSubtitle />
                         )}
                         <div className="mt-6 flex w-full flex-col-reverse items-stretch gap-3 md:mt-8 md:flex-row md:items-start">
-                            <Button href="/toefl" color="primary" size="xl">
+                            <Button href={`${pathname ? pathname : 'toefl'}/dashboard`} color="primary" size="xl">
                                 شروع رایگان
                             </Button>
                             <Button href="/placement" color="secondary" size="xl">
@@ -45,24 +48,24 @@ export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.R
                         <MetricsMini />
                     </div>
                     <div className="relative flex items-center justify-center lg:h-full lg:min-h-160">
-                        <video 
-                            className="h-auto max-h-full w-auto max-w-full dark:hidden" 
-                            src="/media/girl+cat+laptop-loop.mp4" 
-                            autoPlay 
-                            loop 
-                            muted 
-                            playsInline 
+                        <video
+                            className="h-auto max-h-full w-auto max-w-full dark:hidden"
+                            src="/media/girl+cat+laptop-loop.mp4"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
                             preload="none"
                             poster="/images/girl+cat+laptop.webp"
                             loading="lazy"
                         />
-                        <Image 
-                            className="h-auto max-h-full w-auto max-w-full not-dark:hidden" 
-                            src="/images/girl+cat+laptop.webp" 
-                            alt="Test Helper Platform" 
-                            width={800} 
-                            height={600} 
-                            priority 
+                        <Image
+                            className="h-auto max-h-full w-auto max-w-full not-dark:hidden"
+                            src="/images/girl+cat+laptop.webp"
+                            alt="Test Helper Platform"
+                            width={800}
+                            height={600}
+                            priority
                             quality={90}
                         />
                     </div>

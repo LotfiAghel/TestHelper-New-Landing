@@ -18,7 +18,7 @@ export const CTA = ({ startHref, heading, description }: CTAProps = {}) => {
                         {description || "آماده‌ای یه قدم بزرگ برداری؟"}
                     </p>
                     <div className="mt-8 flex flex-col-reverse gap-3 self-stretch md:mt-8 md:flex-row md:self-center">
-                        <Button href="#box-widget-icon" color="secondary" size="xl">
+                        <Button href="/contact-us" color="secondary" size="xl">
                             تماس با پشتیبانی
                         </Button>
                         <Button href={startHref ?? "/toefl/dashboard"} size="xl">

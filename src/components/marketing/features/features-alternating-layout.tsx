@@ -132,7 +132,6 @@ const FeaturesComponent = () => {
 
                     <div className="relative w-full flex-1 lg:h-112">
                         <AlternateImageMockup className="lg:right-0">
-                            {/* Light mode image (hidden in dark mode) */}
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/vocab-light.png"

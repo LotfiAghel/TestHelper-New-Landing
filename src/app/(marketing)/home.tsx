@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { HeroSection } from "@/components/marketing/header-section/hero";
 
-// Lazy load below-the-fold components
 const Tests = dynamic(() => import("@/components/marketing/supported-tests/tests").then(mod => ({ default: mod.Tests })), {
     loading: () => <div className="py-8 sm:py-12 lg:py-16" />,
 });
