@@ -5,4 +5,4 @@ services:
     image: nextapp-untitled
     build: .
     ports:
-      - "80:3000"
+      - "2000:3000"
