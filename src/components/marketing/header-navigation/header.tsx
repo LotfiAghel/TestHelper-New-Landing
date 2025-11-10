@@ -27,6 +27,7 @@ const headerNavItems: HeaderNavItem[] = [
     { label: "آزمون‌ها", href: "/#tests" },
     { label: "تعرفه‌ها", href: "/pricing", menu: <DropdownMenuSimpleWithFooter /> },
     { label: "بلاگ", href: "/blog" },
+    { label: "تعیین سطح", href: "/placement" },
     { label: "درباره ما", href: "/about-us" },
     { label: "تماس با ما", href: "/contact-us" },
 ];
