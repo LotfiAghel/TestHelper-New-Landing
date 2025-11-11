@@ -138,7 +138,6 @@ export default function ResultPage() {
       </div>
     );
   }
-
   return (
     <>
       <div className="min-h-screen py-8 !pt-2 px-[4px] flex justify-center">

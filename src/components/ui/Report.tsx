@@ -4,11 +4,9 @@ import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 import html2PDF from 'jspdf-html2canvas';
-import canvasHTML from 'html2canvas-pro';
 import { createPortal } from 'react-dom';
 import Loading from '@/components/ui/Loading';
 import { exmaLevel } from '@/utils/consts';
-
 
 const Report = ({ score = 10, examUser, level = exmaLevel[0] }: {
     score: number;
@@ -40,17 +38,15 @@ const Report = ({ score = 10, examUser, level = exmaLevel[0] }: {
     };
 
     const generatePDF = async () => {
-        const element = await canvasHTML(refObj.current);
-        console.error(element)
-        html2PDF(element, {
+        html2PDF(refObj.current, {
             autoResize: true,
-        }).then(res => {
+        }).then(res=>{
             res.save('TestHelper Report');
             setIsGeneratingPdf(false);
 
         });
     };
-
+    
     useEffect(() => {
         const updateProgressBar = () => {
             const progressBar = document.getElementById('scoreProgressBar');
@@ -109,11 +105,11 @@ const Report = ({ score = 10, examUser, level = exmaLevel[0] }: {
 };
 
 const ReportComponent = ({ refObj, generatePDF, studentData }: { refObj, generatePDF: () => void, studentData }) => {
-
+    
     useEffect(() => {
         generatePDF();
-    }, []);
-
+     },[]);
+    
     return (<div
         ref={refObj}
         dir="auto"
