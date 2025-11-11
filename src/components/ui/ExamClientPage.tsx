@@ -42,7 +42,7 @@ import { useForm } from "react-hook-form";
 import { Input } from "./Input";
 // import { saveEnglishLevelExams } from "@/app/(homes)/rtl/consts";
 import { getUserContext } from "@/context/userContext";
-import { saveEnglishLevelExams, sendResponse, startExamPartSession } from "@/utils/consts";
+import { handleSaveResult, saveEnglishLevelExams, sendResponse, startExamPartSession } from "@/utils/consts";
 const formSchema = z.object({
     phone: z.string().regex(/^09\d{9}$/, "شماره موبایل معتبر نیست"),
     fullName: z.string(),
@@ -113,11 +113,7 @@ export default function ExamClientPage({
 
         const timer = setInterval(() => {
             setTimeLeft((prev) => {
-                if (prev <= 1) {
-                    clearInterval(timer);
-                    finishExam(true);
-                    return 0;
-                }
+
                 if (prev === 120) {
                     // 2 minutes warning
                     setShowWarning(true);
@@ -153,20 +149,15 @@ export default function ExamClientPage({
     };
     const seeResult = async () => {
         const values: z.infer<typeof formSchema> = form.getValues();
-        saveEnglishLevelExams(values)
+        saveEnglishLevelExams({
+            ...values,
+            score: calculateScore(),
+            time: 1200 - (timeLeft),
+            firstName: values.fullName,
+        })
         setExamUser(values);
         if (user) {
-            const partSession = await startExamPartSession({
-                examId: 1921,
-                ExamPartType: 1,
-                Mode: ExamMode.Practice,
-            });
-            console.error(partSession)
-            englishResult.values()
-                .forEach(item => sendResponse(item, {
-                    examPartSessionId: partSession.id
-                }))
-
+            handleSaveResult(englishResult)
         }
 
         router.push("/placement/result");
@@ -175,7 +166,7 @@ export default function ExamClientPage({
     const calculateScore = () => {
         let score = 0;
         for (const [_, option] of englishResult) {
-            score = (option as Response).isCorrect ? score + 1 : score;
+            score = (option as Response).score + score;
         }
         return score
     };
@@ -212,9 +203,11 @@ export default function ExamClientPage({
     };
 
     const formatTime = (seconds: number) => {
+        const direction = seconds < 0 ? '-' : '';
+        seconds = Math.abs(seconds)
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
-        return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+        return `${direction}${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
     };
 
     const getTimeColor = () => {
@@ -225,13 +218,13 @@ export default function ExamClientPage({
 
     if (isLoading) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-background">
+            <div className="min-h-screen flex items-center justify-center dark:bg-transparent bg-background">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="text-center"
+                    className="text-center dark:text-white"
                 >
-                    <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <div className="w-16 h-16 border-4  border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
                     <p className="text-lg">در حال بارگذاری آزمون...</p>
                 </motion.div>
             </div>
@@ -277,17 +270,6 @@ export default function ExamClientPage({
         }
         return <>
             <Button
-                variant="outline"
-                onClick={goToPreviousQuestion}
-                disabled={questions.findIndex(item => item.id == currentQuestion.id) === 0}
-                className="flex items-center gap-1 px-4 py-2 h-11 border-primary/20 hover:bg-primary/5 hover:border-primary/30 transition-all duration-200 disabled:opacity-50"
-            >
-                <ChevronRight className="h-4 w-4 mr-1" />
-                <span className="hidden sm:inline">سوال قبلی</span>
-                <span className="inline sm:hidden">قبلی</span>
-            </Button>
-            <div className="text-sm text-muted-foreground hidden sm:block">    {findIndexOfCurrent() + 1} از {questions.length}</div>
-            <Button
                 onClick={goToNextQuestion}
                 className={`flex items-center gap-1 px-4 py-2 h-11 transition-all duration-200 ${findIndexOfCurrent() === questions.length - 1
                     ? "bg-green-600 hover:bg-green-700"
@@ -303,18 +285,29 @@ export default function ExamClientPage({
                     </>
                 ) : (
                     <>
+                        <ChevronRight className="h-4 w-4 ml-1" />
                         <span className="hidden sm:inline">سوال بعدی</span>
                         <span className="inline sm:hidden">بعدی</span>
-                        <ChevronLeft className="h-4 w-4 ml-1" />
                     </>
                 )}
+            </Button>
+            <div className="text-sm text-muted-foreground hidden sm:block">    {findIndexOfCurrent() + 1} از {questions.length}</div>
+            <Button
+                variant="outline"
+                onClick={goToPreviousQuestion}
+                disabled={questions.findIndex(item => item.id == currentQuestion.id) === 0}
+                className="flex items-center gap-1 px-4 py-2 h-11 border-primary/20 hover:bg-primary/5 hover:border-primary/30 transition-all duration-200 disabled:opacity-50"
+            >
+                <span className="hidden sm:inline">سوال قبلی</span>
+                <span className="inline sm:hidden">قبلی</span>
+                <ChevronLeft className="h-4 w-4 mr-1" />
             </Button>
         </>
     }
 
     return (
         <>
-            <div className="testhelper-placement min-h-screen bg-gradient-to-b from-background to-background/90 flex justify-center">
+            <div className="testhelper-placement min-h-screen dark:!bg-transparent flex justify-center">
                 <div className="w-full ">
                     <div className="container mx-auto px-4 pb-2 py-1 h-full flex flex-col">
                         <div className="flex justify-between items-center mb-2">
@@ -343,10 +336,10 @@ export default function ExamClientPage({
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5 }}
                             >
-                                <Card className="mb-1 border-primary/10 shadow-lg overflow-hidden bg-card/95 backdrop-blur-sm">
+                                <Card className="mb-1 border-primary/10 shadow-lg overflow-hidden dark:bg-gray-900 bg-card/95 backdrop-blur-sm">
                                     <div className="bg-primary/5 h-2">
                                         <div
-                                            className="h-full bg-primary transition-all duration-300"
+                                            className="h-full  dark:bg-gray-500 transition-all duration-300"
                                             style={{
                                                 width: `${finishMode.isActive ? '100' : ((findIndexOfCurrent() + 1) / questions.length) * 100}%`,
                                             }}
@@ -358,7 +351,7 @@ export default function ExamClientPage({
                                                 آزمون تعیین سطح زبان انگلیسی
                                             </CardTitle>
                                             <div
-                                                className={`px-3 py-1 rounded-full text-sm font-medium ${getTimeColor()} bg-background/80 border border-border/50`}
+                                                className={`px-3 py-1 rounded-full text-sm font-medium ${getTimeColor()} dark:bg-gray-900 bg-background/80 border border-border/50`}
                                             >
 
                                                 {finishMode.isActive ? '100' : Math.round((findIndexOfCurrent() / questions.length) * 100)}%
@@ -385,12 +378,12 @@ export default function ExamClientPage({
                                     exit={{ opacity: 0, x: -20 }}
                                     transition={{ duration: 0.3 }}
                                 >
-                                    <Card className="mb-2 border-primary/10 shadow-lg bg-card/95 h-fit backdrop-blur-sm">
+                                    <Card className="mb-2 border-primary/10 dark:bg-gray-900 shadow-lg bg-card/95 h-fit backdrop-blur-sm">
                                         {finishMode.isActive ?
                                             <>
                                                 <CardContent dir="ltr" className="pt-2 pb-2 h-full flex flex-col">
                                                     <div className="text-center mb-6">
-                                                        <CardTitle className=" text-primary dark:text-primary/90 mb-2 font-bold !text-[24px] !text-black">
+                                                        <CardTitle className="dark:text-white text-gray-900 mb-2 font-bold !text-[24px]">
                                                             پر کردن اطلاعات
                                                         </CardTitle>
                                                         <CardDescription className="text-muted-foreground dark:text-muted-foreground/90 text-base">
@@ -400,21 +393,21 @@ export default function ExamClientPage({
 
                                                     <Form {...form}>
                                                         <form
-                                                            className="space-y-4"
+                                                            className="space-y-4 dark:text-white"
                                                         >
                                                             <FormField
                                                                 control={form.control}
                                                                 name="fullName"
                                                                 render={({ field }) => (
                                                                     <FormItem className="text-right">
-                                                                        <FormLabel className="text-foreground/90 font-medium">
+                                                                        <FormLabel className="text-foreground/90 dark:text-white font-medium">
                                                                             نام و نام خانوادگی
                                                                         </FormLabel>
                                                                         <FormControl>
                                                                             <Input
                                                                                 placeholder="مثال: علی محمدی"
                                                                                 {...field}
-                                                                                className="h-11 bg-background/50 dark:bg-background/30 border-muted/50 dark:border-muted/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all duration-200 text-right"
+                                                                                className="h-11 dark:bg-gray-900 bg-background/50  border-muted/50 dark:border-muted/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all duration-200 text-right"
                                                                             />
                                                                         </FormControl>
                                                                         <FormMessage className="text-sm font-medium" />
@@ -426,14 +419,14 @@ export default function ExamClientPage({
                                                                 name="phone"
                                                                 render={({ field }) => (
                                                                     <FormItem className="text-right">
-                                                                        <FormLabel className="text-foreground/90 font-medium">
+                                                                        <FormLabel className="text-foreground/90 dark:text-white font-medium">
                                                                             شماره موبایل
                                                                         </FormLabel>
                                                                         <FormControl>
                                                                             <Input
                                                                                 placeholder="09123456789"
                                                                                 {...field}
-                                                                                className="h-11 bg-background/50 dark:bg-background/30 border-muted/50 dark:border-muted/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all duration-200 text-right"
+                                                                                className="h-11 bg-background/50 dark:bg-gray-900 border-muted/50 dark:border-muted/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all duration-200 text-right"
                                                                             />
                                                                         </FormControl>
                                                                         <FormMessage className="text-sm font-medium" />
@@ -445,7 +438,7 @@ export default function ExamClientPage({
                                                                 name="email"
                                                                 render={({ field }) => (
                                                                     <FormItem className="text-right">
-                                                                        <FormLabel className="text-foreground/90 font-medium">
+                                                                        <FormLabel className="text-foreground/90 dark:text-white font-medium">
                                                                             ایمیل
                                                                         </FormLabel>
                                                                         <FormControl>
@@ -453,7 +446,7 @@ export default function ExamClientPage({
                                                                                 placeholder="example@email.com"
                                                                                 type="email"
                                                                                 {...field}
-                                                                                className="h-11 bg-background/50 dark:bg-background/30 border-muted/50 dark:border-muted/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all duration-200 text-right"
+                                                                                className="h-11 bg-background/50 dark:bg-gray-900 border-muted/50 dark:border-muted/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all duration-200 text-right"
                                                                             />
                                                                         </FormControl>
                                                                         <FormMessage className="text-sm font-medium" />
@@ -469,7 +462,7 @@ export default function ExamClientPage({
                                                 <div className="flex justify-between items-start mb-2">
                                                     <h2
                                                         dir="auto"
-                                                        className="text-lg font-bold text-gray-800 leading-relaxed break-after-auto whitespace-break-spaces"
+                                                        className="text-lg font-bold dark:text-white text-gray-800 leading-relaxed break-after-auto whitespace-break-spaces"
                                                     >
                                                         {currentQuestion.questionText}
                                                     </h2>
@@ -479,7 +472,7 @@ export default function ExamClientPage({
                                                         className="text-white"
                                                         onClick={() => setShowHint(!showHint)}
                                                     >
-                                                        <Info color="black" />
+                                                        <Info color="var(--muted-foreground)" />
                                                     </Button>
                                                 </div>
 
@@ -491,8 +484,8 @@ export default function ExamClientPage({
                                                             exit={{ opacity: 0, height: 0 }}
                                                             className="mb-2 bg-muted/50 p-1 rounded-lg text-sm text-muted-foreground border border-border/50"
                                                         >
-                                                            <p className="flex items-start gap-2" dir="rtl">
-                                                                <span className="text-primary mt-0.5">
+                                                            <p className="flex dark:text-white items-start gap-2" dir="rtl">
+                                                                <span className="  mt-0.5">
                                                                     <HelpCircle className="h-4 w-4" />
                                                                 </span>
                                                                 <span>
@@ -501,7 +494,7 @@ export default function ExamClientPage({
                                                                 </span>
                                                             </p>
                                                             <br />
-                                                            <span>
+                                                            <span className="dark:text-white">
                                                                 {currentQuestion.questionDirectionText}
                                                             </span>
                                                         </motion.div>
@@ -548,7 +541,7 @@ export default function ExamClientPage({
                                                                     />
                                                                     <Label
                                                                         htmlFor={`option-${index}`}
-                                                                        className="flex-1 cursor-pointer !mr-[3px] sm:!mr-[5px] py-[0.3rem] sm:!py-[0.7rem] pl-[0.2rem] sm:pl-[0.3rem] font-medium"
+                                                                        className="flex-1 cursor-pointer dark:text-white !mr-[3px] sm:!mr-[5px] py-[0.3rem] sm:!py-[0.7rem] pl-[0.2rem] sm:pl-[0.3rem] font-medium"
                                                                     >
                                                                         {option.content}
                                                                     </Label>

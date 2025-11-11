@@ -52,7 +52,7 @@ const bannerItems = [
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-4">آزمون‌های ما</h2>
+          <h2 className="text-3xl font-bold mb-4 dark:text-white">آزمون‌های ما</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             مجموعه کاملی از آزمون‌های استاندارد زبان انگلیسی برای تمام سطوح و
             نیازها

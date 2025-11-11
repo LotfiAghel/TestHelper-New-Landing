@@ -31,12 +31,9 @@ export default function PlacementHero() {
             className="relative min-h-[90vh] flex items-center justify-center py-16 !pb-3 overflow-hidden"
             dir="rtl"
         >
-            {/* Enhanced Background Elements with better dark/light mode support */}
             <div className="absolute inset-0 -z-10 overflow-hidden">
-                {/* Gradient Background with improved colors */}
-                <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background/90"></div>
+                <div className="absolute inset-0 "></div>
 
-                {/* Animated Gradient Orbs with better colors for dark/light modes */}
                 <motion.div
                     className="absolute -top-[20%] -left-[10%] w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full bg-gradient-to-br from-primary/15 to-secondary/15 dark:from-primary/10 dark:to-secondary/10 blur-3xl"
                     animate={{
@@ -63,7 +60,6 @@ export default function PlacementHero() {
                     }}
                 />
 
-                {/* Enhanced Particles with better colors */}
                 <div className="absolute inset-0">
                     {[...Array(30)].map((_, i) => (
                         <motion.div
@@ -95,7 +91,6 @@ export default function PlacementHero() {
                     ))}
                 </div>
 
-                {/* Grid Pattern with better opacity for dark mode */}
                 <div
                     className="absolute inset-0 bg-grid-pattern opacity-[0.03] dark:opacity-[0.04]"
                     style={{
@@ -108,7 +103,6 @@ export default function PlacementHero() {
 
             <div className="container mx-auto px-4 sm:px-6 z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-                    {/* Left Content - Hero Text and Image with improved typography */}
                     <motion.div
                         className="w-full lg:w-1/2 text-center lg:text-right"
                         initial={{ opacity: 0, x: 50 }}
@@ -132,7 +126,7 @@ export default function PlacementHero() {
                                 <span className="block text-[50px] bg-gradient-to-l from-primary via-primary/90 to-primary/70 dark:from-primary dark:via-primary/80 dark:to-primary/60 bg-clip-text text-transparent">
                                     آزمون تعیین سطح
                                 </span>
-                                <span className="block text-[50px] mt-1 text-secondary-foreground !text-[#6E46FE] font-bold dark:text-secondary-foreground">
+                                <span className="block text-[50px] mt-1 !text-[#6E46FE] font-bold dark:text-secondary-foreground">
                                     زبان انگلیسی
                                     <img data-line-image="underline-vector-purple" className="!visible" alt="" />
                                 </span>
@@ -192,7 +186,7 @@ export default function PlacementHero() {
                                         <div className="p-1.5 rounded-full bg-primary/10 dark:bg-primary/20 ml-1">
                                             {feature.icon}
                                         </div>
-                                        <span className="font-medium">{feature.text}</span>
+                                        <span className="font-medium dark:text-white">{feature.text}</span>
                                     </div>
                                 ))}
                             </div>
@@ -205,10 +199,10 @@ export default function PlacementHero() {
                         animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -50 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                     >
-                        <div className="p-[10px] absolute top-[-20px] left-[30%]  shadow-lg rotate-45 rounded-[10px] card-icon-wrapper bg-[#FFFFFF] w-fit flex h-fit items-center">
+                        <div className="p-[10px] absolute top-[-20px] left-[30%]  shadow-lg rotate-45 rounded-[10px] card-icon-wrapper dark:bg-primary bg-[#FFFFFF] w-fit flex h-fit items-center">
                             <img className={'world-icon w-[40px] h-[40px] !visible object-scale-down -rotate-90'} alt="" />
                         </div>
-                        <div className='absolute max-w-[300px] flex my-[15px] top-[150px] right-[-20px] flex-row w-[110%] border-[1px] border-[#EFF2F7] p-[16px] pr-0 gap-[10px] rounded-[10px]'
+                        <div className='absolute max-w-[300px] flex my-[15px] top-[150px] right-[-20px] flex-row w-[110%] border-[1px] dark:!border-0 border-[#EFF2F7] p-[16px] pr-0 gap-[10px] rounded-[10px]'
                             style={{ backdropFilter: 'blur(50px)' }}
                         >
 
@@ -223,7 +217,7 @@ export default function PlacementHero() {
                                 <img className="dictionary-icon object-scale-down w-[40px] h-[33px]" alt="" />
                             </div>
                         </div>
-                        <div className='absolute max-w-[400px] flex my-[15px] bottom-[20px] left-0 flex-row w-[110%] border-[1px] border-[#EFF2F7] bg-white p-[16px] pr-0 gap-[10px] rounded-[10px] '
+                        <div className='absolute max-w-[400px] flex my-[15px] bottom-[20px] left-0 flex-row w-[110%] border-[1px] border-[#EFF2F7] dark:bg-gray-900 dark:!border-0 bg-white p-[16px] pr-0 gap-[10px] rounded-[10px] '
                         >
 
                             <div className="flex flex-col items-end flex-1 gap-[10px] justify-between">
@@ -233,7 +227,7 @@ export default function PlacementHero() {
                                     <div className="w-[50%] bg-[#6E46FE] absolute left-0 h-full rounded-[70px]"></div>
                                 </div>
                             </div>
-                            <div className="flex flex-col shadow-lg items-center box-shadow px-[19px] py-[16px] justify-center text-white max-w-[250px] w-fit rounded-[11px] bg-white white-shadow">
+                            <div className="flex flex-col shadow-lg items-center box-shadow px-[19px] py-[16px] justify-center text-white max-w-[250px] w-fit rounded-[11px] dark:bg-primary bg-white white-shadow">
                                 <img className="globe_book-icon object-scale-down w-[40px] h-[33px]" alt="" />
                             </div>
                         </div>

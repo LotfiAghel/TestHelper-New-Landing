@@ -43,7 +43,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-16 bg-muted/30">
+    <section className="py-16 bg-muted/30 dark:!bg-transparent">
       <div className="!w-full px-[20px]">
         <motion.div 
           className="text-center mb-16"
@@ -62,7 +62,7 @@ export function FeaturesSection() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-background rounded-lg p-6 shadow-sm border border-border/50 hover:border-primary/20 hover:shadow-md transition-all"
+              className="dark:bg-transparent bg-background rounded-lg p-6 shadow-sm border border-border/50 hover:border-primary/20 hover:shadow-md transition-all"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: feature.delay }}
@@ -72,7 +72,7 @@ export function FeaturesSection() {
               <div className="bg-primary/10 p-3 rounded-full w-fit mb-4 text-primary">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+              <h3 className="text-xl dark:text-white font-bold mb-2">{feature.title}</h3>
               <p className="text-muted-foreground">{feature.description}</p>
             </motion.div>
           ))}

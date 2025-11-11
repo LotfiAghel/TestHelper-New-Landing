@@ -5,6 +5,7 @@
     "scripts": {
         "dev-remote": "NEXT_PUBLIC_API_SERVER=https://testhelper.com/toefl-api next dev",
         "dev": "next dev",
+        "build-develop": "NEXT_PUBLIC_API_SERVER=https://testhelper.com/toefl-api next build",
         "build": "next build",
         "start": "next start"
     },

@@ -7,10 +7,10 @@ import React from 'react'
 
 export default function page() {
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center">
+    <div className="min-h-screen bg-transparent flex flex-col items-center">
       <div className="w-full mx-auto">
         <Header />
-        <main className="w-full">
+        <main className="w-ful !bg-transparentl">
           <PlacementHero />
           <ExamBanners />
           <FeaturesSection />

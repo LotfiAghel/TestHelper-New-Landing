@@ -116,9 +116,11 @@ export interface PublicUserData {
   email: string | null;
   phone: string | null;
   googleId: string | null;
+  score?: number,
+  time?: number,
 }
 
-export const saveEnglishLevelExams = (rawData: Omit<PublicUserData, 'lastName'>) => {
+export const saveEnglishLevelExams = (rawData: Omit<PublicUserData, 'lastName' | 'googleId'>) => {
   const gid = getCookie('_ga');
   const data: PublicUserData = {
     ...rawData,
@@ -159,6 +161,18 @@ export async function sendResponse(body: QuestionTrueFalseOptionResponse,
   }
   )).then(res => res.json());
   return true;
+}
+
+export async function handleSaveResult(englishResult: Map<number, QuestionTrueFalseOptionResponse>) {
+  const partSession = await startExamPartSession({
+    examId: 1921,
+    ExamPartType: 1,
+    Mode: ExamMode.Practice,
+  });
+  englishResult.values()
+    .forEach(item => sendResponse(item, {
+      examPartSessionId: partSession.id
+    }))
 }
 
 export async function startExamPartSession(data: {

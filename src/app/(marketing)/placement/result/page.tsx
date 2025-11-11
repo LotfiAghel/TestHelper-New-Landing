@@ -127,7 +127,7 @@ export default function ResultPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-background to-background/90 flex items-center justify-center">
+      <div className="min-h-screen dark:bg-transparent flex items-center justify-center">
         <div className="text-center space-y-4">
           <div className="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto"></div>
           <div className="text-xl text-primary animate-pulse">
@@ -141,7 +141,7 @@ export default function ResultPage() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-b from-background to-background/90 py-8 !pt-2 px-[4px] flex justify-center">
+      <div className="min-h-screen py-8 !pt-2 px-[4px] flex justify-center">
         <div className="w-full ">
           <div className="w-full">
             <div className="flex text-left !justify-end mb-2">
@@ -150,7 +150,7 @@ export default function ResultPage() {
                 className="flex items-center text-muted-foreground hover:text-primary transition-colors"
               >
                 <Home className="h-5 w-5 mr-2" />
-                <span className="hidden sm:inline">بازگشت به صفحه اصلی</span>
+                <span className="hidden dark:text-white sm:inline">بازگشت به صفحه اصلی</span>
               </Link>
             </div>
 
@@ -158,15 +158,15 @@ export default function ResultPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="space-y-8"
+              className="space-y-8 !bg-transparent"
             >
-              <Card className="backdrop-blur-sm bg-card/95 border-primary/10 overflow-hidden">
+              <Card style={{ background: 'transparent' }} className="backdrop-blur-sm dakr:!bg-transparent  border-primary/10 overflow-hidden">
                 <CardHeader className="!pt-[0.2rem] !px-[0.2rem]">
                   <div className="flex flex-col sm:flex-row justify-between items-center gap-4 ">
                     <div className="text-center sm:text-right">
                       {userName && (
                         <CardDescription className="mt-2 text-base">
-                          <span className="font-medium text-foreground">
+                          <span className="dark:text-white font-medium text-foreground">
                             {userName}
                           </span>{" "}
                           عزیز، نتیجه آزمون شما به شرح زیر است:
@@ -178,12 +178,13 @@ export default function ResultPage() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-2 !pt-[0]">
+                <CardContent className="space-y-2 dark:bg-transparent !pt-[0]">
                   <motion.div
+
                     ref={certificateRef}
                     className="flex flex-col sm:flex-row px-[1rem] justify-between gap-8 rounded-xl border border-border/50 "
                   >
-                    <div className=" justify-center flex flex-col sm:text-right py-[0.2rem]"
+                    <div className="dark:text-white justify-center flex flex-col sm:text-right py-[0.2rem]"
                       style={{ height: 'auto' }}>
                       <div
                         className={`text-4xl sm:text-3xl font-bold ${levels[level].color}`}
@@ -193,14 +194,14 @@ export default function ResultPage() {
                       <div className="text-lg sm:text-xl font-medium mb-2">
                         {levels[level].description}
                       </div>
-                      <div className="text-sm sm:text-base text-muted-foreground mt-3 max-w-md leading-relaxed">
+                      <div className="text-sm dark:text-gray-400 sm:text-base text-muted-foreground mt-3 max-w-md leading-relaxed">
                         {levels[level].details}
                       </div>
                     </div>
                     <div className="flex justify-center px-[3px] md:text-nowrap text-wrap  items-center border-x-[1px] flex-auto border-[#DFDFDF]"
                       style={{ height: 'auto' }}>
                       <div className="flex md:flex-row flex-col h-fit w-fit">
-                        <b className="text-[25px] ml-[4px]">
+                        <b className="text-[25px] dark:text-white ml-[4px]">
                           سطح {' '}
                           <span className="text-[#2FA79D]">
                             تافل
@@ -212,7 +213,7 @@ export default function ResultPage() {
                           </span>
                         </b>
                         &nbsp;
-                        <b className="text-[25px] mr-[4px]">
+                        <b className="text-[25px] dark:text-white mr-[4px]">
                           سطح{' '}
                           <span dir="rtl" className="text-[#BE123C]">
                             آیلتس
@@ -224,7 +225,7 @@ export default function ResultPage() {
                           </span>
                         </b>
                         &nbsp;
-                        <b dir="auto" className="text-[25px] mr-[4px]">
+                        <b dir="auto" className="text-[25px] dark:text-white mr-[4px]">
                           سطح
                           {' '}
                           <span className="text-[#2f31a7]">
@@ -240,7 +241,7 @@ export default function ResultPage() {
                     </div>
                     <div className="relative flex items-center justify-center order-1 sm:order-2 ml-[2rem] py-[0.2rem]">
                       <div
-                        className={`w-24 h-24 rounded-full flex items-center justify-center ${levels[level].bgColor} ${levels[level].borderColor} border-4 `}
+                        className={`w-24 h-24 dark:text-white rounded-full flex items-center justify-center ${levels[level].bgColor} ${levels[level].borderColor} border-4 `}
                       >
                         <div className="text-5xl font-bold">
                           {examData.score}
@@ -258,7 +259,7 @@ export default function ResultPage() {
                       transition={{ delay: 0.3, duration: 0.5 }}
                     >
                       <Card
-                        className={`h-full border ${levels[level].borderColor} transition-all duration-300`}
+                        className={`h-full border ${levels[level].borderColor} dark:bg-transparent transition-all duration-300`}
                       >
                         <CardHeader
                           className={`pb-1  bg-opacity-30`}
@@ -272,7 +273,7 @@ export default function ResultPage() {
                                 <path d="M7 21V19H11V15.9C10.1833 15.7167 9.45417 15.3708 8.8125 14.8625C8.17083 14.3542 7.7 13.7167 7.4 12.95C6.15 12.8 5.10417 12.2542 4.2625 11.3125C3.42083 10.3708 3 9.26667 3 8V7C3 6.45 3.19583 5.97917 3.5875 5.5875C3.97917 5.19583 4.45 5 5 5H7V3H17V5H19C19.55 5 20.0208 5.19583 20.4125 5.5875C20.8042 5.97917 21 6.45 21 7V8C21 9.26667 20.5792 10.3708 19.7375 11.3125C18.8958 12.2542 17.85 12.8 16.6 12.95C16.3 13.7167 15.8292 14.3542 15.1875 14.8625C14.5458 15.3708 13.8167 15.7167 13 15.9V19H17V21H7ZM7 10.8V7H5V8C5 8.63333 5.18333 9.20417 5.55 9.7125C5.91667 10.2208 6.4 10.5833 7 10.8ZM12 14C12.8333 14 13.5417 13.7083 14.125 13.125C14.7083 12.5417 15 11.8333 15 11V5H9V11C9 11.8333 9.29167 12.5417 9.875 13.125C10.4583 13.7083 11.1667 14 12 14ZM17 10.8C17.6 10.5833 18.0833 10.2208 18.45 9.7125C18.8167 9.20417 19 8.63333 19 8V7H17V10.8Z" fill="#1C1B1F" />
                               </g>
                             </svg>
-                            <span>توانایی ها و انتظارات</span>
+                            <span className='dark:text-white'>توانایی ها و انتظارات</span>
                           </CardTitle>
                         </CardHeader>
                         <CardContent className="pt-1">
@@ -288,7 +289,7 @@ export default function ResultPage() {
                                 <div className="mt-0.5 p-1 rounded-full bg-green-500/10 text-green-500">
                                   <CheckCircle className="h-4 w-4" />
                                 </div>
-                                <span className="font-medium">{achievement}</span>
+                                <span className="dark:text-white font-medium">{achievement}</span>
                               </motion.li>
                             ))}
                           </ul>
@@ -301,7 +302,7 @@ export default function ResultPage() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4, duration: 0.5 }}
                     >
-                      <Card className="h-full border border-primary/10 transition-all duration-300">
+                      <Card className="h-full dark:bg-transparent border border-primary/10 dark:border-white transition-all duration-300">
                         <CardHeader className="pb-1">
                           <CardTitle className="flex items-center gap-2 text-lg justify-center text-center">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -313,7 +314,7 @@ export default function ResultPage() {
                               </g>
                             </svg>
 
-                            <span>توصیه‌های یادگیری</span>
+                            <span className="dark:text-white">توصیه‌های یادگیری</span>
                           </CardTitle>
                         </CardHeader>
                         <CardContent className="pt-1">
@@ -329,7 +330,7 @@ export default function ResultPage() {
                                 <div className="mt-0.5 p-1 rounded-full bg-primary/10 text-primary">
                                   <ArrowUpRight className="h-4 w-4" />
                                 </div>
-                                <span className="font-medium">
+                                <span className="font-medium dark:text-white">
                                   {recommendation}
                                 </span>
                               </motion.li>
@@ -349,14 +350,14 @@ export default function ResultPage() {
                     <Button
                       onClick={() => router.push("/placement")}
                       variant="outline"
-                      className="gap-2 h-12 border-primary/20 hover:border-primary/40 hover:bg-primary/5"
+                      className="gap-2 h-12 cursor-pointer border-primary/20 hover:border-primary/40 hover:bg-primary/5"
                     >
                       <Home className="h-4 w-4 ml-1" />
-                      <span>بازگشت به صفحه اصلی</span>
+                      <span >بازگشت به صفحه اصلی</span>
                     </Button>
                     <Button
                       onClick={() => router.push("/placement/exam")}
-                      className="gap-2 h-12 bg-primary/90 hover:bg-primary"
+                      className="gap-2 h-12 dark:border-white text-black dark:hover:bg-white dark:border-1 cursor-pointer bg-primary/90 hover:bg-primary"
                     >
                       <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <mask id="mask0_14103_1055" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
@@ -367,7 +368,7 @@ export default function ResultPage() {
                         </g>
                       </svg>
 
-                      <span>آزمون مجدد</span>
+                      <span className="dark:text-white ">آزمون مجدد</span>
                     </Button>
                   </motion.div>
                 </CardContent>
@@ -378,12 +379,12 @@ export default function ResultPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
               >
-                <Card className="border-primary/10  bg-card/95 backdrop-blur-sm">
+                <Card style={{background:'transparent'}} className="border-primary/10  bg-card/95 backdrop-blur-sm">
                   <CardHeader>
-                    <CardTitle className="text-xl font-bold text-center sm:text-right">
+                    <CardTitle className="dark:text-white text-xl font-bold text-center sm:text-right">
                       آزمون‌های تخصصی دیگر
                     </CardTitle>
-                    <CardDescription className="text-center sm:text-right my-2">
+                    <CardDescription className="dark:text-gray-300 text-center sm:text-right my-2">
                       برای تعیین سطح دقیق‌تر و آمادگی برای آزمون‌های بین‌المللی،
                       آزمون‌های تخصصی زیر را امتحان کنید
                     </CardDescription>
@@ -416,11 +417,11 @@ export default function ResultPage() {
                           <ul className="space-y-2 text-sm">
                             <li className="flex items-center gap-2">
                               <div className="w-1.5 h-1.5 rounded-full bg-[#BE123C]"></div>
-                              <span>ارزیابی دقیق مهارت‌های چهارگانه</span>
+                              <span className="dark:text-white">ارزیابی دقیق مهارت‌های چهارگانه</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <div className="w-1.5 h-1.5 rounded-full bg-[#BE123C]"></div>
-                              <span>آشنایی با فرمت آزمون آیلتس</span>
+                              <span className="dark:text-white">آشنایی با فرمت آزمون آیلتس</span>
                             </li>
                           </ul>
                         </CardContent>
@@ -460,11 +461,11 @@ export default function ResultPage() {
                           <ul className="space-y-2 text-sm">
                             <li className="flex items-center gap-2">
                               <div className="w-1.5 h-1.5 rounded-full bg-[#2FA79D]"></div>
-                              <span>تمرکز بر مهارت‌های آکادمیک</span>
+                              <span  className="dark:text-white">تمرکز بر مهارت‌های آکادمیک</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <div className="w-1.5 h-1.5 rounded-full bg-[#2FA79D]"></div>
-                              <span>آشنایی با سوالات چندگزینه‌ای تافل</span>
+                              <span  className="dark:text-white">آشنایی با سوالات چندگزینه‌ای تافل</span>
                             </li>
                           </ul>
                         </CardContent>
