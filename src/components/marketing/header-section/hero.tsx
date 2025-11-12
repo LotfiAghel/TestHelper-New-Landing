@@ -15,7 +15,7 @@ export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.R
     console.error(pathname)
     return (
         <Fragment>
-            <section className="py-16 shadow-xs lg:h-screen lg:items-center lg:py-12">
+            <section className="py-16 shadow-xs lg:h-screen lg:items-center">
                 <div className="mx-auto grid max-w-container grid-cols-1 items-center gap-8 px-4 md:px-8 lg:grid-cols-2 lg:gap-8">
                     <div className="flex flex-col items-center md:max-w-4xl md:items-start lg:pe-8">
                         <div className="rounded-[10px] outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2">

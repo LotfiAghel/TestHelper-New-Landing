@@ -14,7 +14,7 @@ const tests = [
         color: "from-blue-500 to-blue-600",
         bgColor: "bg-blue-200",
         borderColor: "border-blue-300",
-        url: "/toefl",
+        url: "/toefl/dashboard",
     },
     {
         name: "IELTS",
@@ -26,7 +26,7 @@ const tests = [
         color: "from-red-500 to-red-600",
         bgColor: "bg-red-200",
         borderColor: "border-red-300",
-        url: "/ielts",
+        url: "/ielts/dashboard",
     },
     {
         name: "GRE",
@@ -38,7 +38,7 @@ const tests = [
         color: "from-purple-500 to-purple-600",
         bgColor: "bg-purple-200",
         borderColor: "border-purple-300",
-        url: "/gre",
+        url: "/gre/dashboard",
     },
     {
         name: "PTE",
@@ -50,13 +50,13 @@ const tests = [
         color: "from-green-500 to-green-600",
         bgColor: "bg-green-200",
         borderColor: "border-green-300",
-        url: "/pte",
+        url: "/pte/dashboard",
     },
 ];
 
 const TestsComponent = () => {
     return (
-        <section id="tests" className="py-8 shadow-xs sm:py-12 lg:py-16">
+        <section id="tests" className="py-8 shadow-xs sm:py-12 lg:py-0">
             <div className="mx-auto max-w-container px-4 md:px-8">
                 <div className="mx-auto mb-8 flex w-full max-w-3xl flex-col items-center text-center">
                     {/* <span className="text-sm font-semibold text-brand-secondary md:text-md">Tests</span> */}

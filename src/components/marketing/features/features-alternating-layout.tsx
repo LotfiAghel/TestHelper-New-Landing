@@ -33,13 +33,13 @@ const FeaturesComponent = () => {
                         {/* <FeaturedIcon icon={MessageChatCircle} size="lg" color="brand" theme="light" /> */}
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">پلتفرم جامع آزمون‌ها</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            محیط ویژه برای تمرین آزمون‌ها، پاسخ‌های تشریحی، تصحیح رایتینگ و اسپیکینگ، و مرور کامل مهارت‌ها.
+                            محیط اختصاصی برای تمرین تمامی آزمون‌های بین‌المللی زبان
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
                             {[
-                                "تمرین در محیط مشابه آزمون اصلی",
-                                "دسترسی به پاسخ‌های تشریحی و نکات کلیدی",
-                                "پوشش کامل مهارت‌های شنیداری، گفتاری، خواندن و نوشتن",
+                                'آزمون تافل: شامل سوالات TPO، Neo-TOEFL، Zhenti',
+                                'آزمون آیلتس: شامل نمونه سوالات: کمبریج، آیلتس واقعی، ماکار، اپ اسیستنت',
+                                'آزمون GRE: شامل نمونه سوالات: PowerPrep, Dalao, Crown, TC, RC و Manhattan',
                             ].map((feat) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
@@ -78,10 +78,14 @@ const FeaturesComponent = () => {
                         {/* <FeaturedIcon icon={ZapFast} size="lg" color="brand" theme="light" /> */}
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">منابع معتبر و به‌روز</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            بیش از ۵۰۰ آزمون واقعی و اصلی در محیط کاملاً مشابه آزمون اصلی برای تمرین دقیق.
+                            بیش از 500 آزمون واقعی و شبیه‌سازی شده در محیط کاملاً مشابه آزمون اصلی برای تمرین دقیق.
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["بانک سؤال‌های واقعی و استاندارد", "به‌روزرسانی مستمر بر اساس تغییرات آزمون‌ها", "کیفیت و سطح دشواری نزدیک به آزمون واقعی"].map(
+                            {[
+                                'بانک سؤال‌های واقعی و استاندارد',
+                                'به‌روزرسانی مستمر بر اساس تغییرات آزمون‌ها',
+                                'کیفیت و سطح دشواری نزدیک به آزمون واقعی',
+                            ].map(
                                 (feat) => (
                                     <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                                 ),
@@ -118,15 +122,19 @@ const FeaturesComponent = () => {
 
                 <div className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
                     <div className="max-w-xl flex-1 self-center">
-                        {/* <FeaturedIcon icon={ChartBreakoutSquare} size="lg" color="brand" theme="light" /> */}
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">سیستم‌های یادگیری لغات</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            مرور زمان‌بندی شده با روش‌های لایتنر و تیک8 برای انتقال کلمات به حافظه بلندمدت.
+                            مرور زمان‌بندی شده  و هدفمند با روش‌های لایتنر و تیک8 برای انتقال کلمات به حافظه بلندمدت.
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["مرور هوشمند با فاصله‌های زمانی", "لیست لغات اختصاصی هر آزمون", "پیگیری پیشرفت و نرخ یادگیری"].map((feat) => (
-                                <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
-                            ))}
+                            {
+                                [
+                                    , 'مرور هوشمند و اتوماتیک توسط برنامه و با فواصل معین'
+                                    , 'امکان اضافه کردن تگ و دسته‌بندی اختصاصی برای هر کاربر'
+                                    , 'لیست لغات و فلش‌کارت‌های اختصاصی هر آزمون'
+                                ].map((feat) => (
+                                    <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
+                                ))}
                         </ul>
                     </div>
 
@@ -161,10 +169,16 @@ const FeaturesComponent = () => {
                         {/* <FeaturedIcon icon={ZapFast} size="lg" color="brand" theme="light" /> */}
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">دسته‌بندی موضوعی</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            امکان تمرین بر اساس موضوع و مهارت خاص، مثل متن‌ها یا فایل‌های صوتی مرتبط با «تاریخ هنر».
+                            دسته‌بندی براساس موضوع، مهارت و جستجوی پیشرفته
+                            امکان تمرین بر اساس یک موضوع مثل «تاریخ هنر» یا مهارت مثل «اسپیکینگ».
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["فیلتر بر اساس موضوع و مهارت", "تمرین هدفمند روی نقاط ضعف", "یافتن سریع محتوای مرتبط"].map((feat) => (
+                            {[
+
+                                , 'تمرین هدفمند '
+                                , 'شناسایی و تمرکز روی نقاط ضعف'
+                                , 'امکان جستجو بین تمامی متن‌ها و فایل‌های صوتی'
+                            ].map((feat) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
                         </ul>

@@ -40,15 +40,20 @@ export const Contact = () => {
                                 subtitle: "مستقیم از داخل سایت با پشتیبان تست‌هلپر گفت‌وگو کن.",
                                 icon: MessageChatCircle,
                                 cta: "پایین سمت چپ، روی آیکون گفت‌وگو کلیک کن.",
-                                href: "#",
+                                onClick() {
+                                    if (window.Goftino)
+                                        window.Goftino.open();
+                                }
                             },
                         ].map((item) => (
-                            <li key={item.title} className="flex max-w-sm flex-col items-center rounded-xl bg-secondary p-6 text-center">
+                            <li
+
+                                key={item.title} className="flex max-w-sm flex-col items-center rounded-xl bg-secondary p-6 text-center">
                                 <FeaturedIcon className="hidden md:flex" size="lg" icon={item.icon} color="brand" theme="light" />
                                 <FeaturedIcon className="md:hidden" size="md" icon={item.icon} color="brand" theme="light" />
                                 <h3 className="mt-4 text-lg font-semibold text-primary md:mt-5">{item.title}</h3>
                                 <p className="mt-1 text-sm text-tertiary">{item.subtitle}</p>
-                                <Button dir={item.dir} color="link-color" size="lg" href={item.href} target="_blank" className="mt-4 whitespace-normal md:mt-5">
+                                <Button onClick={item.onClick} dir={item.dir} color="link-color" size="lg" href={item.href} target="_blank" className="mt-4 whitespace-normal md:mt-5">
                                     {item.cta}
                                 </Button>
                             </li>

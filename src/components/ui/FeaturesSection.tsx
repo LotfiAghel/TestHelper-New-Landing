@@ -52,7 +52,7 @@ export function FeaturesSection() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-4">ویژگی‌های آزمون ما</h2>
+          <h2 className="text-3xl font-bold mb-4 dark:text-white">ویژگی‌های آزمون ما</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             آزمون تعیین سطح زبان انگلیسی ما با ویژگی‌های منحصر به فرد، دقیق‌ترین ارزیابی را از سطح زبان شما ارائه می‌دهد
           </p>

@@ -40,43 +40,21 @@ const Report = ({ score = 10, examUser, level = exmaLevel[0] }: {
     const generatePDF = async () => {
         html2PDF(refObj.current, {
             autoResize: true,
-        }).then(res=>{
-            res.save('TestHelper Report');
-            setIsGeneratingPdf(false);
-
-        });
+            output:'TestHelper Report'
+        })
     };
-    
-    useEffect(() => {
-        const updateProgressBar = () => {
-            const progressBar = document.getElementById('scoreProgressBar');
-            if (progressBar) {
-                const percentage = (score / 35) * 100;
-                progressBar.style.width = `${percentage}%`;
-
-                if (percentage < 30) {
-                    progressBar.style.backgroundColor = '#ef4444'; // Red-500
-                } else if (percentage < 60) {
-                    progressBar.style.backgroundColor = '#f97316'; // Orange-500
-                } else {
-                    progressBar.style.backgroundColor = '#22c55e'; // Green-500
-                }
-            }
-        };
-        updateProgressBar();
-    }, [score]);
 
     return (
         <>
             {isGeneratingPdf && createPortal(<div className='fixed w-full h-full top-0'>
                 <div className='relative w-full h-full'>
-                    <div className='w-full h-full bg-[#ffffff] top-0 flex items-center justify-center'>
+                    <div className='w-full h-full dark:bg-gray-900 bg-[#ffffff] top-0 flex items-center justify-center'>
                         <Loading />
                     </div>
                 </div>
             </div>,
                 document.body)}
-            {isGeneratingPdf && <ReportComponent studentData={studentData} refObj={refObj} generatePDF={generatePDF} />}
+            {isGeneratingPdf && <ReportComponent score={score} studentData={studentData} refObj={refObj} generatePDF={generatePDF} />}
             <Button
                 variant="outline"
                 size="sm"
@@ -104,12 +82,17 @@ const Report = ({ score = 10, examUser, level = exmaLevel[0] }: {
     );
 };
 
-const ReportComponent = ({ refObj, generatePDF, studentData }: { refObj, generatePDF: () => void, studentData }) => {
-    
+const ReportComponent = ({ refObj, generatePDF, studentData, score }: { score: number, refObj, generatePDF: () => void, studentData }) => {
+
     useEffect(() => {
         generatePDF();
-     },[]);
-    
+    }, []);
+    const percentage = (score / 35) * 100;
+    const progressColor =
+        percentage < 30 ? '#ef4444' :
+            percentage < 60 ? '#f97316' : '#22c55e';
+
+    console.error(percentage,progressColor)
     return (<div
         ref={refObj}
         dir="auto"
@@ -143,7 +126,13 @@ const ReportComponent = ({ refObj, generatePDF, studentData }: { refObj, generat
                         Overall Score: <span id="overallScore">{studentData.score}/35</span>
                     </p>
                     <div dir='ltr' className="progress-bar-container h-[15px] rounded-lg w-full bg-gray-300">
-                        <div id="scoreProgressBar" className="h-full rounded-lg progress-bar-fill" style={{ width: '0%' }}></div>
+                        <div id="scoreProgressBar" className="h-full rounded-lg progress-bar-fill"
+                            style={{
+                                width: `${percentage}%`,
+                                background: progressColor
+                            }}>
+
+                        </div>
                     </div>
                 </div>
                 <p className="text-lg text-gray-700"><strong className="font-medium">Level:</strong> <span id="englishLevel">{studentData.level.cefrLevel}</span></p>

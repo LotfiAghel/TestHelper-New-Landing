@@ -1,6 +1,6 @@
 export const MetricsMini = () => {
     return (
-        <section className="w-full bg-primary py-6 md:w-auto md:py-8">
+        <section className="w-full bg-primary pt-6 md:w-auto md:pt-8">
             <div className="mx-auto max-w-container">
                 <div className="flex flex-col gap-2 rounded-2xl bg-secondary px-4 py-2 md:gap-4 md:rounded-none md:bg-transparent md:p-0">
                     {/* <div className="flex w-full flex-col self-center md:max-w-3xl">
@@ -19,7 +19,7 @@ export const MetricsMini = () => {
                                 subtitle: "رضایت شما",
                             },
                             {
-                                title: "+300",
+                                title: "+500",
                                 subtitle: "آزمون واقعی",
                             },
                         ].map((item, index) => (
