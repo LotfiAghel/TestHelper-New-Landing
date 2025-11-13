@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Avatar } from "@/components/base/avatar/avatar";
 import { Dribbble, LinkedIn, X } from "@/components/foundations/social-icons";
 
@@ -244,7 +245,7 @@ const teamMembers = [
     },
 ];
 
-export const Team = () => {
+const TeamComponent = () => {
     return (
         <section className="py-8 shadow-xs sm:py-12 lg:py-16">
             <div className="mx-auto max-w-container px-4 md:px-8">
@@ -274,3 +275,5 @@ export const Team = () => {
         </section>
     );
 };
+
+export const Team = memo(TeamComponent);

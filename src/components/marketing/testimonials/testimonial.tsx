@@ -1,7 +1,9 @@
 "use client";
 
+import { memo } from "react";
 import { Star01 } from "@untitledui/icons";
 import Link from "next/link";
+import Image from "next/image";
 import { Marquee, MarqueeContent, MarqueeFade, MarqueeItem } from "@/components/base/marqee/marquee";
 import { Telegram } from "@/components/foundations/social-icons";
 
@@ -186,7 +188,7 @@ const reviews = [
 ];
 const shuffledReviews = [...reviews].sort(() => Math.random() - 0.5);
 
-export const Testimonial = () => {
+const TestimonialComponent = () => {
     return (
         <section className="py-8 shadow-xs sm:py-12 lg:py-16" dir="ltr">
             <div className="mx-auto mb-8 flex w-full max-w-3xl flex-col items-center text-center" dir="rtl">
@@ -206,7 +208,7 @@ export const Testimonial = () => {
                             >
                                 <div className="flex flex-col gap-2">
                                     <div className="flex flex-row items-center gap-3">
-                                        <img alt={`${review.author.name}`} className="size-12 rounded-full border-2" src={review.author.avatarUrl} />
+                                        <Image alt={`${review.author.name}`} className="size-12 rounded-full border-2" src={review.author.avatarUrl} width={48} height={48} />
                                         <div className="min-w-0 flex-1 text-xs sm:text-sm">
                                             <div className="flex flex-row items-center gap-2 text-primary">
                                                 {review.author.name}
@@ -240,3 +242,5 @@ export const Testimonial = () => {
         </section>
     );
 };
+
+export const Testimonial = memo(TestimonialComponent);

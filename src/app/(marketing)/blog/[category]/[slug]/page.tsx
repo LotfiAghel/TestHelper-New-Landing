@@ -3,9 +3,14 @@ import { FooterMain } from "@/components/marketing/footers/footer-main";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { defaultMetadata, strapiBaseUrl } from "@/utils/consts";
 
+type Params = {
+  slug: string;
+  category: string;
+};
 
-export async function generateMetadata({ params }) {
-  const { post } = await getPost(params);
+export async function generateMetadata({ params }: { params: Promise<Params> }) {
+  const resolvedParams = await params;
+  const { post } = await getPost(resolvedParams);
 
   if (!post) {
     return defaultMetadata;
@@ -46,13 +51,13 @@ export async function generateStaticParams() {
 
   const posts = await res.json()
 
-  return posts.map((post) => ({
+  return posts.map((post: any) => ({
     slug: post.slug,
     category: post.category ? post?.category?.toLowerCase() : 'all',
   }));
 }
 
-async function getPost(params) {
+async function getPost(params: Params) {
   const { slug, category } = params;
 
   const data = await fetch(`${strapiBaseUrl}/api/blog-posts/slug/${slug}`, {
@@ -70,17 +75,18 @@ async function getPost(params) {
 }
 
 
-export default async function BlogDetailsPage1({ params }) {
-  const { post, allposts } = await getPost(params);
-  let headers = [];
+export default async function BlogDetailsPage1({ params }: { params: Promise<Params> }) {
+  const resolvedParams = await params;
+  const { post, allposts } = await getPost(resolvedParams);
+  let headers: string[] = [];
   const findHeaders = (value: string) => {
     const [titles, text] = replaceTitlesWithLinks(value);
     headers = headers.concat(titles);
     return text;
   }
 
-  function replaceTitlesWithLinks(text) {
-    const titles = [];
+  function replaceTitlesWithLinks(text: string): [string[], string] {
+    const titles: string[] = [];
     const regex = /##(.*?)##/g;
 
     const matches = text.matchAll(regex);
@@ -96,7 +102,7 @@ export default async function BlogDetailsPage1({ params }) {
   }
 
   post.title = findHeaders(post.title);
-  post.NewContent = post.NewContent.map(item => {
+  post.NewContent = post.NewContent.map((item: any) => {
     if (item.__component.endsWith("faq") || item.__component.endsWith(".banner"))
       return item;
     item.content = findHeaders(item.content)
