@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import dynamic from "next/dynamic";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { HeroSection } from "@/components/marketing/header-section/hero";
+import { LearnBranch } from "@/types";
 
 const Tests = dynamic(() => import("@/components/marketing/supported-tests/tests").then(mod => ({ default: mod.Tests })), {
     loading: () => <div className="py-8 sm:py-12 lg:py-16" />,
@@ -34,7 +35,7 @@ export const HomePage = () => {
     return (
         <Fragment>
             <Header />
-            <HeroSection />
+            <HeroSection openModal={true} />
             <Tests />
             <Testimonial />
             <Features />
@@ -42,7 +43,7 @@ export const HomePage = () => {
             <SocialProof />
             <FAQ />
             <CTA />
-            <FooterMain />
+            <FooterMain type={LearnBranch.TOEFL} />
         </Fragment>
     );
 };

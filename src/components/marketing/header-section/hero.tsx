@@ -9,12 +9,19 @@ import { Button } from "@/components/base/buttons/button";
 import { MetricsMini } from "@/components/marketing/metrics/metrics-mini";
 import { MainSubtitle, MainTitle } from "./main-title";
 import { usePathname } from "next/navigation";
+import { getUserContext } from "@/context/userContext";
+import ChooseSitePopUp from "./ChoosSitesPopUp";
 
-export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.ReactNode }) => {
+export const HeroSection = ({
+    openModal,
+    subtitle,
+    title
+}: { title?: React.ReactNode; subtitle?: React.ReactNode, openModal?: boolean }) => {
     const pathname = usePathname().replace('/', '');
-    console.error(pathname)
+    const { user } = getUserContext();
     return (
         <Fragment>
+
             <section className="py-16 shadow-xs lg:h-screen lg:items-center">
                 <div className="mx-auto grid max-w-container grid-cols-1 items-center gap-8 px-4 md:px-8 lg:grid-cols-2 lg:gap-8">
                     <div className="flex flex-col items-center md:max-w-4xl md:items-start lg:pe-8">
@@ -27,20 +34,25 @@ export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.R
                             </BadgeGroup>
                         </div>
 
-                        {props.title ? (
-                            <h1 className="mt-4 text-center text-display-md font-semibold text-primary md:text-start md:text-display-lg">{props.title}</h1>
+                        {title ? (
+                            <h1 className="mt-4 text-center text-display-md font-semibold text-primary md:text-start md:text-display-lg">{title}</h1>
                         ) : (
                             <MainTitle />
                         )}
-                        {props.subtitle ? (
-                            <h2 className="mt-4 max-w-lg text-center text-balance text-tertiary md:mt-6 md:text-start md:text-lg">{props.subtitle}</h2>
+                        {subtitle ? (
+                            <h2 className="mt-4 max-w-lg text-center text-balance text-tertiary md:mt-6 md:text-start md:text-lg">{subtitle}</h2>
                         ) : (
                             <MainSubtitle />
                         )}
                         <div className="mt-6 flex w-full flex-col-reverse items-stretch gap-3 md:mt-8 md:flex-row md:items-start">
-                            <Button href={`${pathname ? pathname : 'toefl'}/dashboard`} color="primary" size="xl">
-                                شروع رایگان
-                            </Button>
+                            {
+                                openModal ?
+                                    <ChooseSitePopUp user={user}/>
+                                    :
+
+                                    <Button href={`${pathname ? pathname : 'toefl'}/dashboard`} color="primary" size="xl">
+                                        شروع رایگان
+                                    </Button>}
                             <Button href="/placement" color="secondary" size="xl">
                                 آزمون تعیین سطح
                             </Button>

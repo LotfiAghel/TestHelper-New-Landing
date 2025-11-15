@@ -9,6 +9,7 @@ import { HeroSection } from "@/components/marketing/header-section/hero";
 import { SocialProof } from "@/components/marketing/social-proof/social-proof";
 import { Team } from "@/components/marketing/team/team";
 import { Testimonial } from "@/components/marketing/testimonials/testimonial";
+import { LearnBranch } from "@/types";
 
 export const metadata = {
     title: "آزمون GRE | ماک GRE، بهترین منابع، نمره و تاریخ آزمون | تست‌هلپر",
@@ -176,7 +177,7 @@ const GrePage = () => {
                 heading="ماک GRE رایگان رو امروز شروع کن"
                 description="با بهترین منابع و کلاس GRE، نمره و امتیاز دلخواهت رو کسب کن"
             />
-            <FooterMain />
+            <FooterMain type={LearnBranch.GRE} />
         </Fragment>
     );
 };

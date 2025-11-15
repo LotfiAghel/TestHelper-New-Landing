@@ -134,3 +134,9 @@ export interface User {
   email: string
   id: string
 }
+
+export const enum LearnBranch {
+    TOEFL = 1,
+    IELTS,
+    GRE,
+}

@@ -9,6 +9,7 @@ import { HeroSection } from "@/components/marketing/header-section/hero";
 import { SocialProof } from "@/components/marketing/social-proof/social-proof";
 import { Team } from "@/components/marketing/team/team";
 import { Testimonial } from "@/components/marketing/testimonials/testimonial";
+import { LearnBranch } from "@/types";
 
 export const metadata = {
     title: "آزمون آیلتس (IELTS) | ماک آیلتس رایگان، کلاس آنلاین و ثبت‌نام | تست‌هلپر",
@@ -177,7 +178,7 @@ const IeltsPage = () => {
                 ]}
             />
             <CTA startHref="/ielts/dashboard" heading="ماک آیلتس رایگان رو امروز شروع کن" description="با کلاس‌های آنلاین و منابع تضمینی به نمره دلخواهت برس" />
-            <FooterMain />
+            <FooterMain type={LearnBranch.IELTS} />
         </Fragment>
     );
 };
