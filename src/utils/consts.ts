@@ -2,6 +2,7 @@ import { uuidv4 } from "@/Models/base";
 import { ExamMode, ExamPartSession, QuestionTrueFalseOptionResponse, Response, ResponseCreator } from "@/Models/Models/Models/Customer/Response";
 import { ExamPartType } from "@/Models/Models/Models/Exams/ExamPartType";
 import { QuestionTrueFalseOption } from "@/Models/Models/Models/Exams/Question";
+import { LearnBranch } from "@/types";
 
 export const strapiBaseUrl = "https://strapi-admin.testhelper.com";
 export const serverBaseUrl = process.env.NEXT_PUBLIC_API_SERVER || "/toefl-api";
@@ -407,4 +408,11 @@ export const exmaLevel = [
 export const handleUrlAttach = (...url: string[]) => {
   const baseurl = 'https://testhelper.com/toefl-api/api/files2/DownloadFile2/';
   return (baseurl + url.join('/')).replaceAll('//', '/');
+}
+
+
+export const sibAppLinks = {
+  [LearnBranch.IELTS]: "https://sibapp.com/applications/TestHelperIELTS",
+  [LearnBranch.GRE]: "https://sibapp.com/applications/testhelpergre",
+  [LearnBranch.TOEFL]: "https://sibapp.com/applications/TestHelper-TOEFL",
 }

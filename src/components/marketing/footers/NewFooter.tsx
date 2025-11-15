@@ -4,7 +4,7 @@ import { Download, Apple, Send, Instagram, Linkedin, Menu } from 'lucide-react';
 import { LinkedIn } from '@/components/foundations/social-icons';
 import Image from 'next/image';
 import { LearnBranch } from '@/types';
-import { handleUrlAttach } from '@/utils/consts';
+import { handleUrlAttach, sibAppLinks } from '@/utils/consts';
 
 const NavLink = ({ children, link = '#' }) => (
     <a href={link} className="text-[#F8F9FA] hover:text-white transition-colors text-sm mb-2 block">
@@ -92,20 +92,13 @@ const NewFooter = ({ type }: { type: LearnBranch }) => {
                                         className="w-6 h-6 text-gray-300"
                                     />
                                 } />
-                            <AppStoreBadge
 
-                                store="Google Play" icon={
-                                    <Image
-                                        src={'/images/google-play-store-logo-svgrepo-com.svg'}
-                                        width={15}
-                                        height={15}
-                                        alt='testHelper Android Application'
-                                        className="w-6 h-6 text-gray-300"
-                                    />
-                                } />
                             <AppStoreBadge
-
-                                store="Apple Store" icon={
+                                store="Apple Store"
+                                link={
+                                    sibAppLinks[type]
+                                }
+                                icon={
                                     <Image
                                         src={'/images/apple-svgrepo-com.svg'}
                                         width={15}
