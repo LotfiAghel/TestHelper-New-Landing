@@ -41,9 +41,9 @@ interface FeaturesProps {
 const defaultFeatures: Feature[] = [
     {
         title: "پلتفرم جامع آزمون‌ها",
-        description: "محیط ویژه برای تمرین آزمون‌ها، پاسخ‌های تشریحی، تصحیح رایتینگ و اسپیکینگ، و مرور کامل مهارت‌ها.",
+        description: "محیط اختصاصی برای تمرین تمامی آزمون‌های بین‌المللی زبان",
         items: [
-            "تمرین در محیط مشابه آزمون اصلی",
+            "تافل (TOEFL): شامل مجموعه‌های TPO، Neo-TOEFL، Zhenti",
             "دسترسی به پاسخ‌های تشریحی و نکات کلیدی",
             "پوشش کامل مهارت‌های شنیداری، گفتاری، خواندن و نوشتن",
         ],
@@ -54,11 +54,7 @@ const defaultFeatures: Feature[] = [
     {
         title: "منابع معتبر و به‌روز",
         description: "بیش از ۵۰۰ آزمون واقعی و اصلی در محیط کاملاً مشابه آزمون اصلی برای تمرین دقیق.",
-        items: [
-            "بانک سؤال‌های واقعی و استاندارد",
-            "به‌روزرسانی مستمر بر اساس تغییرات آزمون‌ها",
-            "کیفیت و سطح دشواری نزدیک به آزمون واقعی",
-        ],
+        items: ["بانک سؤال‌های واقعی و استاندارد", "به‌روزرسانی مستمر بر اساس تغییرات آزمون‌ها", "کیفیت و سطح دشواری نزدیک به آزمون واقعی"],
         imageLightSrc: "/images/features/exams-light.png",
         imageDarkSrc: "/images/features/exams-dark.png",
         imagePosition: "left",
@@ -66,11 +62,7 @@ const defaultFeatures: Feature[] = [
     {
         title: "سیستم‌های یادگیری لغات",
         description: "مرور زمان‌بندی شده با روش‌های لایتنر و تیک8 برای انتقال کلمات به حافظه بلندمدت.",
-        items: [
-            "مرور هوشمند با فاصله‌های زمانی",
-            "لیست لغات اختصاصی هر آزمون",
-            "پیگیری پیشرفت و نرخ یادگیری",
-        ],
+        items: ["مرور هوشمند با فاصله‌های زمانی", "لیست لغات اختصاصی هر آزمون", "پیگیری پیشرفت و نرخ یادگیری"],
         imageLightSrc: "/images/features/vocab-light.png",
         imageDarkSrc: "/images/features/vocab-dark.png",
         imagePosition: "right",
@@ -78,11 +70,7 @@ const defaultFeatures: Feature[] = [
     {
         title: "دسته‌بندی موضوعی",
         description: "امکان تمرین بر اساس موضوع و مهارت خاص، مثل متن‌ها یا فایل‌های صوتی مرتبط با «تاریخ هنر».",
-        items: [
-            "فیلتر بر اساس موضوع و مهارت",
-            "تمرین هدفمند روی نقاط ضعف",
-            "یافتن سریع محتوای مرتبط",
-        ],
+        items: ["فیلتر بر اساس موضوع و مهارت", "تمرین هدفمند روی نقاط ضعف", "یافتن سریع محتوای مرتبط"],
         imageLightSrc: "/images/features/subject-light.png",
         imageDarkSrc: "/images/features/subject-dark.png",
         imagePosition: "left",
@@ -90,11 +78,7 @@ const defaultFeatures: Feature[] = [
     {
         title: "تصحیح هوش مصنوعی",
         description: "تصحیح سریع و دقیق رایتینگ و اسپیکینگ.",
-        items: [
-            "فیدبک فوری با پرامپت اختصاصی (ChatGPT-Pro)",
-            "نمره‌دهی منطبق با معیارهای رسمی",
-            "پیشنهاد بهبود واژگان و گرامر",
-        ],
+        items: ["فیدبک فوری با پرامپت اختصاصی (ChatGPT-Pro)", "نمره‌دهی منطبق با معیارهای رسمی", "پیشنهاد بهبود واژگان و گرامر"],
         imageLightSrc: "/images/features/AI-light.png",
         imageDarkSrc: "/images/features/AI-dark.png",
         imagePosition: "right",
@@ -102,11 +86,7 @@ const defaultFeatures: Feature[] = [
     {
         title: "نمودارهای تحلیلی",
         description: "داشبورد و نمودارهای تحلیلی برای بررسی پیشرفت، نقاط ضعف و بهینه‌سازی یادگیری.",
-        items: [
-            "پیگیری روند نمرات در طول زمان",
-            "تحلیل عملکرد در مهارت‌ها و موضوعات",
-            "گزارش‌های آماده برای برنامه‌ریزی مطالعه",
-        ],
+        items: ["پیگیری روند نمرات در طول زمان", "تحلیل عملکرد در مهارت‌ها و موضوعات", "گزارش‌های آماده برای برنامه‌ریزی مطالعه"],
         imageLightSrc: "/images/features/charts-light.png",
         imageDarkSrc: "/images/features/charts-dark.png",
         imagePosition: "left",
@@ -114,11 +94,7 @@ const defaultFeatures: Feature[] = [
     {
         title: "فلش‌کارت‌های ضروری",
         description: "مجموعه لغات مهم هر آزمون و امکان یادگیری با روش‌های لایتنر و تیک8.",
-        items: [
-            "فلش‌کارت‌های از پیش آماده",
-            "هماهنگ با سیستم‌های لایتنر و تیک8",
-            "مرور سریع روی موبایل و دسکتاپ",
-        ],
+        items: ["فلش‌کارت‌های از پیش آماده", "هماهنگ با سیستم‌های لایتنر و تیک8", "مرور سریع روی موبایل و دسکتاپ"],
         imageLightSrc: "/images/features/flash-cards-light.png",
         imageDarkSrc: "/images/features/flash-cards-dark.png",
         imagePosition: "right",
@@ -132,9 +108,7 @@ export const Features = ({ heading, description, customFeatures }: FeaturesProps
             <div className="mx-auto w-full max-w-container px-4 md:px-8">
                 <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
                     {/* <span className="text-sm font-semibold text-brand-secondary md:text-md">Features</span> */}
-                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">
-                        {heading || "امکانات ویژه تست‌هلپر"}
-                    </h2>
+                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">{heading || "امکانات ویژه تست‌هلپر"}</h2>
                     <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
                         {description || "تست‌هلپر مثل یه جعبه‌ابزار کامله؛ هرچی لازم داری اینجاست."}
                     </p>

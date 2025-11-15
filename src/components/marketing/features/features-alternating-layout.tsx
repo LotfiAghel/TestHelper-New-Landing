@@ -1,8 +1,8 @@
 "use client";
 
-import { memo, type FC, type HTMLAttributes } from "react";
-import Image from "next/image";
+import { type FC, type HTMLAttributes, memo } from "react";
 import { ChartBreakoutSquare, MessageChatCircle, ZapFast } from "@untitledui/icons";
+import Image from "next/image";
 // import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
 import { CheckItemText } from "@/components/marketing/pricing/base-components/pricing-tier-card";
 import { FlowPattern } from "@/components/shared-assets/background-patterns/flow-pattern";
@@ -32,14 +32,12 @@ const FeaturesComponent = () => {
                     <div className="max-w-xl flex-1 self-center">
                         {/* <FeaturedIcon icon={MessageChatCircle} size="lg" color="brand" theme="light" /> */}
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">پلتفرم جامع آزمون‌ها</h2>
-                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            محیط ویژه برای تمرین آزمون‌ها، پاسخ‌های تشریحی، تصحیح رایتینگ و اسپیکینگ، و مرور کامل مهارت‌ها.
-                        </p>
+                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">محیط اختصاصی برای تمرین تمامی آزمون‌های بین‌المللی زبان</p>
                         <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
                             {[
-                                "تمرین در محیط مشابه آزمون اصلی",
-                                "دسترسی به پاسخ‌های تشریحی و نکات کلیدی",
-                                "پوشش کامل مهارت‌های شنیداری، گفتاری، خواندن و نوشتن",
+                                "آزمون تافل (TOEFL): شامل مجموعه‌های TPO، Neo-TOEFL، Zhenti",
+                                "آزمون آیلتس (IELTS): شامل نمونه‌سوالات Cambridge، Real-IELTS، Makkar، Speaking Assistant App، Official Cambridge Guide",
+                                "آزمون جی‌آرای (GRE): شامل سؤالات PowerPrep، Dalao، Crown، TC، RC و Manhattan",
                             ].map((feat) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
@@ -77,15 +75,15 @@ const FeaturesComponent = () => {
                     <div className="max-w-xl flex-1 self-center lg:order-last">
                         {/* <FeaturedIcon icon={ZapFast} size="lg" color="brand" theme="light" /> */}
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">منابع معتبر و به‌روز</h2>
-                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            بیش از ۵۰۰ آزمون واقعی و اصلی در محیط کاملاً مشابه آزمون اصلی برای تمرین دقیق.
-                        </p>
+                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">بیش از 500 آزمون واقعی و شبیه‌سازی شده در محیطی کاملاً مشابه آزمون اصلی</p>
                         <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["بانک سؤال‌های واقعی و استاندارد", "به‌روزرسانی مستمر بر اساس تغییرات آزمون‌ها", "کیفیت و سطح دشواری نزدیک به آزمون واقعی"].map(
-                                (feat) => (
-                                    <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
-                                ),
-                            )}
+                            {[
+                                "بانک سؤال‌های واقعی و استاندارد",
+                                "به‌روزرسانی مداوم براساس آخرین تغییرات آزمون‌ها",
+                                "کیفیت و سطح دشواری نزدیک به آزمون اصلی",
+                            ].map((feat) => (
+                                <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
+                            ))}
                         </ul>
                     </div>
 
@@ -124,7 +122,11 @@ const FeaturesComponent = () => {
                             مرور زمان‌بندی شده با روش‌های لایتنر و تیک8 برای انتقال کلمات به حافظه بلندمدت.
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["مرور هوشمند با فاصله‌های زمانی", "لیست لغات اختصاصی هر آزمون", "پیگیری پیشرفت و نرخ یادگیری"].map((feat) => (
+                            {[
+                                "مرور هوشمند و خودکار در فواصل زمانی معین",
+                                "امکان اضافه کردن تگ و دسته‌بندی اختصاصی توسط کاربر",
+                                "لیست لغات و فلش‌کارت‌های اختصاصی هر آزمون",
+                            ].map((feat) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
                         </ul>
@@ -161,11 +163,13 @@ const FeaturesComponent = () => {
                     <div className="max-w-xl flex-1 self-center lg:order-last">
                         {/* <FeaturedIcon icon={ZapFast} size="lg" color="brand" theme="light" /> */}
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">دسته‌بندی موضوعی</h2>
-                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            امکان تمرین بر اساس موضوع و مهارت خاص، مثل متن‌ها یا فایل‌های صوتی مرتبط با «تاریخ هنر».
-                        </p>
+                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">تمرین دقیق و هدفمند بر اساس موضوع، مهارت یا سطح دشواری.</p>
                         <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["فیلتر بر اساس موضوع و مهارت", "تمرین هدفمند روی نقاط ضعف", "یافتن سریع محتوای مرتبط"].map((feat) => (
+                            {[
+                                "تمرین بر اساس موضوع مثل «تاریخ هنر»، «باستان‌شناسی» و…",
+                                "تمرکز بر مهارت‌های خاص مثل اسپیکینگ یا ریدینگ",
+                                "جستجو بین تمام متن‌ها و فایل‌های صوتی",
+                            ].map((feat) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
                         </ul>
@@ -202,9 +206,13 @@ const FeaturesComponent = () => {
                     <div className="max-w-xl flex-1 self-center">
                         {/* <FeaturedIcon icon={ChartBreakoutSquare} size="lg" color="brand" theme="light" /> */}
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">تصحیح هوش مصنوعی</h2>
-                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">تصحیح سریع و دقیق رایتینگ و اسپیکینگ.</p>
+                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">تصحیح سریع و دقیق رایتینگ و اسپیکینگ با الگوریتم‌های پیشرفته</p>
                         <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["فیدبک فوری با پرامپت اختصاصی (ChatGPT-Pro)", "نمره‌دهی منطبق با معیارهای رسمی", "پیشنهاد بهبود واژگان و گرامر"].map((feat) => (
+                            {[
+                                "فیدبک فوری با پرامپت اختصاصی (ChatGPT-Pro)",
+                                "نمره‌دهی مطابق استانداردهای رسمی",
+                                "پیشنهادهای کاربردی برای بهبود گرامر و واژگان",
+                            ].map((feat) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
                         </ul>
@@ -242,7 +250,7 @@ const FeaturesComponent = () => {
                         {/* <FeaturedIcon icon={ZapFast} size="lg" color="brand" theme="light" /> */}
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">نمودارهای تحلیلی</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            داشبورد و نمودارهای تحلیلی برای بررسی پیشرفت، نقاط ضعف و بهینه‌سازی یادگیری.
+                            داشبورد و نمودارهای تحلیلی برای بررسی پیشرفت، نقاط ضعف و بهینه‌سازی یادگیری
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
                             {["پیگیری روند نمرات در طول زمان", "تحلیل عملکرد در مهارت‌ها و موضوعات", "گزارش‌های آماده برای برنامه‌ریزی مطالعه"].map((feat) => (
@@ -284,7 +292,7 @@ const FeaturesComponent = () => {
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">فلش‌کارت‌های ضروری</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">مجموعه لغات مهم هر آزمون و امکان یادگیری با روش‌های لایتنر و تیک8.</p>
                         <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                            {["فلش‌کارت‌های از پیش آماده", "هماهنگ با سیستم‌های لایتنر و تیک8", "مرور سریع روی موبایل و دسکتاپ"].map((feat) => (
+                            {["فلش‌کارت‌های آماده و با قابلیت شخصی‌سازی", "سازگار با سیستم‌های لایتنر و تیک8", "مرور سریع در موبایل و دسکتاپ"].map((feat) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
                         </ul>
