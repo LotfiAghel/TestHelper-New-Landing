@@ -256,3 +256,7 @@ img.i-close-arrow {
     content: url(../../public/images/globe_book-purple.png);
     visibility: visible !important;
 }
+
+.new-footer{
+    font-family: Vazirmatn,system-ui,sans-serif !important;
+}

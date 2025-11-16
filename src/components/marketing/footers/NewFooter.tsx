@@ -60,8 +60,8 @@ const NewFooter = ({ type }: { type: LearnBranch }) => {
     const properApp = data.find(item => item.learnBranch == type)
 
     return (
-        <div className={`flex items-start justify-center ${bgColor}`}>
-            <footer className={`w-full text-white ${bgColor} font-sans py-4`}>
+        <div className={`flex items-start justify-center ${bgColor} new-footer`}>
+            <footer className={`w-full text-white ${bgColor}  py-4`}>
                 <div className={`${accentColor} flex w-full flex-col md:flex-row justify-between items-start md:items-center`}>
                     <div className='py-[1rem] flex px-[2rem] md:px-[3rem] xl:px-[15rem] flex-col md:flex-row-reverse w-full justify-between items-start md:items-center'>
                         <div className="flex items-center gap-4 order-1 md:order-2">
@@ -94,7 +94,7 @@ const NewFooter = ({ type }: { type: LearnBranch }) => {
                                 } />
 
                             <AppStoreBadge
-                                store="Apple Store"
+                                store="SibApp"
                                 link={
                                     sibAppLinks[type]
                                 }
