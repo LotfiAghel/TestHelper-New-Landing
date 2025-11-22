@@ -2,8 +2,8 @@
 
 import { memo } from "react";
 import { Star01 } from "@untitledui/icons";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { Marquee, MarqueeContent, MarqueeFade, MarqueeItem } from "@/components/base/marqee/marquee";
 import { Telegram } from "@/components/foundations/social-icons";
 
@@ -191,54 +191,64 @@ const shuffledReviews = [...reviews].sort(() => Math.random() - 0.5);
 const TestimonialComponent = () => {
     return (
         <section className="py-8 shadow-xs sm:py-12 lg:py-16" dir="ltr">
-            <div className="mx-auto mb-8 flex w-full max-w-3xl flex-col items-center text-center" dir="rtl">
-                {/* <span className="text-sm font-semibold text-brand-secondary md:text-md">Tests</span> */}
-                <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">کاربرامون چی می‌گن؟</h2>
-                <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">هر کاربر تجربه خودش رو داره؛ اما نقطه مشترک همه‌شون اعتماد به تست‌هلپر بوده.</p>
-            </div>
-            <Marquee>
-                <MarqueeFade side="left" />
-                <MarqueeFade side="right" />
-                <MarqueeContent direction="right" autoFill={true} speed={60}>
-                    {shuffledReviews.map((review, index) => (
-                        <MarqueeItem key={index}>
-                            <div
-                                dir="rtl"
-                                className="flex w-[240px] flex-col items-start gap-2 rounded-xl bg-tertiary p-4 sm:w-[340px] lg:justify-between lg:p-6"
-                            >
-                                <div className="flex flex-col gap-2">
-                                    <div className="flex flex-row items-center gap-3">
-                                        <Image alt={`${review.author.name}`} className="size-12 rounded-full border-2" src={review.author.avatarUrl} width={48} height={48} />
-                                        <div className="min-w-0 flex-1 text-xs sm:text-sm">
-                                            <div className="flex flex-row items-center gap-2 text-primary">
-                                                {review.author.name}
-                                                <Link href={review.source.url} target="_blank">
-                                                    {<review.source.platform size={14} className="text-utility-blue-500" />}
-                                                </Link>
-                                            </div>
+            <div className="mx-auto max-w-container px-4 md:px-8">
+                <div className="mx-auto mb-8 flex w-full max-w-3xl flex-col items-center text-center" dir="rtl">
+                    {/* <span className="text-sm font-semibold text-brand-secondary md:text-md">Tests</span> */}
+                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">کاربرامون چی می‌گن؟</h2>
+                    <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
+                        هر کاربر تجربه خودش رو داره؛ اما نقطه مشترک همه‌شون اعتماد به تست‌هلپر بوده.
+                    </p>
+                </div>
+                <Marquee>
+                    <MarqueeFade side="left" />
+                    <MarqueeFade side="right" />
+                    <MarqueeContent direction="right" autoFill={true} speed={60}>
+                        {shuffledReviews.map((review, index) => (
+                            <MarqueeItem key={index}>
+                                <div
+                                    dir="rtl"
+                                    className="flex w-60 flex-col items-start gap-2 rounded-xl bg-tertiary p-4 sm:w-[340px] lg:justify-between lg:p-6"
+                                >
+                                    <div className="flex flex-col gap-2">
+                                        <div className="flex flex-row items-center gap-3">
+                                            <Image
+                                                alt={`${review.author.name}`}
+                                                className="size-12 rounded-full border-2"
+                                                src={review.author.avatarUrl}
+                                                width={48}
+                                                height={48}
+                                            />
+                                            <div className="min-w-0 flex-1 text-xs sm:text-sm">
+                                                <div className="flex flex-row items-center gap-2 text-primary">
+                                                    {review.author.name}
+                                                    <Link href={review.source.url} target="_blank">
+                                                        {<review.source.platform size={14} className="text-utility-blue-500" />}
+                                                    </Link>
+                                                </div>
 
-                                            <div className="inline-block rounded-md bg-brand-secondary px-2 text-tertiary">
-                                                {review.author.test} • {review.author.testScore}
+                                                <div className="inline-block rounded-md bg-brand-secondary px-2 text-tertiary">
+                                                    {review.author.test} • {review.author.testScore}
+                                                </div>
                                             </div>
                                         </div>
+                                        {/* Star Rating */}
+                                        <div className="flex w-fit items-center justify-center gap-1">
+                                            {Array.from({ length: 5 }).map((_, starIndex) => (
+                                                <Star01
+                                                    key={starIndex}
+                                                    className={`size-4 ${starIndex < review.author.stars ? "fill-yellow-500 text-yellow-500" : "text-disabled"}`}
+                                                />
+                                            ))}
+                                        </div>
                                     </div>
-                                    {/* Star Rating */}
-                                    <div className="flex w-fit items-center justify-center gap-1">
-                                        {Array.from({ length: 5 }).map((_, starIndex) => (
-                                            <Star01
-                                                key={starIndex}
-                                                className={`size-4 ${starIndex < review.author.stars ? "fill-yellow-500 text-yellow-500" : "text-disabled"}`}
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
 
-                                <p className="line-clamp-3 text-xs leading-relaxed text-secondary">{review.quote}</p>
-                            </div>
-                        </MarqueeItem>
-                    ))}
-                </MarqueeContent>
-            </Marquee>
+                                    <p className="line-clamp-3 text-xs leading-relaxed text-secondary">{review.quote}</p>
+                                </div>
+                            </MarqueeItem>
+                        ))}
+                    </MarqueeContent>
+                </Marquee>
+            </div>
         </section>
     );
 };

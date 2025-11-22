@@ -2,8 +2,8 @@
 
 import { Fragment } from "react";
 import { Globe02, PlayCircle, Rocket01, Rocket02, Translate01 } from "@untitledui/icons";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { BadgeGroup } from "@/components/base/badges/badge-groups";
 import { Button } from "@/components/base/buttons/button";
 import { MetricsMini } from "@/components/marketing/metrics/metrics-mini";
@@ -12,7 +12,7 @@ import { MainSubtitle, MainTitle } from "./main-title";
 export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.ReactNode }) => {
     return (
         <Fragment>
-            <section className="py-16 shadow-xs lg:h-screen lg:items-center lg:py-12">
+            <section className="max-h-fit py-16 shadow-xs lg:h-screen lg:items-center lg:py-12">
                 <div className="mx-auto grid max-w-container grid-cols-1 items-center gap-8 px-4 md:px-8 lg:grid-cols-2 lg:gap-8">
                     <div className="flex flex-col items-center md:max-w-4xl md:items-start lg:pe-8">
                         <div className="rounded-[10px] outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2">
@@ -45,24 +45,23 @@ export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.R
                         <MetricsMini />
                     </div>
                     <div className="relative flex items-center justify-center lg:h-full lg:min-h-160">
-                        <video 
-                            className="h-auto max-h-full w-auto max-w-full dark:hidden" 
-                            src="/media/girl+cat+laptop-loop.mp4" 
-                            autoPlay 
-                            loop 
-                            muted 
-                            playsInline 
+                        <video
+                            className="h-auto max-h-full w-auto max-w-full dark:hidden"
+                            src="/media/girl+cat+laptop-loop.mp4"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
                             preload="none"
                             poster="/images/girl+cat+laptop.webp"
-                            loading="lazy"
                         />
-                        <Image 
-                            className="h-auto max-h-full w-auto max-w-full not-dark:hidden" 
-                            src="/images/girl+cat+laptop.webp" 
-                            alt="Test Helper Platform" 
-                            width={800} 
-                            height={600} 
-                            priority 
+                        <Image
+                            className="h-auto max-h-full w-auto max-w-full not-dark:hidden"
+                            src="/images/girl+cat+laptop.webp"
+                            alt="Test Helper Platform"
+                            width={800}
+                            height={600}
+                            priority
                             quality={90}
                         />
                     </div>
