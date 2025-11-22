@@ -162,7 +162,7 @@ const StickyImageSidebar = ({ activeFeature }) => {
 
 const MobileImage = ({ src, alt }) => (
     <div className="md:hidden w-full h-64 rounded-xl overflow-hidden mt-8 relative shadow-lg">
-        <img src={src} alt={alt} className="w-full h-full object-cover" />
+        <img alt={alt} className={` ${src} w-full h-full object-cover`} />
     </div>
 );
 
