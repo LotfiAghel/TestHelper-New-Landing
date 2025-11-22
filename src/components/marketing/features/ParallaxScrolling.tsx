@@ -105,7 +105,7 @@ const features = [
         title: 'اپلیکیشن‌های تخصصی',
         category: "Protection",
         description: "اپلیکیشن اختصاصی برای هر آزمون، با امکان استفاده کاملاً آفلاین",
-        image: "/images/features/charts-light.png",
+        image: "app-feat-img",
         benefits: [
             'مناسب سفر، مسیر یا موقعیت‌های بدون اینترنت',
             'طراحی‌شده مخصوص نیازهای هر آزمون (تافل، آیلتس، جی‌آرای و…)',
@@ -245,6 +245,7 @@ export default function ParallaxSrolling() {
     const [activeFeature, setActiveFeature] = useState(0);
 
     return (
+
         <div className='flex flex-row'>
             <div className="md:w-1/2 w-full bg-transparent">
                 {features.map((feature, index) => (

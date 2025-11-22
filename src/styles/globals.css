@@ -289,6 +289,11 @@ content: url(../../public/images/features/AI-light.png);
     content: url(../../public/images/features/flash-cards-light.png);
 }
 
+
+.app-feat-img{
+    content: url(../../public/images/features/application-light.png);
+}
+
 &:where(.dark-mode, .dark-mode *) .tests-feat-img{
     content: url(../../public/images/features/tests-dark.png);
 }
@@ -318,4 +323,8 @@ content: url(../../public/images/features/AI-light.png);
 
 &:where(.dark-mode, .dark-mode *) .flash-cards-feat-img{
     content: url(../../public/images/features/flash-cards-dark.png);
+}
+
+&:where(.dark-mode, .dark-mode *) .app-feat-img{
+    content: url(../../public/images/features/application-dark.png);
 }
