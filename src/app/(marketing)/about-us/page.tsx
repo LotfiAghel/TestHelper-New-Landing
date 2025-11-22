@@ -1,11 +1,11 @@
 import { Fragment } from "react";
 import { About } from "@/components/marketing/about/about";
-import { FooterMain } from "@/components/marketing/footers/footer-main";
+import { Footer } from "@/components/marketing/footers/footer";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { Team } from "@/components/marketing/team/team";
 
 // Enable static generation
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 export const revalidate = 3600; // Revalidate every hour
 
 const AboutUsPage = () => {
@@ -14,7 +14,7 @@ const AboutUsPage = () => {
             <Header />
             <About />
             <Team />
-            <FooterMain />
+            <Footer />
         </Fragment>
     );
 };

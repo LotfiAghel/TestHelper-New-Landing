@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { CTA } from "@/components/marketing/cta/cta";
 import { FAQ } from "@/components/marketing/faq/faq-accordion";
 import { Features } from "@/components/marketing/features/features";
-import { FooterMain } from "@/components/marketing/footers/footer-main";
+import { Foote } from "@/components/marketing/footers/footer";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { HeroSection } from "@/components/marketing/header-section/hero";
 import { SocialProof } from "@/components/marketing/social-proof/social-proof";
@@ -120,7 +120,7 @@ export const metadata = {
 };
 
 // Enable static generation
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 export const revalidate = 3600; // Revalidate every hour
 
 const PtePage = () => {
@@ -223,7 +223,7 @@ const PtePage = () => {
                 heading="ماک PTE رایگان رو امروز شروع کن"
                 description="با بهترین کلاس، منابع و خرید ووچر پی تی ای، به نمره دلخواهت برس"
             />
-            <FooterMain />
+            <Footer />
         </Fragment>
     );
 };
