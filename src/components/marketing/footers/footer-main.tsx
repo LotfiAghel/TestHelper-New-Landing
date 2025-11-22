@@ -1,7 +1,11 @@
-import {Instagram,LinkedIn, Telegram, } from "@/components/foundations/social-icons";
-
+import { Instagram, LinkedIn, Telegram, YouTube } from "@/components/foundations/social-icons";
 
 const footerSocials = [
+    {
+        label: "YouTube",
+        icon: YouTube,
+        href: "https://www.youtube.com/@TestHelperTV",
+    },
     {
         label: "LinkedIn",
         icon: LinkedIn,
@@ -12,7 +16,6 @@ const footerSocials = [
         icon: Instagram,
         href: "https://www.instagram.com/testhelper_ir",
     },
-    
     {
         label: "Telegram",
         icon: Telegram,
