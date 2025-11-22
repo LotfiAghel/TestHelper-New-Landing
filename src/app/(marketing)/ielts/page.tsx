@@ -2,8 +2,8 @@
 import { Fragment } from "react";
 import { CTA } from "@/components/marketing/cta/cta";
 import { FAQ } from "@/components/marketing/faq/faq-accordion";
-import { Features } from "@/components/marketing/features/features";
-import { FooterMain } from "@/components/marketing/footers/footer-main";
+import { Features } from "@/components/marketing/features/features-alternating";
+import { Footer } from "@/components/marketing/footers/footer";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { HeroSection } from "@/components/marketing/header-section/hero";
 import { SocialProof } from "@/components/marketing/social-proof/social-proof";
@@ -81,7 +81,7 @@ export const metadata = {
 };
 
 // Enable static generation
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 export const revalidate = 3600; // Revalidate every hour
 
 const IeltsPage = () => {
@@ -91,9 +91,8 @@ const IeltsPage = () => {
             <HeroSection
                 title={
                     <>
-                        آزمون آیلتس (IELTS): ماک رایگان و کلاس آنلاین
-                        <br />
-                        ثبت‌نام، دوره‌های آیلتس و نمرات 6.0 تا 7.5
+                        پلتفرم جامع آزمون آیلتس <br />
+                        شامل آزمون‌های کمبریج، ماکار، اپ اسیستنت و...
                     </>
                 }
                 subtitle={<>آمادگی کامل برای آزمون IELTS | منابع، نکات طلایی و آزمون‌های شبیه‌سازی‌شده برای کسب Band Score بالا </>}
@@ -101,40 +100,88 @@ const IeltsPage = () => {
             <Testimonial />
             <Features
                 heading="امکانات ویژه آیلتس در تست‌هلپر"
-                description="ماک آیلتس رایگان، کلاس آنلاین، منابع تضمینی و تمرین 4 مهارت برای نمرات 6.0 تا 7.5"
+                description="کامل‌ترین مجموعه منابع و ابزارها برای آمادگی آیلتس، با دقت بالای شبیه‌سازی آزمون و تحلیل هوش مصنوعی"
                 customFeatures={[
                     {
-                        title: "ماک آیلتس رایگان و آنلاین",
-                        description:
-                            "امتحان ماک آیلتس در محیط کاملاً شبیه آزمون اصلی IELTS. تمرین 4 مهارت Reading، Writing، Listening و Speaking برای نمرات 5.5 تا 7.5.",
-                        items: ["بیش از ۲۰۰ ماک آیلتس آنلاین رایگان", "تست آیلتس با زمان‌بندی واقعی آزمون", "ثبت‌نام آزمون ماک آیلتس بدون محدودیت"],
+                        title: "منابع کامل، معتبر و به‌روز",
+                        description: "تمرین با معتبرترین منابع آیلتس برای کسب نمره 7 به بالا",
+                        items: [
+                            "آزمون‌های کمبریج (Cambridge) آکادمیک و جنرال",
+                            "آزمون‌های واقعی آیلتس (Real IELTS) و آفیشال گاید (Official Cambridge Guide)",
+                            "سؤالات ماکار 2025 (Makkar) و اپ اسیستنت (Speaking Assistant)",
+                        ],
                         imageLightSrc: "/images/features/tests-light.png",
                         imageDarkSrc: "/images/features/tests-dark.png",
                         imagePosition: "right",
                     },
                     {
-                        title: "کلاس آنلاین آیلتس و منابع تضمینی",
-                        description: "بهترین کلاس آنلاین آیلتس با دوره‌های آیلتس تضمینی برای سطوح B2، C1 و C2. آموزش آیلتس آنلاین با کلاس‌های خصوصی و گروهی.",
-                        items: ["دوره‌های آیلتس 6.0، 6.5، 7.0 و 7.5", "کلاس زبان آیلتس با اساتید مجرب", "آموزشگاه آیلتس آنلاین با پشتیبانی ۲۴ ساعته"],
-                        imageLightSrc: "/images/features/exams-light.png",
-                        imageDarkSrc: "/images/features/exams-dark.png",
+                        title: "Reading و Listening با تحلیل هوش مصنوعی",
+                        description: "تحلیل سؤالات با هوش مصنوعی به همراه ابزارها و امکانات کمک‌آموزشی برای یادگیری سریع‌تر و راحت‌تر",
+                        items: [
+                            "استفاده از 5 دیکشنری معتبر انگلیسی و فارسی (Cambridge, Longman و…) با یک کلیک",
+                            "امکان گذاشتن Highlight و Note و تعریف تگ اختصاصی با دسترسی در یک لیست مجزا",
+                            "ترنسکریپت کامل برای همه فایل‌های صوتی",
+                        ],
+                        imageLightSrc: "/images/features/ielts-reading-dictionary-light.png",
+                        imageDarkSrc: "/images/features/ielts-reading-dictionary-light.png",
                         imagePosition: "left",
                     },
                     {
-                        title: "تمرین 4 مهارت آیلتس",
-                        description: "آزمون آزمایشی آیلتس برای هر 4 مهارت با سؤالات واقعی. تمرین مهارت‌های IELTS Speaking، Writing، Reading و Listening.",
-                        items: ["نمونه سؤالات IELTS 6.5 و 7.0", "تصحیح رایتینگ و اسپیکینگ آیلتس", "پاسخ‌های تشریحی برای همه سؤالات"],
-                        imageLightSrc: "/images/features/vocab-light.png",
-                        imageDarkSrc: "/images/features/vocab-dark.png",
+                        title: "Speaking و Writing رو متفاوت تمرین کن",
+                        description: "تمرین اسپیکینگ و رایتینگ با فیدبک استاندارد و پرامپت اختصاصی برای تحلیل عمیق‌تر",
+                        items: [
+                            "تصحیح هوش مصنوعی بر اساس معیارهای رسمی آیلتس و تحلیل اشتباهات از نظر گرامری، ساختاری و بیان مطلب",
+                            "دریافت ترنسکریپت (Transcript) لحظه‌ای اسپیکینگ",
+                            "امکان تمرین اسپیکینگ با زمان آزاد",
+                        ],
+                        imageLightSrc: "/images/features/ielts-AI-light.png",
+                        imageDarkSrc: "/images/features/ielts-AI-light.png",
                         imagePosition: "right",
                     },
                     {
-                        title: "نمرات B2، C1 و C2 آیلتس",
-                        description: "دوره‌های تخصصی برای رسیدن به نمرات IELTS 5.5، 6.0، 6.5، 7.0 و 7.5. معادل‌سازی نمره آیلتس با سطوح B2 و C1.",
-                        items: ["برنامه ریزی برای IELTS 6.5 و بالاتر", "تبدیل نمره TOEFL IELTS و PTE یا IELTS", "تحلیل پیشرفت برای نمره هدف"],
-                        imageLightSrc: "/images/features/charts-light.png",
-                        imageDarkSrc: "/images/features/charts-dark.png",
+                        title: "انجام آزمون‌ها در حالت Test و Practice",
+                        description:
+                            "حالت تست کاملاً مشابه آزمون واقعی و حالت پرکتیس برای تمرین آزاد جهت تحلیل سوالات، یادگیری بیشتر و استفاده از امکانات کمک آموزشی",
+                        items: [
+                            "تمرین یک مهارت خاص یا انتخاب بخش‌های دلخواه از یک آزمون",
+                            "حالت Test با زمان‌بندی و محدودیت‌های رسمی و محیط کاملاً مشابه آزمون اصلی",
+                            "دریافت نمره و گزارش کامل Reading و Listening بلافاصله بعد از آزمون",
+                        ],
+                        imageLightSrc: "/images/features/ielts-practice-light.png",
+                        imageDarkSrc: "/images/features/ielts-practice-dark.png",
                         imagePosition: "left",
+                    },
+                    {
+                        title: "فلش‌کارت‌های اختصاصی آیلتس و مرور با لایتنر و تیک8",
+                        description: "مجموعه کامل لغات ضروری و امکانات کمک‌آموزشی آیلتس، برای تمامی سطوح",
+                        items: [
+                            "لایتنر شخصی خودت رو با اضافه کردن کلمات دلخواه بساز",
+                            "دسترسی به لیست و فایل کلمات لایتنر و تیک8",
+                            "دسترسی به مجوعه لغات ضروری بارونز برای آیلتس، لغات کمبریج و مجموعه‌های مهم دیگر",
+                        ],
+                        imageLightSrc: "/images/features/ielts-flash-cards-light.png",
+                        imageDarkSrc: "/images/features/ielts-flash-cards-dark.png",
+                        imagePosition: "right",
+                    },
+                    {
+                        title: "ابزارهای پیشرفته برای Reading",
+                        description: "ابزارهای تکمیلی برای افزایش سرعت خواندن، دقت و درک مطلب در ریدینگ",
+                        items: ["تمرین Skimming و افزایش سرعت خواندن", "درخت گرامری متن برای درک ساختار جمله", "تحلیل تمام سؤالات با هوش مصنوعی"],
+                        imageLightSrc: "/images/features/ielts-skimming-light.png",
+                        imageDarkSrc: "/images/features/ielts-skimming-light.png",
+                        imagePosition: "left",
+                    },
+                    {
+                        title: "اپلیکیشن اختصاصی آیلتس",
+                        description: "تمرین آیلتس بدون محدودیت زمان و مکان، بدون نیاز به اینترنت (مترو، اتوبوس، سفر و...)",
+                        items: [
+                            "دسترسی به امکانات سایت به صورت آفلاین",
+                            "ساخت پلی‌لیست اختصاصی از فایل‌های آزمون‌ها و گوش دادن پشت‌سرهم",
+                            "همگام‌سازی خودکار اپلیکیشن و سایت بعد از اتصال اینترنت",
+                        ],
+                        imageLightSrc: "/images/features/application-light.png",
+                        imageDarkSrc: "/images/features/application-dark.png",
+                        imagePosition: "right",
                     },
                 ]}
             />
@@ -163,8 +210,8 @@ const IeltsPage = () => {
                         answer: "بله! آزمون‌ها سطوح مختلف از B2 تا C2 رو پوشش می‌دن. نمرات 5.5 تا 6.0 معادل B2، نمرات 6.5 تا 7.5 معادل C1 و نمرات بالاتر معادل C2 محسوب می‌شن.",
                     },
                     {
-                        question: "تفاوت تست‌هلپر با PTE یا تافل چیه؟",
-                        answer: "تست‌هلپر هر سه آزمون آیلتس، تافل و PTE رو پوشش می‌ده. اگه بین آیلتس و PTE یا تافل تردید داری، می‌تونی هر دو رو امتحان کنی و ببینی کدوم بیشتر بهت میاد.",
+                        question: "با تست‌هلپر میشه آزمون‌های دیگه رو هم تمرین کرد؟",
+                        answer: "تست‌هلپر هر سه آزمون آیلتس، تافل و PTE رو پوشش می‌ده. اگه بین آیلتس و تافل و PTE تردید داری، می‌تونی هر کدوم رو امتحان کنی و ببینی کدوم بیشتر برات مناسبه.",
                     },
                     {
                         question: "4 مهارت آیلتس چطور تمرین می‌شن؟",
@@ -176,8 +223,12 @@ const IeltsPage = () => {
                     },
                 ]}
             />
-            <CTA startHref="/ielts/dashboard" heading="ماک آیلتس رایگان رو امروز شروع کن" description="با کلاس‌های آنلاین و منابع تضمینی به نمره دلخواهت برس" />
-            <FooterMain />
+            <CTA
+                startHref="/ielts/dashboard"
+                heading="برای نمره‌ آیلتس، فقط کافیه شروع کنی؛ مسیرش روشنه…"
+                description="وقتشه یک قدم جدی برای رسیدن به نمره هدفت برداری."
+            />
+            <Footer />
         </Fragment>
     );
 };
