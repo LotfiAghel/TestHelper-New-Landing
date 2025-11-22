@@ -143,11 +143,9 @@ const StickyImageSidebar = ({ activeFeature }) => {
                                 <AlternateImageMockup className="lg:right-0">
                                     <motion.img
                                         alt={`Dashboard mockup showing application interface`}
-                                        src={feature.image}
                                         className={`${feature.image} z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute`}
                                         width={1200}
                                         height={800}
-                                    // quality={85}
                                     />
                                 </AlternateImageMockup>
                                 <div className="absolute bottom-0 left-0 hidden -translate-x-1/3 md:block md:translate-y-12 lg:translate-y-1/4">
