@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { CTA } from "@/components/marketing/cta/cta";
 import { FAQ } from "@/components/marketing/faq/faq-accordion";
 import { Features } from "@/components/marketing/features/features-alternating";
-import { FooterMain } from "@/components/marketing/footers/footer-main";
+import { Footer } from "@/components/marketing/footers/footer";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { HeroSection } from "@/components/marketing/header-section/hero";
 import { SocialProof } from "@/components/marketing/social-proof/social-proof";
@@ -94,7 +94,13 @@ export default function ToeflPage() {
         <Fragment>
             <Header />
             <HeroSection
-                title={<>کامل‌ترین پلتفرم تمرین آزمون تافل (TOEFL) با نمونه سؤالات Neo-TOEFL، TPO، Zhenti و TOEFL 2026.</>}
+                title={
+                    <>
+                        کامل‌ترین پلتفرم آزمون تافل
+                        <br />
+                        با نمونه سؤالات Neo, Zhenti, TPO و TOEFL2026
+                    </>
+                }
                 subtitle={
                     <>
                         صدها نمونه سؤال واقعی و آزمون شبیه‌ساز (Mock Test) در محیطی مشابه تافل اصلی، با تحلیل پاسخ‌ها، نکات آموزشی و راهنمای کسب نمره بالا در
@@ -104,10 +110,10 @@ export default function ToeflPage() {
             />
             <Features
                 heading="امکانات ویژه تافل در تست‌هلپر"
-                description="TPO تافل، ماک رایگان، تافل هوم ادیشن، خرید ووچر و تمرین Listening و Speaking"
+                description="آزمون‌های تافل 2026، TPO، نئو (Neo)، ماک و تمرین Listening و Speaking با هوش مصنوعی"
                 customFeatures={[
                     {
-                        title: "منابع کامل و به‌روز",
+                        title: "منابع کامل، معتبر و به‌روز",
                         description: "تمرین با معتبرترین منابع تافل با به‌روزرسانی مستمر",
                         items: ["بیش از ۱۷۰ آزمون واقعی Neo-TOEFL (نئو)", "تمام 75 آزمون TPO به صورت رایگان", "نمونه‌سؤالات تافل 2026"],
                         imageLightSrc: "/images/features/exams-light.png",
@@ -116,11 +122,11 @@ export default function ToeflPage() {
                     },
                     {
                         title: "Reading و Listening با تحلیل هوشمند",
-                        description: "آنالیز هوش مصنوعی برای همه سؤالات و ابزارهای کمک‌آموزشی برای یادگیری سریع‌تر و راحت‌تر",
+                        description: "پاسخنامه و آنالیز هوش مصنوعی برای همه سؤالات و همچنین ابزارهای کمک‌آموزشی برای یادگیری سریع‌تر و راحت‌تر",
                         items: [
-                            "تحلیل زمانی، شناسایی تیپ سؤال و الگوی اشتباهات",
                             "دسترس آنی به 5 دیکشنری معتبر انگلیسی و فارسی (Cambridge, Longman و…)",
-                            "امکان گذاشتن Highlight و Note با دسترسی در یک لیست مجزا",
+                            "امکان گذاشتن Highlight و Note و تعریف تگ اختصاصی با دسترسی در یک لیست مجزا",
+                            "شناسایی تیپ سؤال و الگوی اشتباهات",
                         ],
                         imageLightSrc: "/images/features/toefl-reading-dictionary-light.png",
                         imageDarkSrc: "/images/features/toefl-reading-dictionary-dark.png",
@@ -128,9 +134,9 @@ export default function ToeflPage() {
                     },
                     {
                         title: "Speaking و Writing حرفه‌ای",
-                        description: "تمرین اسپیکینگ و رایتینگ با نمونه‌جواب‌های سطح ۳۰ و فیدبک تخصصی هوش مصنوعی",
+                        description: "تمرین اسپیکینگ و رایتینگ با نمونه‌جواب‌های نمره کامل و فیدبک تخصصی هوش مصنوعی",
                         items: [
-                            "تصحیح هوض مصنوعی مطابق Rubric رسمی ETS",
+                            "تصحیح هوش مصنوعی مطابق Rubric رسمی ETS و تحلیل اشتباهات از نظر گرامری، ساختاری و بیان مطلب",
                             "دریافت ترنسکریپت (Transcript) لحظه‌ای اسپیکینگ",
                             "امکان تمرین اسپیکینگ با زمان آزاد + حالت نویز برای شبیه‌سازی سالن آزمون",
                         ],
@@ -139,10 +145,10 @@ export default function ToeflPage() {
                         imagePosition: "right",
                     },
                     {
-                        title: "حالت Practice و Test واقعی (+99٪ مشابه آزمون اصلی)",
-                        description: "دو حالت استاندارد برای تمرین یا سنجش دقیق",
+                        title: "انجام آزمون‌ها در حالت Test واقعی (کاملاً مشابه آزمون اصلی) و همچنین Practice",
+                        description: "دو حالت استاندارد برای تمرین با شرایط آزمون واقعی یا به صورت Practice برای یادگیری و استفاده از امکانات کمک آموزشی",
                         items: [
-                            "تمرین تک‌مهارت یا انتخاب بخش‌های دلخواه",
+                            "تمرین یک مهارت خاص یا انتخاب بخش‌های دلخواه از یک آزمون",
                             "حالت Test با محیط کاملاً مشابه آزمون اصلی",
                             "دریافت نمره و گزارش کامل Reading و Listening بلافاصله بعد از آزمون",
                         ],
@@ -151,28 +157,36 @@ export default function ToeflPage() {
                         imagePosition: "left",
                     },
                     {
-                        title: "فلش‌کارت‌های اختصاصی تافل",
-                        description: "پکیج کامل لغات ضروری برای کسب نمره بالا",
+                        title: "فلش‌کارت‌های اختصاصی تافل و مرور با لایتنر و تیک8",
+                        description: "مجموعه کامل لغات ضروری و امکانات کمک‌آموزشی برای کسب نمره بالا",
                         items: [
-                            "1212 واژه مورد نیاز برای آزمون تافل (1212 Words You Need to Know to Pass TOEFL iBT)",
-                            "400 واژه ضروری برای تافل (400 Must-Have Words for the TOEFL)",
-                            "لغات دسته‌بندی‌شده (TOEFL Professional Classification Vocabulary)",
+                            "امکان اضافه کردن کلمات دلخواه و ساخت لایتنر شخصی",
+                            "دسترسی به لیست و فایل کلمات لایتنر و تیک8",
+                            "دسترسی به مجوعه 1212 واژه مورد نیاز برای آزمون تافل، لغات موضوع‌بندی‌شده و مجموعه‌های مهم دیگر",
                         ],
                         imageLightSrc: "/images/features/flash-cards-light.png",
                         imageDarkSrc: "/images/features/flash-cards-dark.png",
+                        imagePosition: "right",
+                    },
+                    {
+                        title: "نمودارهای تحلیلی",
+                        description: "تحلیل کامل عملکرد و پیگیری روند پیشرفت",
+                        items: ["پیگیری روند نمرات در طول زمان", "مقایسه نمره‌ ریدینگ و لیسنینگ با سایر کاربران", "نمودار درصد درستی پاسخ‌ها بر اساس موضوع"],
+                        imageLightSrc: "/images/features/toefl-charts-light.png",
+                        imageDarkSrc: "/images/features/toefl-charts-dark.png",
                         imagePosition: "left",
                     },
                     {
                         title: "اپلیکیشن اختصاصی تافل",
-                        description: "تمرین تافل تو مترو، سفر و مواقع بدون اینترنت",
+                        description: "تمرین تافل بدون محدودیت زمان و مکان، بدون نیاز به اینترنت (مترو، اتوبوس، سفر و...)",
                         items: [
-                            "تحلیل زمانی، شناسایی تیپ سؤال و الگوی اشتباهات",
-                            "ساخت پلی‌لیست صوتی و گوش دادن پشت‌سرهم به فایل‌ها",
-                            "همگام‌سازی خودکار بعد از اتصال اینترنت",
+                            "دسترسی به امکانات سایت به صورت آفلاین",
+                            "ساخت پلی‌لیست اختصاصی از فایل‌های آزمون‌ها و گوش دادن پشت‌سرهم",
+                            "همگام‌سازی خودکار اپلیکیشن و سایت بعد از اتصال اینترنت",
                         ],
                         imageLightSrc: "/images/features/application-light.png",
                         imageDarkSrc: "/images/features/application-dark.png",
-                        imagePosition: "left",
+                        imagePosition: "right",
                     },
                 ]}
             />
@@ -182,32 +196,24 @@ export default function ToeflPage() {
             <FAQ
                 customFaqs={[
                     {
+                        question: "بهترین منابع برای آمادگی تافل چیه؟",
+                        answer: "نئوها آزمون‌های واقعی و جدید تافل هستن که توسط چینی‌ها از جلسه امتحان ضبط شدن و احتمال تکرارشون در آزمون اصلی هم وجود داره. TPOها و کتاب‌های رسمی ETS هم منابع استاندارد و قابل اعتمادن. همه اینا تو تست‌هلپر موجوده و کنار‌شون کلی نمونه رایتینگ و اسپیکینگ هم داریم که کمک می‌کنه مطمئن تمرین کنی.",
+                    },
+                    {
                         question: "TPO تافل چیه و تست‌هلپر داره؟",
                         answer: "TPO مخفف TOEFL Practice Online هست که آزمون‌های تمرینی رسمی تافل هستن. تست‌هلپر مجموعه کاملی از TPO ها و سؤالات استاندارد تافل رو داره که می‌تونی رایگان امتحان کنی.",
                     },
                     {
                         question: "ماک تافل رایگان تست‌هلپر چقدر شبیه آزمون اصلیه؟",
-                        answer: "ماک‌های تافل ما از نظر محیط، سؤالات و زمان‌بندی عیناً مثل آزمون اصلی تافل IBT طراحی شدن. کاربرا گفتن تفاوتی بین تست‌هلپر و آزمون اصلی ندیدن.",
+                        answer: "ماک‌های تافل ما از نظر محیط، سؤالات و زمان‌بندی عیناً مثل آزمون اصلی تافل iBT طراحی شدن. کاربرا گفتن تفاوتی بین تست‌هلپر و آزمون اصلی ندیدن.",
                     },
                     {
                         question: "تافل هوم ادیشن چیه و هزینه‌ش چقدره؟",
-                        answer: "تافل هوم ادیشن همون آزمون TOEFL iBT هست که از خونه برگزار می‌شه. هزینه‌ش معمولاً حدود ۱۸۰ دلاره. در تست‌هلپر می‌تونی برای تافل هوم ادیشن آماده بشی و ووچر خریداری کنی.",
+                        answer: "تافل Home Edition نسخه آنلاین و رسمی تافل هست که دقیقاً مثل آزمون حضوریه، فقط از خونه برگزار میشه و نظارت زنده (پروکتور) و ابزار امنیتی آنلاین داره. هزینه‌اش فرقی با آزمون اصلی نداره (در حال حاضر ۳۰۰ دلاره).",
                     },
                     {
-                        question: "خرید ووچر تافل از تست‌هلپر ممکنه؟",
-                        answer: "بله، می‌تونی ووچر تافل رو از طریق تست‌هلپر خریداری کنی و برای ثبت‌نام تافل استفاده کنی. قیمت ووچر تافل براساس نرخ روز اعلام می‌شه.",
-                    },
-                    {
-                        question: "TOEFL Listening و Speaking چطور تمرین کنم؟",
-                        answer: "بخش‌های TOEFL Listening و Speaking در تست‌هلپر کاملاً شبیه‌سازی شدن. می‌تونی با صدها سؤال واقعی تمرین کنی و از تصحیح هوش مصنوعی برای Speaking استفاده کنی.",
-                    },
-                    {
-                        question: "منابع تافل کدوما بهترینه؟",
-                        answer: "بهترین منبع تافل TPO ها و کتاب‌های رسمی ETS هستن که همشون در تست‌هلپر در دسترسه. علاوه بر اون، نمونه رایتینگ و اسپیکینگ زیادی داریم.",
-                    },
-                    {
-                        question: "تفاوت TOEFL ITP و IBT چیه؟",
-                        answer: "TOEFL ITP فقط شامل Reading، Listening و Grammar هست و بصورت کاغذی برگزار می‌شه. TOEFL IBT شامل 4 مهارت کامل و بصورت آنلاین یا کامپیوتری هست که تست‌هلپر رو براش طراحی کردیم.",
+                        question: "چطور می‌تونم Writin و Speaking تمرین کنم؟",
+                        answer: "بخش‌های Writing و Speaking در تست‌هلپر کاملاً شبیه‌سازی شدن. می‌تونی با صدها سؤال واقعی تمرین کنی و از تصحیح هوش مصنوعی برای دریافت فیدبک استفاده کنی.",
                     },
                     {
                         question: "آموزش تافل رایگان دارید؟",
@@ -217,10 +223,10 @@ export default function ToeflPage() {
             />
             <CTA
                 startHref="/toefl/dashboard"
-                heading="ماک تافل رایگان و TPO رو همین الان شروع کن"
-                description="با تمرین تافل هوم ادیشن و خرید ووچر، به نمره دلخواهت برس"
+                heading="برای تمرین تافل همه‌چیز مهیاست؛ فقط کافیه شروع کنی…"
+                description="آماده‌ای برای رسیدن به نمره دلخواهت تلاش کنی؟"
             />
-            <FooterMain />
+            <Footer />
         </Fragment>
     );
 }
