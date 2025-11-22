@@ -260,3 +260,62 @@ img.i-close-arrow {
 .new-footer{
     font-family: Vazirmatn,system-ui,sans-serif !important;
 }
+
+
+.tests-feat-img{
+    content: url(../../public/images/features/tests-light.png);
+}
+
+.exams-feat-img{
+    content: url(../../public/images/features/exams-light.png);
+
+}
+
+.vocab-feat-img{
+    content: url(../../public/images/features/vocab-light.png);
+}
+
+.subject-feat-img{
+    content: url(../../public/images/features/subject-light.png);
+}
+.ai-feat-img{
+content: url(../../public/images/features/AI-light.png);
+}
+
+.charts-feat-img{
+    content: url(../../public/images/features/charts-light.png);
+}
+.flash-cards-feat-img{
+    content: url(../../public/images/features/flash-cards-light.png);
+}
+
+&:where(.dark-mode, .dark-mode *) .tests-feat-img{
+    content: url(../../public/images/features/tests-dark.png);
+}
+
+&:where(.dark-mode, .dark-mode *) .exams-feat-img{
+    content: url(../../public/images/features/exams-dark.png);
+}
+
+&:where(.dark-mode, .dark-mode *) .vocab-feat-img{
+    content: url(../../public/images/features/vocab-dark.png);
+}
+
+&:where(.dark-mode, .dark-mode *) .subject-feat-img{
+    content: url(../../public/images/features/subject-dark.png);
+}
+
+
+&:where(.dark-mode, .dark-mode *) .ai-feat-img{
+    content: url(../../public/images/features/AI-dark.png);
+}
+
+
+&:where(.dark-mode, .dark-mode *) .charts-feat-img{
+    content: url(../../public/images/features/charts-dark.png);
+}
+
+
+&:where(.dark-mode, .dark-mode *) .flash-cards-feat-img{
+    content: url(../../public/images/features/flash-cards-dark.png);
+}
