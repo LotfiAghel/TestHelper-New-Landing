@@ -35,7 +35,7 @@ export const HeroSection = ({
                         </div>
 
                         {title ? (
-                            <h1 className="mt-4 text-center text-display-md font-semibold text-primary md:text-start md:text-display-lg">{title}</h1>
+                            <h1 className="mt-4 text-center text-display-md font-semibold text-primary md:text-start md:text-display-lg font-sans">{title}</h1>
                         ) : (
                             <MainTitle />
                         )}
