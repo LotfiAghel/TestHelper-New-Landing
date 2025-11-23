@@ -244,7 +244,7 @@ export default function ParallaxSrolling() {
 
     return (
 
-        <div className='flex flex-row'>
+        <div className='flex flex-row max-w-[115rem] m-auto'>
             <div className="md:w-1/2 w-full bg-transparent">
                 {features.map((feature, index) => (
                     <TextSection
