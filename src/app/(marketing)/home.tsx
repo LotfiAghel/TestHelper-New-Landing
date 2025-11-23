@@ -43,7 +43,7 @@ export const HomePage = () => {
             <SocialProof />
             <FAQ />
             <CTA />
-            <FooterMain type={LearnBranch.TOEFL} />
+            <FooterMain type={LearnBranch.None} />
         </Fragment>
     );
 };

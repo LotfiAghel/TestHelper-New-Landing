@@ -5,6 +5,7 @@ import { LinkedIn } from '@/components/foundations/social-icons';
 import Image from 'next/image';
 import { LearnBranch } from '@/types';
 import { handleUrlAttach, sibAppLinks } from '@/utils/consts';
+import ChoosAppsPopUp from '../header-section/ChoosAppsPopUp';
 
 const NavLink = ({ children, link = '#' }) => (
     <a href={link} className="text-[#F8F9FA] hover:text-white transition-colors text-sm mb-2 block">
@@ -48,7 +49,7 @@ const AppStoreBadge = ({ store, icon: Icon, link = '#' }) => (
 const NewFooter = ({ type }: { type: LearnBranch }) => {
     const bgColor = "bg-[#100F16]";
     const accentColor = "bg-[#171521]";
-
+    const [downloadModal, setDownloadModal] = useState(false);
     const [data, setData] = useState<filesType[]>([]);
 
     useEffect(() => {
@@ -78,20 +79,24 @@ const NewFooter = ({ type }: { type: LearnBranch }) => {
                             </h2>
                         </div>
                         <div className="flex flex-wrap gap-3 order-2 md:order-1 mt-6 md:mt-0">
-                            <AppStoreBadge
-                                link={
-                                    handleUrlAttach(`${properApp?.file}`)
-                                }
-                                store="Android"
-                                icon={
-                                    <Image
-                                        src={'/images/android-logo.svg'}
-                                        width={15}
-                                        height={15}
-                                        alt='testHelper Android Application'
-                                        className="w-6 h-6 text-gray-300"
-                                    />
-                                } />
+                            {type == LearnBranch.None ?
+                                <>
+                                    <ChoosAppsPopUp />
+                                </>
+                                : <AppStoreBadge
+                                    link={
+                                        handleUrlAttach(`${properApp?.file}`)
+                                    }
+                                    store="Android"
+                                    icon={
+                                        <Image
+                                            src={'/images/android-logo.svg'}
+                                            width={15}
+                                            height={15}
+                                            alt='testHelper Android Application'
+                                            className="w-6 h-6 text-gray-300"
+                                        />
+                                    } />}
 
                             <AppStoreBadge
                                 store="SibApp"

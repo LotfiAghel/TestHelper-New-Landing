@@ -139,4 +139,5 @@ export const enum LearnBranch {
     TOEFL = 1,
     IELTS,
     GRE,
+    None
 }

@@ -415,4 +415,5 @@ export const sibAppLinks = {
   [LearnBranch.IELTS]: "https://sibapp.com/applications/TestHelperIELTS",
   [LearnBranch.GRE]: "https://sibapp.com/applications/testhelpergre",
   [LearnBranch.TOEFL]: "https://sibapp.com/applications/TestHelper-TOEFL",
+  [LearnBranch.None]: 'https://sibapp.com/search/?query=%D8%AA%D8%B3%D8%AA%20%D9%87%D9%84%D9%BE%D8%B1',
 }
