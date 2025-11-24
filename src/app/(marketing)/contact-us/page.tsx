@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Contact } from "@/components/marketing/contact/contact";
-import { Footer } from "@/components/marketing/footers/footer";
+import { Footer } from "@/components/marketing/footers/footer-brand";
 import { Header } from "@/components/marketing/header-navigation/header";
 
 // Enable static generation

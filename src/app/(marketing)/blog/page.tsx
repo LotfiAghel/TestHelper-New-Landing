@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Article } from "@/components/marketing/blog/base-components/blog-cards";
 import { Blog } from "@/components/marketing/blog/blog";
-import { Footer } from "@/components/marketing/footers/footer";
+import { Footer } from "@/components/marketing/footers/footer-brand";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { strapiBaseUrl } from "@/utils/consts";
 

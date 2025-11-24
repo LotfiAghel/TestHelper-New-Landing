@@ -1,5 +1,5 @@
 import { BlogContent } from "@/components/marketing/content/blog-content";
-import { Footer } from "@/components/marketing/footers/footer";
+import { Footer } from "@/components/marketing/footers/footer-brand";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { defaultMetadata, strapiBaseUrl } from "@/utils/consts";
 

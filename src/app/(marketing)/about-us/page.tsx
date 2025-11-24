@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { About } from "@/components/marketing/about/about";
-import { Footer } from "@/components/marketing/footers/footer";
+import { Footer } from "@/components/marketing/footers/footer-brand";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { Team } from "@/components/marketing/team/team";
 

@@ -1,27 +1,4 @@
-import { Instagram, LinkedIn, Telegram, YouTube } from "@/components/foundations/social-icons";
-
-const footerSocials = [
-    {
-        label: "YouTube",
-        icon: YouTube,
-        href: "https://www.youtube.com/@TestHelperTV",
-    },
-    {
-        label: "LinkedIn",
-        icon: LinkedIn,
-        href: "https://www.linkedin.com/company/testhelper/",
-    },
-    {
-        label: "Instagram",
-        icon: Instagram,
-        href: "https://www.instagram.com/testhelper_ir",
-    },
-    {
-        label: "Telegram",
-        icon: Telegram,
-        href: "https://t.me/TestHelperLinks",
-    },
-];
+import { footerNavList, footerSocials } from "./footer-items";
 
 export const FooterMain = () => {
     return (

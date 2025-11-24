@@ -27,7 +27,7 @@ const FAQ = dynamic(() => import("@/components/marketing/faq/faq-accordion").the
 const CTA = dynamic(() => import("@/components/marketing/cta/cta").then((mod) => ({ default: mod.CTA })), {
     loading: () => <div className="py-8 sm:py-12 lg:py-16" />,
 });
-const Footer = dynamic(() => import("@/components/marketing/footers/footer").then((mod) => ({ default: mod.Footer })), {
+const Footer = dynamic(() => import("@/components/marketing/footers/footer-brand").then((mod) => ({ default: mod.Footer })), {
     loading: () => <div className="py-8" />,
 });
 
