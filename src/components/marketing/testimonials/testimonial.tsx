@@ -210,6 +210,22 @@ const reviews = [
             avatarUrl: "/images/avatars/male-04.png",
         },
     },
+    {
+        id: "mysm",
+        quote: "سلام. امروز نمره من اومد. همه تمرین هام با سایت خوب تست هلپر بود کتاب های کمبریجش... روز امتحان هم دقیقا حس میکردم دارم توی تست هلپر تمرین میکنم. واقعا ممنون ازتون.",
+        source: {
+            platform: Telegram,
+            username: "https://t.me/mysm_smdz",
+            url: "https://t.me/TestHelperIELTSgr/11956",
+        },
+        author: {
+            name: "میثم",
+            test: "آیلتس",
+            testScore: 7.5,
+            stars: 5,
+            avatarUrl: "/images/avatars/male-02.png",
+        },
+    },
 ];
 
 const shuffledReviews = [...reviews].sort(() => Math.random() - 0.5);
