@@ -59,7 +59,7 @@ export const footerNavList = [
                 href: "https://t.me/TestHelperTOEFL",
             },
             {
-                label: "اپلیکشن تافل",
+                label: "اپلیکیشن تافل",
                 href: "./toefl/App",
             },
         ],

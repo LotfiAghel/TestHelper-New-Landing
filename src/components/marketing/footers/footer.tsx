@@ -24,7 +24,7 @@ export const Footer = () => {
                     </ul>
                 </nav>
                 <div className="mt-12 flex flex-col justify-between gap-6 border-t border-secondary pt-8 md:mt-16 md:flex-row md:items-center">
-                    {/* <UntitledLogo className="h-8 w-min" /> */}
+                    {/* <TestHelperLogo className="h-8 w-min" /> */}
                     <p className="text-md text-quaternary">© 2027 تمامی حقوق برای تست‌هلپر محفوظ است.</p>
                     <ul className="flex gap-6">
                         {footerSocials.map(({ label, icon: Icon, href }) => (

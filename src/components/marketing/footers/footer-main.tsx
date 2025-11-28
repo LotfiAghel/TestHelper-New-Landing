@@ -7,7 +7,7 @@ export const FooterMain = () => {
                 <div className="mx-auto max-w-container px-4 md:px-8">
                     <div className="flex flex-col gap-12 md:gap-16 xl:flex-row">
                         <div className="flex flex-col items-start gap-6 md:w-80 md:gap-6">
-                            <UntitledLogo className="h-8 w-min shrink-0" />
+                            <TestHelperLogo className="h-8 w-min shrink-0" />
                             <p className="text-md text-tertiary">Design amazing digital experiences that create more happy in the world.</p>
                             <RatingBadge className="origin-top-left scale-[0.78]" />
                         </div>
