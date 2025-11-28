@@ -2,7 +2,7 @@
 import { Fragment } from "react";
 import { CTA } from "@/components/marketing/cta/cta";
 import { FAQ } from "@/components/marketing/faq/faq-accordion";
-import { Features } from "@/components/marketing/features/features-alternating";
+import { Features } from "@/components/marketing/features/features-scroll";
 import { Footer } from "@/components/marketing/footers/footer-brand";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { HeroSection } from "@/components/marketing/header-section/hero";
@@ -93,6 +93,7 @@ export default function ToeflPage() {
     return (
         <Fragment>
             <Header />
+
             <HeroSection
                 title={
                     <>
@@ -107,7 +108,9 @@ export default function ToeflPage() {
                         مسیر اپلای و تحصیل بین‌المللی
                     </>
                 }
+                href="./toefl/dashboard"
             />
+            <Testimonial />
             <Features
                 heading="امکانات ویژه تافل در تست‌هلپر"
                 description="آزمون‌های تافل 2026، TPO، نئو (Neo)، ماک و تمرین Listening و Speaking با هوش مصنوعی"
@@ -190,7 +193,6 @@ export default function ToeflPage() {
                     },
                 ]}
             />
-            <Testimonial />
             <Team />
             <SocialProof />
             <FAQ

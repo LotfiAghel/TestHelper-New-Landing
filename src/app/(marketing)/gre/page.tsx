@@ -2,7 +2,7 @@
 import { Fragment } from "react";
 import { CTA } from "@/components/marketing/cta/cta";
 import { FAQ } from "@/components/marketing/faq/faq-accordion";
-import { Features } from "@/components/marketing/features/features-alternating";
+import { Features } from "@/components/marketing/features/features-scroll";
 import { Footer } from "@/components/marketing/footers/footer-brand";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { HeroSection } from "@/components/marketing/header-section/hero";
@@ -83,6 +83,7 @@ const GrePage = () => {
             <HeroSection
                 title={<>پلتفرم تخصصی آزمون GRE شامل آزمون‌های TC, RC, Crown, Dalao و...</>}
                 subtitle={<>کامل‌ترین منابع برای تمرین Verbal، Quant و Writing همراه با آزمون‌های Adaptive، سؤالات واقعی و فلش‌کارت‌های اختصاصی</>}
+                href="./gre/dashboard"
             />
             <Testimonial />
             <Features

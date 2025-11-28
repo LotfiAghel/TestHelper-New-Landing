@@ -2,7 +2,7 @@
 import { Fragment } from "react";
 import { CTA } from "@/components/marketing/cta/cta";
 import { FAQ } from "@/components/marketing/faq/faq-accordion";
-import { Features } from "@/components/marketing/features/features";
+import { Features } from "@/components/marketing/features/features-scroll";
 import { Footer } from "@/components/marketing/footers/footer-brand";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { HeroSection } from "@/components/marketing/header-section/hero";
@@ -130,9 +130,9 @@ const PtePage = () => {
             <HeroSection
                 title={
                     <>
-                        آزمون PTE: ماک رایگان، کلاس و ثبت‌نام پی تی ای
+                        پلتفرم جامع آزمون PTE
                         <br />
-                        هزینه، منابع، آموزش تضمینی و خرید ووچر PTE
+                        شامل منابع آموزشی و نمونه سؤالات آزمون
                     </>
                 }
                 // subtitle={<>pte</>}
