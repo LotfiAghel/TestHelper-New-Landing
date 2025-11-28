@@ -50,7 +50,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/tests-light.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -59,7 +59,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/tests-dark.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -93,7 +93,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/exams-light.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -102,7 +102,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/exams-dark.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -138,7 +138,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/vocab-light.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -147,7 +147,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/vocab-dark.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -181,7 +181,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/subject-light.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -190,7 +190,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/subject-dark.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -224,7 +224,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/AI-light.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -233,7 +233,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/AI-dark.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -265,7 +265,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/charts-light.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -274,7 +274,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/charts-dark.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -304,7 +304,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/flash-cards-light.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                                 width={1200}
                                 height={800}
                                 quality={85}
@@ -313,7 +313,7 @@ const FeaturesComponent = () => {
                             <Image
                                 alt="Dashboard mockup showing application interface"
                                 src="/images/features/flash-cards-dark.png"
-                                className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                                 width={1200}
                                 height={800}
                                 quality={85}
