@@ -6,8 +6,13 @@ export const MainTitle = () => {
         <h1 className="mt-4 text-display-md font-semibold text-primary md:text-display-lg">
             <span className="inline-flex items-center justify-center gap-3">
                 آزمون
-                {/* <WordRotate className="text-primary" words={["تافل", "آیلتس", "جی‌آرای", "پی‌تی‌ای"]} /> */}
-                <TextMorphAnimation texts={["تافل", "آیلتس", "جی‌آرای", "پی‌تی‌ای"]} morphTime={5} cooldownTime={0.5} className="w-[110px] sm:w-[180px]" />
+                {/* <WordRotate className="text-brand-500" words={["تافل", "آیلتس", "جی‌آرای", "پی‌تی‌ای"]} /> */}
+                <TextMorphAnimation
+                    texts={["تافل", "آیلتس", "جی‌آرای", "پی‌تی‌ای"]}
+                    morphTime={5}
+                    cooldownTime={0.5}
+                    className="w-[110px] text-brand-500 sm:w-[180px]"
+                />
                 رو
             </span>
             <br />

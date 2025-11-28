@@ -3,13 +3,14 @@
 import { Fragment } from "react";
 import { Globe02, PlayCircle, Rocket01, Rocket02, Translate01 } from "@untitledui/icons";
 import Image from "next/image";
-import Link from "next/link";
+import { DialogTrigger } from "@/components/application/modals/modal";
 import { BadgeGroup } from "@/components/base/badges/badge-groups";
 import { Button } from "@/components/base/buttons/button";
 import { MetricsMini } from "@/components/marketing/metrics/metrics-mini";
 import { MainSubtitle, MainTitle } from "./main-title";
+import { TestsModal } from "./tests-modal";
 
-export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.ReactNode }) => {
+export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.ReactNode; href?: string }) => {
     return (
         <Fragment>
             <section className="max-h-fit py-16 shadow-xs lg:h-screen lg:items-center lg:py-12">
@@ -35,9 +36,18 @@ export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.R
                             <MainSubtitle />
                         )}
                         <div className="mt-6 flex w-full flex-col-reverse items-stretch gap-3 md:mt-8 md:flex-row md:items-start">
-                            <Button href="/toefl" color="primary" size="xl">
-                                شروع رایگان
-                            </Button>
+                            {props.href ? (
+                                <Button href={props.href} color="primary" size="xl">
+                                    شروع رایگان
+                                </Button>
+                            ) : (
+                                <DialogTrigger>
+                                    <Button color="primary" size="xl">
+                                        شروع رایگان
+                                    </Button>
+                                    <TestsModal />
+                                </DialogTrigger>
+                            )}
                             <Button href="/placement" color="secondary" size="xl">
                                 آزمون تعیین سطح
                             </Button>
@@ -62,7 +72,7 @@ export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.R
                             width={800}
                             height={600}
                             priority
-                            quality={90}
+                            quality={85}
                         />
                     </div>
                 </div>
