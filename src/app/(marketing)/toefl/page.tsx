@@ -113,12 +113,12 @@ export default function ToeflPage() {
             <Testimonial />
             <Features
                 heading="امکانات ویژه تافل در تست‌هلپر"
-                description="آزمون‌های تافل 2026، TPO، نئو (Neo)، ماک و تمرین Listening و Speaking با هوش مصنوعی"
+                description="کامل‌ترین ابزارهای تمرینی، شبیه‌سازی واقعی آزمون و تحلیل دقیق عملکرد؛ همه‌چیز برای جهش نمره تافل"
                 customFeatures={[
                     {
                         title: "منابع کامل، معتبر و به‌روز",
                         description: "تمرین با معتبرترین منابع تافل با به‌روزرسانی مستمر",
-                        items: ["بیش از ۱۷۰ آزمون واقعی Neo-TOEFL (نئو)", "تمام 75 آزمون TPO به صورت رایگان", "نمونه‌سؤالات تافل 2026"],
+                        items: ["بیش از 170 آزمون واقعی Neo-TOEFL (نئو)", "تمام 75 آزمون TPO به صورت رایگان", "نمونه‌سؤالات تافل 2026"],
                         imageLightSrc: "/images/features/exams-light.png",
                         imageDarkSrc: "/images/features/exams-dark.png",
                         imagePosition: "right",
@@ -157,6 +157,14 @@ export default function ToeflPage() {
                         ],
                         imageLightSrc: "/images/features/toefl-practice-light.png",
                         imageDarkSrc: "/images/features/toefl-practice-dark.png",
+                        imagePosition: "left",
+                    },
+                    {
+                        title: "ابزارهای پیشرفته برای Reading",
+                        description: "ابزارهای تکمیلی برای افزایش سرعت خواندن، دقت و درک مطلب در ریدینگ",
+                        items: ["تمرین Skimming و افزایش سرعت خواندن", "درخت گرامری متن برای درک ساختار جمله", "تحلیل تمام سؤالات با هوش مصنوعی"],
+                        imageLightSrc: "/images/features/ielts-skimming-light.png",
+                        imageDarkSrc: "/images/features/ielts-skimming-light.png",
                         imagePosition: "left",
                     },
                     {
@@ -202,8 +210,12 @@ export default function ToeflPage() {
                         answer: "نئوها آزمون‌های واقعی و جدید تافل هستن که توسط چینی‌ها از جلسه امتحان ضبط شدن و احتمال تکرارشون در آزمون اصلی هم وجود داره. TPOها و کتاب‌های رسمی ETS هم منابع استاندارد و قابل اعتمادن. همه اینا تو تست‌هلپر موجوده و کنار‌شون کلی نمونه رایتینگ و اسپیکینگ هم داریم که کمک می‌کنه مطمئن تمرین کنی.",
                     },
                     {
+                        question: "می‌تونم برای تافل 2026 تمرین کنم؟",
+                        answer: "در حال حاضر ما 8 آزمون کامل با فرمت 2026 برات آماده کردیم تا با مدل جدید راحت جا بیفتی. کم‌کم آزمون‌های تازه‌تر اضافه می‌کنیم تا همیشه آپدیت بمونی.",
+                    },
+                    {
                         question: "TPO تافل چیه و تست‌هلپر داره؟",
-                        answer: "TPO مخفف TOEFL Practice Online هست که آزمون‌های تمرینی رسمی تافل هستن. تست‌هلپر مجموعه کاملی از TPO ها و سؤالات استاندارد تافل رو داره که می‌تونی رایگان امتحان کنی.",
+                        answer: "TPO مخفف TOEFL Practice Online هست که آزمون‌های تمرینی رسمی تافل هستن. تست‌هلپر مجموعه کاملی از TPOها و سؤالات استاندارد تافل رو داره که می‌تونی رایگان امتحان کنی.",
                     },
                     {
                         question: "ماک تافل رایگان تست‌هلپر چقدر شبیه آزمون اصلیه؟",
