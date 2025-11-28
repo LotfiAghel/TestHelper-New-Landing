@@ -1,11 +1,36 @@
 "use client";
 
-import { memo } from "react";
-import { Star01 } from "@untitledui/icons";
+import { memo, useState } from "react";
+import { ComponentType, SVGProps } from "react";
+import { CheckCircle, Star01 } from "@untitledui/icons";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { Dialog, Modal, ModalOverlay } from "@/components/application/modals/modal";
+import { CloseButton } from "@/components/base/buttons/close-button";
 import { Marquee, MarqueeContent, MarqueeFade, MarqueeItem } from "@/components/base/marqee/marquee";
 import { Telegram } from "@/components/foundations/social-icons";
+
+interface PlatformProps extends SVGProps<SVGSVGElement> {
+    size?: number;
+}
+
+export interface Review {
+    id: string;
+    quote: string;
+    source: {
+        platform: ComponentType<PlatformProps>;
+        username: string;
+        url: string;
+    };
+    author: {
+        name: string;
+        test: string;
+        testScore: number;
+        stars: number;
+        avatarUrl: string;
+    };
+}
 
 const reviews = [
     {
@@ -186,9 +211,122 @@ const reviews = [
         },
     },
 ];
+
 const shuffledReviews = [...reviews].sort(() => Math.random() - 0.5);
 
+const ReviewCard = ({ review, onClick }: { review: Review; onClick: () => void }) => {
+    const PlatformIcon = review.source.platform;
+
+    return (
+        <div
+            onClick={onClick}
+            dir="rtl"
+            className="flex w-60 cursor-pointer flex-col items-start gap-2 rounded-xl bg-tertiary p-4 sm:w-[340px] lg:justify-between lg:p-6"
+        >
+            <div className="flex flex-col gap-2">
+                <div className="flex flex-row items-center gap-3">
+                    <Image alt={review.author.name} className="size-12 rounded-full border-2" src={review.author.avatarUrl} width={48} height={48} />
+                    <div className="min-w-0 flex-1 text-xs sm:text-sm">
+                        <div className="flex flex-row items-center gap-2 text-primary">
+                            {review.author.name}
+                            <Link href={review.source.url} target="_blank">
+                                <PlatformIcon size={14} className="text-utility-blue-500" />
+                            </Link>
+                        </div>
+
+                        <div className="inline-block rounded-md bg-brand-secondary px-2 text-tertiary">
+                            {review.author.test} • {review.author.testScore}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex w-fit items-center justify-center gap-1">
+                    {Array.from({ length: 5 }).map((_, starIndex) => (
+                        <Star01 key={starIndex} className={`size-4 ${starIndex < review.author.stars ? "fill-yellow-500 text-yellow-500" : "text-disabled"}`} />
+                    ))}
+                </div>
+            </div>
+
+            <p className="line-clamp-3 text-xs leading-relaxed text-secondary">{review.quote}</p>
+        </div>
+    );
+};
+
+const ReviewModal = ({ review, onClose }: { review: Review; onClose: () => void }) => {
+    const PlatformIcon = review.source.platform;
+
+    return (
+        <ModalOverlay isOpen={!!review} onOpenChange={onClose} isDismissable>
+            <Modal>
+                <Dialog aria-label="Review Details">
+                    <div className="relative w-full overflow-hidden rounded-2xl bg-primary shadow-xl sm:max-w-100">
+                        <CloseButton slot="close" size="lg" className="absolute top-3 right-3" onPress={onClose} />
+                        <div className="mt-12 flex max-h-96 flex-col gap-4 px-4 py-8 sm:px-6 sm:pt-6">
+                            <div className="flex flex-col gap-2">
+                                <div className="flex flex-row items-center gap-3">
+                                    <Image
+                                        alt={review.author.name}
+                                        className="size-12 rounded-full border-2"
+                                        src={review.author.avatarUrl}
+                                        width={48}
+                                        height={48}
+                                    />
+                                    <div className="min-w-0 flex-1 text-xs sm:text-sm">
+                                        <div className="flex flex-row items-center gap-2 text-primary">
+                                            <Link href={review.source.url} target="_blank" className="flex items-center gap-x-2">
+                                                {review.author.name}
+                                                <ShakeIcon>
+                                                    <PlatformIcon size={14} className="self-end text-utility-blue-500" />
+                                                </ShakeIcon>
+                                            </Link>
+                                        </div>
+
+                                        <div className="inline-block rounded-md bg-brand-secondary px-2 text-tertiary">
+                                            {review.author.test} • {review.author.testScore}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="flex w-fit items-center justify-center gap-1">
+                                    {Array.from({ length: 5 }).map((_, i) => (
+                                        <Star01 key={i} className={`size-4 ${i < review.author.stars ? "fill-yellow-500 text-yellow-500" : "text-disabled"}`} />
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="mt-4 overflow-y-auto px-2 text-justify text-xs leading-relaxed text-secondary">{review.quote}</div>
+                        </div>
+                    </div>
+                </Dialog>
+            </Modal>
+        </ModalOverlay>
+    );
+};
+
+const ShakeIcon = ({ children }: { children: React.ReactNode }) => {
+    return (
+        <motion.div
+            animate={{
+                rotate: [0, -20, 20, -20, 20, 0], // shake rotation
+                // x: [0, -2, 2, -2, 2, 0], // horizontal shake
+                // y: [0, -2, 2, -2, 2, 0], // vertical shake
+                scale: [1, 1.2, 1.2, 1.2, 1.2, 1], // grow while shaking
+            }}
+            transition={{
+                duration: 1, // duration of one shake sequence
+                repeat: 5, // repeat 5 times
+                repeatDelay: 2, // delay between each repeat
+                delay: 1, // initial delay before first shake
+                type: "tween", // smooth interpolation
+            }}
+        >
+            {children}
+        </motion.div>
+    );
+};
+
 const TestimonialComponent = () => {
+    const [selectedReview, setSelectedReview] = useState<Review | null>(null);
+
     return (
         <section className="py-8 shadow-xs sm:py-12 lg:py-16" dir="ltr">
             <div className="mx-auto max-w-container px-4 md:px-8">
@@ -203,51 +341,14 @@ const TestimonialComponent = () => {
                     <MarqueeFade side="left" />
                     <MarqueeFade side="right" />
                     <MarqueeContent direction="right" autoFill={true} speed={60}>
-                        {shuffledReviews.map((review, index) => (
-                            <MarqueeItem key={index}>
-                                <div
-                                    dir="rtl"
-                                    className="flex w-60 flex-col items-start gap-2 rounded-xl bg-tertiary p-4 sm:w-[340px] lg:justify-between lg:p-6"
-                                >
-                                    <div className="flex flex-col gap-2">
-                                        <div className="flex flex-row items-center gap-3">
-                                            <Image
-                                                alt={`${review.author.name}`}
-                                                className="size-12 rounded-full border-2"
-                                                src={review.author.avatarUrl}
-                                                width={48}
-                                                height={48}
-                                            />
-                                            <div className="min-w-0 flex-1 text-xs sm:text-sm">
-                                                <div className="flex flex-row items-center gap-2 text-primary">
-                                                    {review.author.name}
-                                                    <Link href={review.source.url} target="_blank">
-                                                        {<review.source.platform size={14} className="text-utility-blue-500" />}
-                                                    </Link>
-                                                </div>
-
-                                                <div className="inline-block rounded-md bg-brand-secondary px-2 text-tertiary">
-                                                    {review.author.test} • {review.author.testScore}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* Star Rating */}
-                                        <div className="flex w-fit items-center justify-center gap-1">
-                                            {Array.from({ length: 5 }).map((_, starIndex) => (
-                                                <Star01
-                                                    key={starIndex}
-                                                    className={`size-4 ${starIndex < review.author.stars ? "fill-yellow-500 text-yellow-500" : "text-disabled"}`}
-                                                />
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <p className="line-clamp-3 text-xs leading-relaxed text-secondary">{review.quote}</p>
-                                </div>
+                        {shuffledReviews.map((review) => (
+                            <MarqueeItem key={review.id}>
+                                <ReviewCard review={review} onClick={() => setSelectedReview(review)} />
                             </MarqueeItem>
                         ))}
                     </MarqueeContent>
                 </Marquee>
+                {selectedReview && <ReviewModal review={selectedReview} onClose={() => setSelectedReview(null)} />}
             </div>
         </section>
     );
