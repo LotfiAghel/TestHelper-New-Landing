@@ -10,7 +10,7 @@ import { MetricsMini } from "@/components/marketing/metrics/metrics-mini";
 import { MainSubtitle, MainTitle } from "./main-title";
 import { TestsModal } from "./tests-modal";
 
-export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.ReactNode; href?: string }) => {
+export const HeroSection = ({ title, subtitle, href }: { title?: React.ReactNode; subtitle?: React.ReactNode; href?: string }) => {
     return (
         <Fragment>
             <section className="max-h-fit py-16 shadow-xs lg:h-screen lg:items-center lg:py-12">
@@ -36,8 +36,8 @@ export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.R
                             <MainSubtitle />
                         )}
                         <div className="mt-6 flex w-full flex-col-reverse items-stretch gap-3 md:mt-8 md:flex-row md:items-start">
-                            {props.href ? (
-                                <Button href={props.href} color="primary" size="xl">
+                            {href ? (
+                                <Button href={href} color="primary" size="xl">
                                     شروع رایگان
                                 </Button>
                             ) : (

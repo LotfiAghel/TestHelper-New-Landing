@@ -16,7 +16,7 @@ const Testimonial = dynamic(() => import("@/components/marketing/testimonials/te
 });
 const Features = dynamic(() => import("@/components/marketing/features/features-alternating-layout").then((mod) => ({ default: mod.Features })), {
     loading: () => <div className="py-8 sm:py-12 lg:py-16" />,
-});
+})
 const Team = dynamic(() => import("@/components/marketing/team/team").then((mod) => ({ default: mod.Team })), {
     loading: () => <div className="py-8 sm:py-12 lg:py-16" />,
 });
