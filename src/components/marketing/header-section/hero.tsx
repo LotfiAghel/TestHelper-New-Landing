@@ -2,27 +2,18 @@
 
 import { Fragment } from "react";
 import { Globe02, PlayCircle, Rocket01, Rocket02, Translate01 } from "@untitledui/icons";
-import Link from "next/link";
 import Image from "next/image";
+import { DialogTrigger } from "@/components/application/modals/modal";
 import { BadgeGroup } from "@/components/base/badges/badge-groups";
 import { Button } from "@/components/base/buttons/button";
 import { MetricsMini } from "@/components/marketing/metrics/metrics-mini";
 import { MainSubtitle, MainTitle } from "./main-title";
-import { usePathname } from "next/navigation";
-import { getUserContext } from "@/context/userContext";
-import ChooseSitePopUp from "./ChoosSitesPopUp";
+import { TestsModal } from "./tests-modal";
 
-export const HeroSection = ({
-    openModal,
-    subtitle,
-    title
-}: { title?: React.ReactNode; subtitle?: React.ReactNode, openModal?: boolean }) => {
-    const pathname = usePathname().replace('/', '');
-    const { user } = getUserContext();
+export const HeroSection = (props: { title?: React.ReactNode; subtitle?: React.ReactNode; href?: string }) => {
     return (
         <Fragment>
-
-            <section className="py-16 shadow-xs lg:h-screen lg:items-center">
+            <section className="max-h-fit py-16 shadow-xs lg:h-screen lg:items-center lg:py-12">
                 <div className="mx-auto grid max-w-container grid-cols-1 items-center gap-8 px-4 md:px-8 lg:grid-cols-2 lg:gap-8">
                     <div className="flex flex-col items-center md:max-w-4xl md:items-start lg:pe-8">
                         <div className="rounded-[10px] outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2">
@@ -45,14 +36,18 @@ export const HeroSection = ({
                             <MainSubtitle />
                         )}
                         <div className="mt-6 flex w-full flex-col-reverse items-stretch gap-3 md:mt-8 md:flex-row md:items-start">
-                            {
-                                openModal ?
-                                    <ChooseSitePopUp user={user}/>
-                                    :
-
-                                    <Button href={`${pathname ? pathname : 'toefl'}/dashboard`} color="primary" size="xl">
+                            {props.href ? (
+                                <Button href={props.href} color="primary" size="xl">
+                                    شروع رایگان
+                                </Button>
+                            ) : (
+                                <DialogTrigger>
+                                    <Button color="primary" size="xl">
                                         شروع رایگان
-                                    </Button>}
+                                    </Button>
+                                    <TestsModal />
+                                </DialogTrigger>
+                            )}
                             <Button href="/placement" color="secondary" size="xl">
                                 آزمون تعیین سطح
                             </Button>
@@ -69,7 +64,6 @@ export const HeroSection = ({
                             playsInline
                             preload="none"
                             poster="/images/girl+cat+laptop.webp"
-                            loading="lazy"
                         />
                         <Image
                             className="h-auto max-h-full w-auto max-w-full not-dark:hidden"
@@ -78,7 +72,7 @@ export const HeroSection = ({
                             width={800}
                             height={600}
                             priority
-                            quality={90}
+                            quality={85}
                         />
                     </div>
                 </div>

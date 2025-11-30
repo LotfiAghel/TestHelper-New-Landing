@@ -2,9 +2,11 @@
 
 import { Fragment } from "react";
 import dynamic from "next/dynamic";
+import { CTA } from "@/components/marketing/cta/cta";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { HeroSection } from "@/components/marketing/header-section/hero";
 import { LearnBranch } from "@/types";
+import { FooterMain } from "@/components/marketing/footers/footer-main";
 
 const Tests = dynamic(() => import("@/components/marketing/supported-tests/tests").then(mod => ({ default: mod.Tests })), {
     loading: () => <div className="py-8 sm:py-12 lg:py-16" />,
@@ -24,10 +26,10 @@ const SocialProof = dynamic(() => import("@/components/marketing/social-proof/so
 const FAQ = dynamic(() => import("@/components/marketing/faq/faq-accordion").then((mod) => ({ default: mod.FAQ })), {
     loading: () => <div className="py-8 sm:py-12 lg:py-16" />,
 });
-const CTA = dynamic(() => import("@/components/marketing/cta/cta").then((mod) => ({ default: mod.CTA })), {
-    loading: () => <div className="py-8 sm:py-12 lg:py-16" />,
-});
-const FooterMain = dynamic(() => import("@/components/marketing/footers/footer-main").then((mod) => ({ default: mod.FooterMain })), {
+// const CTA = dynamic(() => import("@/components/marketing/cta/cta").then((mod) => ({ default: mod.CTA })), {
+//     loading: () => <div className="py-8 sm:py-12 lg:py-16" />,
+// });
+const Footer = dynamic(() => import("@/components/marketing/footers/footer-brand").then((mod) => ({ default: mod.Footer })), {
     loading: () => <div className="py-8" />,
 });
 
@@ -44,6 +46,7 @@ export const HomePage = () => {
             <FAQ />
             <CTA />
             <FooterMain type={LearnBranch.None} />
+            <Footer />
         </Fragment>
     );
 };

@@ -106,11 +106,11 @@ const TextMorphAnimation: React.FC<TextMorphAnimationProps> = ({ texts, morphTim
                     filter: "url(#threshold) blur(0.5px)",
                 }}
             >
-                <span className="absolute w-full text-center text-display-md font-semibold text-primary md:text-display-lg" style={getMorphStyles(false)}>
+                <span className="absolute w-full text-center text-display-md font-semibold md:text-display-lg" style={getMorphStyles(false)}>
                     {texts[textIndex]}
                 </span>
 
-                <span className="absolute w-full text-center text-display-md font-semibold text-primary md:text-display-lg" style={getMorphStyles(true)}>
+                <span className="absolute w-full text-center text-display-md font-semibold md:text-display-lg" style={getMorphStyles(true)}>
                     {texts[(textIndex + 1) % texts.length]}
                 </span>
             </span>

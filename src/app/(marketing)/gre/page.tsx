@@ -2,8 +2,8 @@
 import { Fragment } from "react";
 import { CTA } from "@/components/marketing/cta/cta";
 import { FAQ } from "@/components/marketing/faq/faq-accordion";
-import { Features } from "@/components/marketing/features/features";
-import { FooterMain } from "@/components/marketing/footers/footer-main";
+import { Features } from "@/components/marketing/features/features-scroll";
+import { Footer } from "@/components/marketing/footers/footer-brand";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { HeroSection } from "@/components/marketing/header-section/hero";
 import { SocialProof } from "@/components/marketing/social-proof/social-proof";
@@ -74,7 +74,7 @@ export const metadata = {
 };
 
 // Enable static generation
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 export const revalidate = 3600; // Revalidate every hour
 
 const GrePage = () => {
@@ -82,55 +82,86 @@ const GrePage = () => {
         <Fragment>
             <Header />
             <HeroSection
-                title={
-                    <>
-                        آزمون GRE: ماک رایگان، بهترین منابع و کلاس
-                        <br />
-                        GRE General/Subject، نمره، تاریخ آزمون و آموزش
-                    </>
-                }
-                // subtitle={<>gre</>}
+                title={<>پلتفرم تخصصی آزمون GRE شامل آزمون‌های TC, RC, Crown, Dalao و...</>}
+                subtitle={<>کامل‌ترین منابع برای تمرین Verbal، Quant و Writing همراه با آزمون‌های Adaptive، سؤالات واقعی و فلش‌کارت‌های اختصاصی</>}
+                href="./gre/dashboard"
             />
             <Testimonial />
             <Features
                 heading="امکانات ویژه GRE در تست‌هلپر"
-                description="ماک GRE رایگان، بهترین منابع و کتاب، نمره و امتیاز، تاریخ آزمون و کلاس GRE"
+                description="هر چیزی که برای تمرین اصولی و رسیدن به نمره بهتر نیاز داری؛ از منابع معتبر تا تحلیل هوشمند و شبیه‌سازی واقعی آزمون"
                 customFeatures={[
                     {
-                        title: "ماک GRE رایگان و آنلاین",
-                        description: "آزمون ماک GRE آنلاین با شبیه‌سازی کامل محیط آزمون اصلی. تمرین GRE General و GRE Subject با نمره‌دهی دقیق.",
-                        items: ["ماک GRE رایگان با بانک سؤال کامل", "آزمون GRE آنلاین با تحلیل نمره", "تمرین Verbal، Quantitative و Analytical Writing"],
-                        imageLightSrc: "/images/features/tests-light.png",
-                        imageDarkSrc: "/images/features/tests-dark.png",
-                        imagePosition: "right",
-                    },
-                    {
-                        title: "بهترین منابع و کتاب GRE",
-                        description: "دسترسی به بهترین منابع آزمون GRE شامل کتاب‌های رسمی ETS، Manhattan Prep و Magoosh. منابع GRE برای General و Subject.",
+                        title: "منابع کامل، معتبر و به‌روز",
+                        description: "دسترسی به مهم‌ترین منابع آمادگی GRE با جدیدترین نسخه‌ها؛ شامل مجموعه‌هایی منحصربفرد و کمیاب",
                         items: [
-                            "بهترین کتاب برای GRE (Official Guide)",
-                            "منابع GRE تضمینی با آموزش گام به گام",
-                            "کتاب‌های GRE Subject (فیزیک، شیمی، روانشناسی)",
+                            "آزمون‌های Dalao، Crown و Manhattan به‌صورت کامل",
+                            "آزمون‌های پاورپرپ و PowerPrep Plus",
+                            "مجموعه‌های TC1900 و RC420 (آخرین نسخه‌های TC و RC برای اولین بار در ایران)",
                         ],
-                        imageLightSrc: "/images/features/exams-light.png",
-                        imageDarkSrc: "/images/features/exams-dark.png",
-                        imagePosition: "left",
-                    },
-                    {
-                        title: "نمره و امتیاز GRE",
-                        description: "تحلیل کامل نمره GRE و امتیاز GRE برای Verbal (130-170) و Quantitative (130-170). راهنمای جامع نمره‌دهی آزمون GRE.",
-                        items: ["محاسبه نمره GRE و تبدیل به نمره کل", "تحلیل پیشرفت و پیش‌بینی نمره نهایی", "مقایسه GRE و GMAT برای انتخاب بهتر"],
-                        imageLightSrc: "/images/features/charts-light.png",
-                        imageDarkSrc: "/images/features/charts-dark.png",
+                        imageLightSrc: "/images/features/gre-TC-light.png",
+                        imageDarkSrc: "/images/features/gre-TC-dark.png",
                         imagePosition: "right",
                     },
                     {
-                        title: "کلاس GRE و آموزش",
-                        description: "بهترین کلاس GRE با دوره GRE تضمینی. آموزش GRE برای آزمون جی آر ای با اساتید مجرب و راهنمای تاریخ آزمون GRE.",
-                        items: ["کلاس GRE آنلاین با پشتیبانی ۲۴ ساعته", "راهنمای ثبت‌نام و تاریخ آزمون GRE 2022 و بعد", "مشاوره برای انتخاب GMAT یا GRE"],
-                        imageLightSrc: "/images/features/vocab-light.png",
-                        imageDarkSrc: "/images/features/vocab-dark.png",
+                        title: "تمرین حرفه‌ای Verbal، Quant و Writing",
+                        description: "تمرین هر مهارت به‌صورت جداگانه یا کل آزمون در محیطی کاملاً مشابه آزمون واقعی",
+                        items: ["حالت Practice و Test با کنترل کامل روی آزمون", "آزمون‌های PowerPrep با قابلیت Adaptive", "شبیه‌سازی دقیق آزمون اصلی GRE"],
+                        imageLightSrc: "/images/features/gre-quant-light.png",
+                        imageDarkSrc: "/images/features/gre-quant-light.png",
                         imagePosition: "left",
+                    },
+                    {
+                        title: "تحلیل هوشمند Verbal (به زودی)",
+                        description: "درک بهتر ساختار جمله‌ها، نوع سؤال‌ها و دلیل درست/غلط بودن گزینه‌ها با کمک هوش مصنوعی",
+                        items: ["تحلیل سطح سختی هر متن و سؤال", "تشخیص نقاط ضعف در TC و RC", "توضیحات هوشمند و هدفمند برای بهبود"],
+                        imageLightSrc: "/images/features/gre-verbal-AI-light.png",
+                        imageDarkSrc: "/images/features/gre-verbal-AI-light.png",
+                        imagePosition: "right",
+                    },
+                    {
+                        title: "تصحیح هوش مصنوعی AWA Writing (به زودی)",
+                        description: "تصحیح سریع و دقیق رایتینگ‌های GRE با پرامپت اختصاصی و منطبق بر معیارهای رسمی",
+                        items: ["نمره‌دهی شبیه آزمون اصلی", "فیدبک ساختاری، واژگان و انسجام", "پیشنهادهای کاربردی برای بهبود نمره"],
+                        imageLightSrc: "/images/features/gre-awa-light.png",
+                        imageDarkSrc: "/images/features/gre-awa-light.png",
+                        imagePosition: "left",
+                    },
+                    {
+                        title: "ابزارهای کمکی برای مطالعه",
+                        description: "ابزارها و امکانات کمک‌آموزشی برای افزایش بازدهی مطالعه",
+                        items: [
+                            "دسترس آنی به 5 دیکشنری معتبر انگلیسی و فارسی (Cambridge, Longman و…) در محیط تمرین",
+                            "امکان گذاشتن Highlight و Note و تعریف تگ اختصاصی با دسترسی در یک لیست مجزا",
+                            "جستجوی پیشرفته بین همه متن‌ها و سؤالات",
+                        ],
+                        imageLightSrc: "/images/features/gre-dictionary-light.png",
+                        imageDarkSrc: "/images/features/gre-dictionary-light.png",
+                        imagePosition: "right",
+                    },
+                    {
+                        title: "فلش‌کارت‌های اختصاصی GRE و مرور با لایتنر و تیک8",
+                        description: "مجموعه کامل لغات GRE از بهترین منابع معتبر جهانی",
+                        items: [
+                            "امکان اضافه کردن کلمات دلخواه و ساخت لایتنر شخصی",
+                            "دسترسی به لیست و فایل کلمات لایتنر و تیک8",
+                            "مجوعه لغات مگوش (Magoosh)، گرگمت (GregMat) و 2500 واژه چینی",
+                        ],
+                        imageLightSrc: "/images/features/gre-flash-cards-light.png",
+                        imageDarkSrc: "/images/features/gre-flash-cards-dark.png",
+                        imagePosition: "left",
+                    },
+                    {
+                        title: "اپلیکیشن اختصاصی GRE",
+                        description: "تمرین آیلتس بدون محدودیت زمان و مکان، بدون نیاز به اینترنت (مترو، اتوبوس، سفر و...)",
+                        items: [
+                            "دسترسی به امکانات سایت به صورت آفلاین",
+                            "هایلایت و نوت‌برداری داخل آزمون",
+                            "همگام‌سازی خودکار اپلیکیشن و سایت بعد از اتصال اینترنت",
+                        ],
+                        imageLightSrc: "/images/features/application-light.png",
+                        imageDarkSrc: "/images/features/application-dark.png",
+                        imagePosition: "right",
                     },
                 ]}
             />
@@ -139,45 +170,61 @@ const GrePage = () => {
             <FAQ
                 customFaqs={[
                     {
-                        question: "آزمون GRE چیست و چه کسانی باید بدن؟",
-                        answer: "GRE (Graduate Record Examination) یه آزمون استانداردیه که برای پذیرش در دوره‌های کارشناسی ارشد و دکتری در آمریکا و کانادا مورد نیازه. شامل بخش‌های Verbal، Quantitative و Analytical Writing هست.",
+                        question: "آزمون GRE چیه و برای چه افرادی لازمه؟",
+                        answer: "GRE یه آزمون استاندارد برای پذیرش دوره‌های فوق‌لیسانس و دکتریه. معمولاً کسایی که می‌خوان آمریکا، کانادا یا بعضی کشورهای دیگه ادامه تحصیل بدن، GRE می‌دن. آزمون شامل سه بخشه: Verbal، Quant و Analytical Writing.",
                     },
                     {
                         question: "تفاوت GRE General و GRE Subject چیه؟",
-                        answer: "GRE General یه آزمون عمومی برای همه رشته‌ها هست و مهارت‌های کلی ریاضی، زبان و نوشتار رو می‌سنجه. GRE Subject مخصوص رشته‌های خاص مثل فیزیک، شیمی، روانشناسی هست و تخصصی‌تره.",
+                        answer: "GRE General برای همه رشته‌هاست و مهارت‌های زبانی، ریاضی و نوشتاری رو می‌سنجه. اما GRE Subject مخصوص رشته‌های خاص مثل فیزیک، شیمی یا روان‌شناسیه و اطلاعات تخصصی رو بررسی می‌کنه.",
                     },
                     {
                         question: "ماک GRE رایگان دارید؟",
-                        answer: "بله! تست‌هلپر ماک‌های GRE رایگان زیادی داره که می‌تونی بصورت آنلاین تمرین کنی و نمره و عملکردت رو بسنجی.",
+                        answer: "بله! تو تست‌هلپر می‌تونی کلی ماک GRE رایگان بزنی، نمره‌تو ببینی و عملکردت رو دقیق تحلیل کنی. تجربه‌اش خیلی شبیه آزمون واقعیه.",
                     },
                     {
-                        question: "بهترین منابع GRE کدوما هستن؟",
-                        answer: "بهترین منابع GRE شامل کتاب‌های رسمی ETS (Official Guide)، Manhattan Prep، Magoosh و Kaplan هستن. تمام این منابع در تست‌هلپر گردآوری و قابل دسترسی هستن.",
+                        question: "بهترین منابع GRE کدومان؟",
+                        answer: "منابع معروف GRE مثل PowerPrep, Dalao, Crown, GregMat و Magoosh همشون اینجان! علاوه بر اون، جدیدترین نسخه‌های TC1900 و RC420 و چندتا منبع کم‌یاب دیگه هم داخل تست‌هلپر قرار دادیم.",
                     },
                     {
-                        question: "نمره GRE چطور حساب می‌شه؟",
-                        answer: "نمره GRE از سه بخش تشکیل شده: Verbal (130-170)، Quantitative (130-170) و Analytical Writing (0-6). نمره کل از 260 تا 340 متغیره و امتیاز Writing جداگانه گزارش می‌شه.",
+                        question: "نمره GRE چطوری حساب می‌شه؟",
+                        answer: "Verbal و Quant هر کدوم بین 130 تا 170 نمره دارن. نمره Writing هم از 0 تا 6 حساب می‌شه.  نمره کل از 260 تا 340 متغیره و امتیاز Writing جداگانه گزارش می‌شه.",
                     },
                     {
-                        question: "تاریخ آزمون GRE کیه و چطور ثبت‌نام کنم؟",
-                        answer: "آزمون GRE تقریباً هر روز در مراکز آزمون برگزار می‌شه. برای دیدن تاریخ آزمون GRE و ثبت‌نام باید به سایت رسمی ETS مراجعه کنی. هزینه آزمون GRE حدود ۲۲۰ دلاره.",
+                        question: "منظور از Adaptive یا تطبیقی بودن GRE چیه؟",
+                        answer: "آزمون GRE هوشمنده و خودش رو با عملکردت تطبیق می‌ده. یعنی اینکه وقتی بخش اول Verbal یا Quant رو جواب می‌دی، میزان سختی بخش بعدی بر اساس عملکردت تنظیم می‌شه. اگه تو بخش اول خوب عمل کنی، بخش دوم سخت‌تر می‌شه اما شانس نمره بالاتر داری؛ و اگر عملکردت متوسط باشه، بخش بعدی آسون‌تر می‌شه ولی سقف نمره‌ات هم پایین‌تر میاد. این سیستم کمک می‌کنه نمره‌ای که می‌گیری خیلی دقیق‌تر سطح واقعیت رو نشون بده.",
                     },
                     {
-                        question: "بهترین کلاس GRE کجاست؟",
-                        answer: "تست‌هلپر منابع جامعی برای آمادگی GRE داره که شامل ماک‌های رایگان، تصحیح رایتینگ، و پشتیبانی آنلاین هست. برای کلاس حضوری یا آنلاین می‌تونی از مشاورین ما راهنمایی بگیری.",
+                        question: "تاریخ آزمون GRE کیه و چطور باید ثبت‌نام کنم؟",
+                        answer: "تقریباً همیشه می‌تونی آزمون GRE بدی. برای تاریخ‌ها و ثبت‌نام باید وارد سایت ETS بشی. در حال حاضر هزینه آزمون 220 دلاره.",
                     },
                     {
                         question: "تفاوت GRE و GMAT چیه؟",
-                        answer: "GRE برای اکثر رشته‌های تحصیلات تکمیلی مورد نیازه، ولی GMAT مخصوص MBA و کسب‌وکاره. GRE از نظر ریاضی راحت‌تر ولی Verbal سخت‌تره. اکثر دانشگاه‌ها هر دو رو قبول می‌کنن.",
+                        answer: "GRE برای بیشتر رشته‌ها مناسبه، ولی GMAT مخصوص مدیریت و MBA هست. ریاضی GMAT سخت‌تره، ولی Verbal تو GRE چالش‌برانگیزتره. خیلی از دانشگاه‌ها هر دو رو قبول می‌کنن و انتخابش به هدف و توانایی‌هات برمی‌گرده.",
+                    },
+                    {
+                        question: "آیا GRE سخت‌تر شده؟",
+                        answer: "نسخه جدید GRE کوتاه‌تر شده و خیلی‌ها می‌گن تجربه آزمون بهتر شده. سختی آزمون بیشتر به سطح واژگان و قدرت تحلیل خودت بستگی داره، نه اینکه خود آزمون سخت‌تر شده باشه.",
+                    },
+                    {
+                        question: "چند بار می‌تونم GRE بدم؟",
+                        answer: "هر چند بار که بخوای! فقط بین هر آزمون باید حداقل ۲۱ روز فاصله باشه و در یک سال می‌تونی حداکثر ۵ بار آزمون بدی.",
+                    },
+                    {
+                        question: "نمره GRE چند سال اعتبار داره؟",
+                        answer: "نمره GRE تا ۵ سال معتبره. یعنی می‌تونی با خیال راحت برای چند سال از همون نمره استفاده کنی.",
+                    },
+                    {
+                        question: "برای GRE باید حتماً کلاس برم؟",
+                        answer: "لزومی نداره. خیلی‌ها با منابع درست، برنامه‌ریزی خوب و مطالعه مستمر کاملاً خودخوان نتیجه می‌گیرن. تست‌هلپر هم دقیقاً همین ابزارها رو برات آماده کرده.",
+                    },
+                    {
+                        question: "برای GRE از کجا شروع کنم؟",
+                        answer: "اول سطح واژگانت رو بسنج، بعد یکی دو تا ماک بزن تا بدونی کجای کاری. بعدش هم منابع اصلی رو از بخش Verbal، Quant و Writing شروع کن. تو تست‌هلپر همه اینا مرتب و آماده‌ست.",
                     },
                 ]}
             />
-            <CTA
-                startHref="/gre/dashboard"
-                heading="ماک GRE رایگان رو امروز شروع کن"
-                description="با بهترین منابع و کلاس GRE، نمره و امتیاز دلخواهت رو کسب کن"
-            />
-            <FooterMain type={LearnBranch.GRE} />
+            <CTA startHref="/gre/dashboard" heading="شاید GRE سخت باشه؛ ولی تو شروعش کن، مسیرش با ما…" description="آماده‌ای قدم اول رو برداری؟" />
+            <Footer />
         </Fragment>
     );
 };

@@ -2,8 +2,8 @@
 import { Fragment } from "react";
 import { CTA } from "@/components/marketing/cta/cta";
 import { FAQ } from "@/components/marketing/faq/faq-accordion";
-import { Features } from "@/components/marketing/features/features";
-import { FooterMain } from "@/components/marketing/footers/footer-main";
+import { Features } from "@/components/marketing/features/features-scroll";
+import { Footer } from "@/components/marketing/footers/footer-brand";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { HeroSection } from "@/components/marketing/header-section/hero";
 import { SocialProof } from "@/components/marketing/social-proof/social-proof";
@@ -120,7 +120,7 @@ export const metadata = {
 };
 
 // Enable static generation
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 export const revalidate = 3600; // Revalidate every hour
 
 const PtePage = () => {
@@ -130,9 +130,9 @@ const PtePage = () => {
             <HeroSection
                 title={
                     <>
-                        آزمون PTE: ماک رایگان، کلاس و ثبت‌نام پی تی ای
+                        پلتفرم جامع آزمون PTE
                         <br />
-                        هزینه، منابع، آموزش تضمینی و خرید ووچر PTE
+                        شامل منابع آموزشی و نمونه سؤالات آزمون
                     </>
                 }
                 // subtitle={<>pte</>}
@@ -223,7 +223,7 @@ const PtePage = () => {
                 heading="ماک PTE رایگان رو امروز شروع کن"
                 description="با بهترین کلاس، منابع و خرید ووچر پی تی ای، به نمره دلخواهت برس"
             />
-            <FooterMain />
+            <Footer />
         </Fragment>
     );
 };

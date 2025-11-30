@@ -110,17 +110,19 @@ const defaultFeatures: Feature[] = [
     },
 ];
 
-export const Features = ({ heading, description, customFeatures }: FeaturesProps = {}) => {
-    const features = customFeatures || defaultFeatures;
+export const Features = ({
+    heading = "امکانات ویژه تست‌هلپر",
+    description = "تست‌هلپر مثل یه جعبه‌ابزار کامله؛ هرچی لازم داری اینجاست.",
+    customFeatures = defaultFeatures,
+}: FeaturesProps = {}) => {
+    const features = customFeatures;
     return (
         <section className="flex flex-col gap-8 overflow-hidden py-8 shadow-xs sm:gap-8 sm:py-12 md:gap-12 md:py-16 lg:gap-16 lg:py-16">
             <div className="mx-auto w-full max-w-container px-4 md:px-8">
                 <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
                     {/* <span className="text-sm font-semibold text-brand-secondary md:text-md">Features</span> */}
-                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">{heading || "امکانات ویژه تست‌هلپر"}</h2>
-                    <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                        {description || "تست‌هلپر مثل یه جعبه‌ابزار کامله؛ هرچی لازم داری اینجاست."}
-                    </p>
+                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">{heading}</h2>
+                    <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">{description}</p>
                 </div>
             </div>
 
@@ -144,7 +146,7 @@ export const Features = ({ heading, description, customFeatures }: FeaturesProps
                                 <Image
                                     alt={`${feature.title} mockup`}
                                     src={feature.imageLightSrc}
-                                    className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                    className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                                     width={1200}
                                     height={800}
                                     quality={85}
@@ -153,7 +155,7 @@ export const Features = ({ heading, description, customFeatures }: FeaturesProps
                                 <Image
                                     alt={`${feature.title} mockup`}
                                     src={feature.imageDarkSrc}
-                                    className="z-10 size-full rounded-md object-cover object-left-top ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                    className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                                     width={1200}
                                     height={800}
                                     quality={85}
