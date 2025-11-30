@@ -29,7 +29,7 @@ export const DropdownAvatar = ({ user }: { user: User }) => {
                     )
                 }
             >
-                <Avatar alt={userName} src={userAvatar} initials={userInitials} size="lg" />
+                <Avatar alt={userName} src={userAvatar} initials={userInitials} size="md" />
             </AriaButton>
 
             <Dropdown.Popover placement="bottom start">
