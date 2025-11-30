@@ -12,7 +12,7 @@ export const AuthModal = () => {
     const [phone, setPhone] = useState<string>("");
 
     return (
-        <ModalOverlay isDismissable className="z-9999999">
+        <ModalOverlay isDismissable>
             <Modal>
                 <Dialog aria-label="Sign up / Log in">
                     <div className="relative min-h-[50vh] w-full min-w-96 rounded-2xl bg-primary p-8 shadow-xl sm:min-h-[70vh] sm:max-w-100">
