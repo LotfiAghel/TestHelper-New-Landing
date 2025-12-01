@@ -10,6 +10,7 @@ import { SocialProof } from "@/components/marketing/social-proof/social-proof";
 import { Team } from "@/components/marketing/team/team";
 import { Testimonial } from "@/components/marketing/testimonials/testimonial";
 import { LearnBranch } from "@/types";
+import { FooterMain } from "@/components/marketing/footers/footer-main";
 
 export const metadata = {
     title: "آزمون آیلتس (IELTS) | ماک آیلتس رایگان، کلاس آنلاین و ثبت‌نام | تست‌هلپر",
@@ -230,6 +231,8 @@ const IeltsPage = () => {
                 heading="برای نمره‌ آیلتس، فقط کافیه شروع کنی؛ مسیرش روشنه…"
                 description="وقتشه یک قدم جدی برای رسیدن به نمره هدفت برداری."
             />
+            <FooterMain type={LearnBranch.IELTS} />
+
             <Footer />
         </Fragment>
     );

@@ -23,13 +23,12 @@ export const loginByGmail = (credential: string) => {
         method: 'POST',
     });
 }
-export const properPhoneNumber = (mobileNumberRef: RefObject<string>) => {
-    let mobileNumber = mobileNumberRef.current;
+export const properPhoneNumber = (mobileNumber: string) => {
     mobileNumber = mobileNumber.startsWith('98') ? mobileNumber.replace('98', '') : mobileNumber;
     return mobileNumber.startsWith('0') ? mobileNumber : '0' + mobileNumber;
 }
 
-export const login = async (mobileNumberRef: RefObject<string>) => {
+export const login = async (mobileNumberRef: string) => {
     const tempMobileNumber = properPhoneNumber(mobileNumberRef)
     // phoneNumberObjectManager.set(tempMobileNumber);
 

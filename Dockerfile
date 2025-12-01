@@ -21,7 +21,7 @@ COPY tsconfig.json ./
 RUN npm i
 
 
-RUN npm run build
+RUN npm run build-develop
 FROM base AS runner
 WORKDIR /app
 

@@ -24,7 +24,7 @@ export const CTA = ({
                     <div className="mt-8 flex flex-col-reverse gap-3 self-stretch md:mt-8 md:flex-row md:self-center">
                         <Button
                             onClick={() => {
-                                window.Goftino ?? window.Goftino.open();
+                                window.Goftino && window.Goftino.open();
                             }}
                             color="secondary"
                             size="xl"

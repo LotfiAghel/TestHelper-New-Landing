@@ -9,6 +9,8 @@ import { HeroSection } from "@/components/marketing/header-section/hero";
 import { SocialProof } from "@/components/marketing/social-proof/social-proof";
 import { Team } from "@/components/marketing/team/team";
 import { Testimonial } from "@/components/marketing/testimonials/testimonial";
+import { FooterMain } from "@/components/marketing/footers/footer-main";
+import { LearnBranch } from "@/types";
 
 export const metadata = {
     title: "آزمون تافل (TOEFL) | ماک تافل رایگان، TPO و هوم ادیشن | تست‌هلپر",
@@ -240,6 +242,7 @@ export default function ToeflPage() {
                 heading="برای تمرین تافل همه‌چیز مهیاست؛ فقط کافیه شروع کنی…"
                 description="آماده‌ای برای رسیدن به نمره دلخواهت تلاش کنی؟"
             />
+             <FooterMain type={LearnBranch.TOEFL}  />
             <Footer />
         </Fragment>
     );

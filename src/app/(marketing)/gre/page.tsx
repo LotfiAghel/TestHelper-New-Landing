@@ -10,6 +10,7 @@ import { SocialProof } from "@/components/marketing/social-proof/social-proof";
 import { Team } from "@/components/marketing/team/team";
 import { Testimonial } from "@/components/marketing/testimonials/testimonial";
 import { LearnBranch } from "@/types";
+import { FooterMain } from "@/components/marketing/footers/footer-main";
 
 export const metadata = {
     title: "آزمون GRE | ماک GRE، بهترین منابع، نمره و تاریخ آزمون | تست‌هلپر",
@@ -224,6 +225,7 @@ const GrePage = () => {
                 ]}
             />
             <CTA startHref="/gre/dashboard" heading="شاید GRE سخت باشه؛ ولی تو شروعش کن، مسیرش با ما…" description="آماده‌ای قدم اول رو برداری؟" />
+            <FooterMain type={LearnBranch.GRE} />
             <Footer />
         </Fragment>
     );

@@ -17,35 +17,7 @@ interface Props {
 }
 
 export default function StepPhone({ onNext }: Props) {
-    // const phone = useRef("");
-    // const [googleLoading, setGoogleLoading] = useState(false);
-    // const navigate = () => {
-    //     //
-    // };
-    // const checkCode = async (code) => {
-    //     if (code) {
-    //         const result = await loginByActivatoinCode({
-    //             phone: properPhoneNumber(phone) ?? "",
-    //             OTP: code,
-    //             Platform: 1,
-    //             DeviceType: 0,
-    //         });
-    //         const data: LoginUserResponse = await result.json();
-    //         if (data.done) {
-    //             setUser(data.user);
-    //             const userId = data.user.id;
-    //             if (typeof window !== "undefined" && window.gtag) {
-    //                 window.gtag("config", "G-6PK22LDCQY", {
-    //                     user_id: userId,
-    //                 });
-    //                 setUserId(userId);
-    //             }
-    //             navigate();
-    //         } else {
-    //             alert(data.text);
-    //         }
-    //     }
-    // };
+
     return (
         <div className="flex flex-col items-center gap-6">
             <TestHelperLogoMinimal className="size-10" />
@@ -56,11 +28,17 @@ export default function StepPhone({ onNext }: Props) {
             </div>
 
             <Form
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                     e.preventDefault();
                     const data = Object.fromEntries(new FormData(e.currentTarget));
-                    const phone = data.phone as string;
-                    onNext(phone);
+                    const result = await login(data.phone as string);
+                    if (result.ok) {
+                        const resultData = await result.json();
+                        if (resultData.done)
+                            onNext(data.phone as string);
+                    } else {
+                        alert('خطایی رخ داده است.')
+                    }
                 }}
                 className="flex flex-col gap-6"
             >
@@ -98,23 +76,6 @@ export default function StepPhone({ onNext }: Props) {
                     <SocialButton social="google" theme="color">
                         Log in with Google
                     </SocialButton>
-
-                    {/* <div className="flex flex-col">
-                        <GoogleLogin
-                            onSuccess={(credentialResponse) => {
-                                loginByGmail(credentialResponse.credential)
-                                    .then(loginByGmailHandler)
-                                    .catch((err) => {
-                                        toast.error("Event has not been created");
-                                        alert("اگر قبلا در پروفایل خود Gmail را ذخیره کرده اید میتوانید از این قابلیت استفاده کنید error");
-                                    });
-                            }}
-                            onError={() => {
-                                toast.error("Login Failed.");
-                            }}
-                            useOneTap
-                        />
-                    </div> */}
                 </div>
             </Form>
         </div>

@@ -6,11 +6,12 @@ import { CloseButton } from "@/components/base/buttons/close-button";
 import StepPhone from "./step1-phone";
 import StepOtp from "./step2-otp";
 import StepSuccess from "./step3-success";
+import { login } from "@/utils/login";
 
 export const AuthModal = () => {
     const [step, setStep] = useState<1 | 2 | 3>(1);
     const [phone, setPhone] = useState<string>("");
-
+    console.error(phone)
     return (
         <ModalOverlay isDismissable>
             <Modal>
@@ -19,10 +20,11 @@ export const AuthModal = () => {
                         <CloseButton slot="close" size="lg" className="absolute top-3 right-3" />
                         {step === 1 && (
                             <StepPhone
-                                onNext={(enteredPhone) => {
-                                    setPhone(enteredPhone);
-                                    setStep(2);
-                                }}
+                                onNext={
+                                    async (enteredPhone) => {
+                                        setPhone(enteredPhone);
+                                        setStep(2);
+                                    }}
                             />
                         )}
 
@@ -30,8 +32,15 @@ export const AuthModal = () => {
                             <StepOtp
                                 phone={phone}
                                 onBack={() => setStep(1)}
-                                onResend={(phone) => {
-                                    console.log("Resend OTP to", phone);
+                                onResend={async (phone: string) => {
+                                    const result = await login(phone);
+                                    if (result.ok) {
+                                        const data = await result.json();
+                                        if (data.done)
+                                            setStep(3);
+                                    } else {
+                                        alert('خطایی رخ داده است.')
+                                    }
                                 }}
                                 onSuccess={() => setStep(3)}
                             />

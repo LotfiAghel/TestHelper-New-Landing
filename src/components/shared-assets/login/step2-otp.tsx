@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, Mail01 } from "@untitledui/icons";
-import { REGEXP_ONLY_DIGITS } from "input-otp";
+import { OTPInput, REGEXP_ONLY_DIGITS } from "input-otp";
 import { Button } from "@/components/base/buttons/button";
 import { Form } from "@/components/base/form/form";
 import { PinInput } from "@/components/base/pin-input/pin-input";
 import { TestHelperLogoMinimal } from "@/components/foundations/logo/testhelper-logo-minimal";
+import { loginByActivatoinCode } from "@/utils/consts";
+import { LoginUserResponse } from "@/types";
+import { getUserContext } from "@/context/userContext";
+import { setUserId } from "@/utils/ga";
 
 interface Props {
     phone: string;
@@ -16,9 +20,13 @@ interface Props {
 }
 
 export default function StepOtp({ phone, onBack, onResend, onSuccess }: Props) {
-    const [timer, setTimer] = useState<number>(120); // 120 seconds countdown
+    const [timer, setTimer] = useState<number>(120);
     const [canResend, setCanResend] = useState(false);
-
+    const { setUser } = getUserContext();
+    const otp = useRef('');
+    const handleInput = (value) => {
+        otp.current = value;
+    }
     useEffect(() => {
         if (timer === 0) {
             setCanResend(true);
@@ -47,19 +55,40 @@ export default function StepOtp({ phone, onBack, onResend, onSuccess }: Props) {
                 </p>
             </div>
             <Form
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                     e.preventDefault();
-                    const data = Object.fromEntries(new FormData(e.currentTarget));
-                    const otp = data.otp;
-                    console.log("OTP:", otp);
-                    onSuccess();
+                    const code = otp.current;
+                    console.error(phone)
+                    if (code && phone) {
+                        const result = await loginByActivatoinCode({
+                            PhoneNumber: phone ,
+                            OTP: code,
+                            Platform: 1,
+                            DeviceType: 0,
+                        });
+                        const data: LoginUserResponse = await result.json();
+                        if (data.done) {
+                            setUser(data.user);
+                            const userId = data.user.id;
+                            if (typeof window !== 'undefined' && window.gtag) {
+                                window.gtag('config', 'G-6PK22LDCQY', {
+                                    'user_id': userId
+                                });
+                                setUserId(userId);
+                            }
+                            onSuccess();
+                        } else {
+                            alert(data.text);
+                        }
+                    }
                 }}
                 className="flex flex-col gap-6"
             >
                 <div className="flex flex-col items-center gap-6 md:gap-8">
                     <div className="md:hidden">
+
                         <PinInput size="xs" inputMode="numeric">
-                            <PinInput.Group maxLength={5} pattern={REGEXP_ONLY_DIGITS}>
+                            <PinInput.Group onChange={handleInput} id="otp" maxLength={5} pattern={REGEXP_ONLY_DIGITS}>
                                 <PinInput.Slot index={0} />
                                 <PinInput.Slot index={1} />
                                 <PinInput.Slot index={2} />
@@ -70,7 +99,7 @@ export default function StepOtp({ phone, onBack, onResend, onSuccess }: Props) {
                     </div>
                     <div className="max-md:hidden">
                         <PinInput size="sm">
-                            <PinInput.Group maxLength={5}>
+                            <PinInput.Group onChange={handleInput} maxLength={5}>
                                 <PinInput.Slot index={0} />
                                 <PinInput.Slot index={1} />
                                 <PinInput.Slot index={2} />
