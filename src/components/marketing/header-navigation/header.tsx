@@ -12,6 +12,7 @@ import { TestHelperLogo } from "@/components/foundations/logo/testhelper-logo";
 import { TestHelperLogoMinimal } from "@/components/foundations/logo/testhelper-logo-minimal";
 import { AuthModal } from "@/components/shared-assets/login/auth-modal";
 import UserContextProvider, { getUserContext } from "@/context/userContext";
+import { User, fakeUser } from "@/types";
 import { cx } from "@/utils/cx";
 import { VerifyCookie } from "@/utils/login";
 import { TestsModal } from "../header-section/tests-modal";
@@ -19,6 +20,7 @@ import { TestsModal } from "../header-section/tests-modal";
 import UserProfile from "./UserProfile";
 import { DropdownMenuSimpleWithFooter } from "./dropdown-menu-simple-with-footer";
 import { ThemeToggle } from "./theme-toggle";
+import { DropdownAvatar } from "./user-profile";
 
 type HeaderNavItem = {
     label: string;
@@ -194,7 +196,7 @@ export const HeaderComponent = ({ items = headerNavItems, isFullWidth, isFloatin
                         </Button> */}
                             <ThemeToggle />
                             {user ? (
-                                <UserProfile profileUser={user} />
+                                <DropdownAvatar user={fakeUser} />
                             ) : (
                                 <DialogTrigger>
                                     <Button color="primary" size={isFloating ? "md" : "lg"}>

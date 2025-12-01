@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { CheckItemText } from "@/components/marketing/pricing/base-components/pricing-tier-card";
@@ -110,7 +110,7 @@ export const Features = ({
     const activeFeature = features[activeFeatureIndex];
 
     return (
-        <section className="flex flex-col gap-8 overflow-visible py-8 sm:gap-8 sm:py-12 md:gap-12 md:py-16 lg:gap-16 lg:py-16">
+        <section className="flex flex-col gap-8 overflow-clip py-8 shadow-xs sm:gap-8 sm:py-12 md:gap-12 md:py-16 lg:gap-16 lg:py-16">
             {/* Standard Heading Section (Unchanged) */}
             <div className="mx-auto w-full max-w-container px-4 md:px-8">
                 <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
@@ -124,37 +124,59 @@ export const Features = ({
                 <div className="grid grid-cols-1 gap-x-24 lg:grid-cols-2">
                     <div className="w-full">
                         {features.map((feature, index) => (
-                            <motion.div
-                                key={index}
-                                className="lg: flex h-screen max-h-[1024px] justify-start py-10 lg:py-20"
-                                // Fading Text Animation
-                                initial={{ opacity: 0.2 }}
-                                animate={{ opacity: activeFeatureIndex === index ? 1 : 0.2 }}
-                                transition={{ duration: 1 }}
-                                // CRITICAL TRIGGER: Fire when the element crosses the center line
-                                viewport={{ margin: "-50% 0px -50% 0px" }}
-                                onViewportEnter={() => setActiveFeatureIndex(index)}
-                            >
-                                <div className="max-w-xl flex-1">
-                                    <h2 className="text-display-xs font-semibold text-brand-600 md:text-display-sm">{feature.title}</h2>
-                                    <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">{feature.description}</p>
-                                    <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
-                                        {feature.items.map((item) => (
-                                            // @ts-ignore
-                                            <CheckItemText key={item} size="md" iconStyle="outlined" color="primary" text={item} />
-                                        ))}
-                                    </ul>
+                            <Fragment key={index}>
+                                <motion.div
+                                    className="flex max-h-[480px] justify-start py-10 lg:h-screen lg:py-20"
+                                    // Fading Text Animation
+                                    initial={{ opacity: 0.2 }}
+                                    animate={{ opacity: activeFeatureIndex === index ? 1 : 0.2 }}
+                                    transition={{ duration: 1 }}
+                                    // CRITICAL TRIGGER: Fire when the element crosses the center line
+                                    viewport={{ margin: "-50% 0px -50% 0px" }}
+                                    onViewportEnter={() => setActiveFeatureIndex(index)}
+                                >
+                                    <div className="max-w-xl flex-1">
+                                        <h2 className="text-display-xs font-semibold text-brand-600 md:text-display-sm">{feature.title}</h2>
+                                        <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">{feature.description}</p>
+                                        <ul className="mt-8 flex flex-col gap-4 ps-2 md:gap-5 md:ps-4">
+                                            {feature.items.map((item) => (
+                                                <CheckItemText key={item} size="md" iconStyle="outlined" color="primary" text={item} />
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </motion.div>
+                                <div className="relative w-full flex-1 lg:hidden">
+                                    <div className="relative -ml-4 w-full bg-tertiary px-4 py-6 md:ml-0 md:h-140 md:w-auto md:rounded-3xl md:p-10 lg:h-100">
+                                        <div className="relative flex h-full w-full">
+                                            {/* Light mode image (hidden in dark mode) */}
+                                            <Image
+                                                alt={`${feature.title} mockup`}
+                                                src={feature.imageLightSrc}
+                                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border md:absolute dark:hidden"
+                                                width={1200}
+                                                height={800}
+                                                quality={85}
+                                            />
+                                            {/* Dark mode image (hidden in light mode) */}
+                                            <Image
+                                                alt={`${feature.title} mockup`}
+                                                src={feature.imageDarkSrc}
+                                                className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
+                                                width={1200}
+                                                height={800}
+                                                quality={85}
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
-                            </motion.div>
+                            </Fragment>
                         ))}
                     </div>
-
                     <div className="relative hidden w-full flex-1 lg:block">
                         <div className="sticky top-44">
                             <div className="relative -ml-4 w-full bg-tertiary px-4 py-6 md:ml-0 md:h-140 md:w-auto md:rounded-3xl md:p-10 lg:h-100">
-                                <div className="relative flex h-full w-full">
+                                <div key={activeFeatureIndex} className="relative flex h-full w-full">
                                     <motion.img
-                                        key={activeFeatureIndex}
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         transition={{ duration: 0.5 }}
@@ -163,18 +185,19 @@ export const Features = ({
                                         className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border md:absolute dark:hidden"
                                         width={1200}
                                     />
-                                    <Image
+                                    <motion.img
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.5 }}
                                         alt={`${activeFeature.title} mockup`}
                                         src={activeFeature.imageDarkSrc}
                                         className="z-10 size-full rounded-md object-cover object-top-left ring-4 ring-screen-mockup-border not-dark:hidden md:absolute"
                                         width={1200}
-                                        height={800}
-                                        quality={85}
                                     />
                                 </div>
                             </div>
                             {/* FlowPattern */}
-                            <div className="absolute bottom-0 left-0 hidden -translate-x-1/3 md:block md:translate-y-12 lg:translate-y-1/4">
+                            <div className="absolute bottom-0 left-0 hidden md:block md:translate-y-12 lg:-translate-x-1/3 lg:translate-y-1/4">
                                 <FlowPattern className="text-fg-brand-secondary" />
                             </div>
                         </div>
