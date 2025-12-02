@@ -242,7 +242,6 @@ export default function ToeflPage() {
                 heading="برای تمرین تافل همه‌چیز مهیاست؛ فقط کافیه شروع کنی…"
                 description="آماده‌ای برای رسیدن به نمره دلخواهت تلاش کنی؟"
             />
-             <FooterMain type={LearnBranch.TOEFL}  />
             <Footer />
         </Fragment>
     );

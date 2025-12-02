@@ -225,7 +225,6 @@ const GrePage = () => {
                 ]}
             />
             <CTA startHref="/gre/dashboard" heading="شاید GRE سخت باشه؛ ولی تو شروعش کن، مسیرش با ما…" description="آماده‌ای قدم اول رو برداری؟" />
-            <FooterMain type={LearnBranch.GRE} />
             <Footer />
         </Fragment>
     );

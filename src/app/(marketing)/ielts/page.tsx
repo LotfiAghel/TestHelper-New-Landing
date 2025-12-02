@@ -231,8 +231,6 @@ const IeltsPage = () => {
                 heading="برای نمره‌ آیلتس، فقط کافیه شروع کنی؛ مسیرش روشنه…"
                 description="وقتشه یک قدم جدی برای رسیدن به نمره هدفت برداری."
             />
-            <FooterMain type={LearnBranch.IELTS} />
-
             <Footer />
         </Fragment>
     );

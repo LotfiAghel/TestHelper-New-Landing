@@ -45,7 +45,6 @@ export const HomePage = () => {
             <SocialProof />
             <FAQ />
             <CTA />
-            <FooterMain type={LearnBranch.None} />
             <Footer />
         </Fragment>
     );

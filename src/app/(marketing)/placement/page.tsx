@@ -15,7 +15,6 @@ export default function page() {
           <ExamBanners />
           <FeaturesSection />
         </main>
-        <FooterMain />
       </div>
     </div>
   )
