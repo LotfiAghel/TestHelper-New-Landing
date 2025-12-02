@@ -1,8 +1,24 @@
-import { memo } from "react";
+'use client';
+import { memo, useEffect, useState } from "react";
 import { Button } from "@/components/base/buttons/button";
 import { footerNavList, footerSocials } from "./footer-items";
+import { filesType, getAppUrlrops } from "./NewFooter";
+import { LearnBranch } from "@/types";
+import { handleUrlAttach } from "@/utils/consts";
 
 export const FooterBrand = () => {
+
+    const [data, setData] = useState<filesType[]>([]);
+
+    useEffect(() => {
+        getAppUrlrops()
+            .then(res => {
+                setData(res)
+            });
+    }, []);
+
+    const appForBranch = data.find(item => item.learnBranch == LearnBranch.TOEFL)
+
     return (
         <footer className="bg-brand-section py-12 md:pt-16">
             <div className="mx-auto max-w-container px-4 md:px-8">
@@ -12,19 +28,34 @@ export const FooterBrand = () => {
                             <li key={category.label}>
                                 <h4 className="text-sm font-semibold text-quaternary_on-brand">{category.label}</h4>
                                 <ul className="mt-4 flex flex-col gap-3">
-                                    {category.items.map((item) => (
-                                        <li key={item.label}>
-                                            <Button
-                                                className="gap-1 text-footer-button-fg hover:text-footer-button-fg_hover"
-                                                color="link-color"
-                                                size="lg"
-                                                href={item.href}
-                                                iconTrailing={item.badge}
-                                            >
-                                                {item.label}
-                                            </Button>
-                                        </li>
-                                    ))}
+                                    {category.items.map((item) => {
+                                        const appForBranch = data.find(appLink => appLink.learnBranch == item.branch)
+                                        return (
+                                            item.type == 'download' ?
+                                                <li key={item.label}>
+                                                    <Button
+                                                        className="gap-1 text-footer-button-fg hover:text-footer-button-fg_hover"
+                                                        color="link-color"
+                                                        size="lg"
+                                                        href={handleUrlAttach(`${appForBranch?.file}`)}
+                                                        iconTrailing={item.badge}
+                                                    >
+                                                        {item.label}
+                                                    </Button>
+                                                </li> :
+                                                <li key={item.label}>
+                                                    <Button
+                                                        className="gap-1 text-footer-button-fg hover:text-footer-button-fg_hover"
+                                                        color="link-color"
+                                                        size="lg"
+                                                        href={item.href}
+                                                        iconTrailing={item.badge}
+                                                    >
+                                                        {item.label}
+                                                    </Button>
+                                                </li>
+                                        )
+                                    })}
                                 </ul>
                             </li>
                         ))}
@@ -53,4 +84,4 @@ export const FooterBrand = () => {
     );
 };
 
-export const Footer = memo(FooterBrand);
+export const Footer = FooterBrand;

@@ -1,5 +1,6 @@
 import { Badge } from "@/components/base/badges/badges";
 import { Instagram, LinkedIn, Telegram, YouTube } from "@/components/foundations/social-icons";
+import { LearnBranch } from "@/types";
 
 export const footerSocials = [
     {
@@ -59,6 +60,8 @@ export const footerNavList = [
                 href: "https://t.me/TestHelperTOEFL",
             },
             {
+                type: 'download',
+                branch: LearnBranch.TOEFL,
                 label: "اپلیکیشن تافل",
                 href: "./toefl/App",
             },
@@ -76,6 +79,8 @@ export const footerNavList = [
                 href: "https://t.me/TestHelperIELTS",
             },
             {
+                type: 'download',
+                branch: LearnBranch.IELTS,
                 label: "اپلیکیشن آیلتس",
                 href: "./ielts/App",
             },
@@ -93,6 +98,8 @@ export const footerNavList = [
                 href: "https://t.me/TestHelperGRE",
             },
             {
+                type: 'download',
+                branch: LearnBranch.GRE,
                 label: "اپلیکیشن جی‌آرای",
                 href: "./gre/App",
             },

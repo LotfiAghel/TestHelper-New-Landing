@@ -13,7 +13,7 @@ const NavLink = ({ children, link = '#' }) => (
     </a>
 );
 
-type filesType = {
+export type filesType = {
     learnBranch: number,
     name: string,
     version: string,
