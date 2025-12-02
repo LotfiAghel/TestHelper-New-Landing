@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Dialog, Modal, ModalOverlay } from "@/components/application/modals/modal";
 import { CloseButton } from "@/components/base/buttons/close-button";
 import StepPhone from "./step1-phone";
@@ -11,9 +11,11 @@ import { login } from "@/utils/login";
 export const AuthModal = () => {
     const [step, setStep] = useState<1 | 2 | 3>(1);
     const [phone, setPhone] = useState<string>("");
-    console.error(phone)
+    const isProcessing = useRef(false);
     return (
-        <ModalOverlay isDismissable>
+        <ModalOverlay style={{
+            zIndex: '99999999'
+        }} isDismissable>
             <Modal>
                 <Dialog aria-label="Sign up / Log in">
                     <div className="relative min-h-[50vh] w-full min-w-96 rounded-2xl bg-primary p-8 shadow-xl sm:min-h-[70vh] sm:max-w-100">
@@ -33,6 +35,8 @@ export const AuthModal = () => {
                                 phone={phone}
                                 onBack={() => setStep(1)}
                                 onResend={async (phone: string) => {
+                                    if (isProcessing.current) return;
+                                    isProcessing.current = true;
                                     const result = await login(phone);
                                     if (result.ok) {
                                         const data = await result.json();
@@ -41,6 +45,7 @@ export const AuthModal = () => {
                                     } else {
                                         alert('خطایی رخ داده است.')
                                     }
+                                    isProcessing.current = false
                                 }}
                                 onSuccess={() => setStep(3)}
                             />
