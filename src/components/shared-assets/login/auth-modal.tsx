@@ -37,11 +37,13 @@ export const AuthModal = () => {
                                 onResend={async (phone: string) => {
                                     if (isProcessing.current) return;
                                     isProcessing.current = true;
-                                    const result = await login(phone);
+                                    const result = await login(phone as string);
                                     if (result.ok) {
-                                        const data = await result.json();
-                                        if (data.done)
-                                            setStep(3);
+                                        const resultData = await result.json();
+                                        if (resultData.extraMsg)
+                                            alert(resultData.extraMsg);
+                                        if (resultData.done)
+                                            setPhone(phone as string);
                                     } else {
                                         alert('خطایی رخ داده است.')
                                     }

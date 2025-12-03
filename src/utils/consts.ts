@@ -7,98 +7,98 @@ import { LearnBranch } from "@/types";
 export const strapiBaseUrl = "https://strapi-admin.testhelper.com";
 export const serverBaseUrl = process.env.NEXT_PUBLIC_API_SERVER || "/toefl-api";
 export const defaultMetadata = {
-    metadataBase: new URL("https://testhelper.com"),
-    title: {
-        default: "تست هلپر | آزمون های بین المللی زبان انگلیسی - IELTS, TOEFL, GRE, PTE",
-        template: "%s | تست هلپر",
-    },
-    description: "تست هلپر پلتفرم جامع آمادگی برای آزمون های بین المللی زبان انگلیسی آیلتس، تافل، GRE و PTE با آزمون های آزمایشی کامل، منابع معتبر و به روز",
-    keywords: [
-        "آیلتس",
-        "تافل",
-        "PTE",
-        "GRE",
-        "آزمون بین المللی",
-        "تست هلپر",
-        "Test Helper",
-        "آموزش زبان انگلیسی",
-        "آزمون آزمایشی",
-        "IELTS",
-        "TOEFL",
-        "English language test",
-        "international language exam",
+  metadataBase: new URL("https://testhelper.com"),
+  title: {
+    default: "تست هلپر | آزمون های بین المللی زبان انگلیسی - IELTS, TOEFL, GRE, PTE",
+    template: "%s | تست هلپر",
+  },
+  description: "تست هلپر پلتفرم جامع آمادگی برای آزمون های بین المللی زبان انگلیسی آیلتس، تافل، GRE و PTE با آزمون های آزمایشی کامل، منابع معتبر و به روز",
+  keywords: [
+    "آیلتس",
+    "تافل",
+    "PTE",
+    "GRE",
+    "آزمون بین المللی",
+    "تست هلپر",
+    "Test Helper",
+    "آموزش زبان انگلیسی",
+    "آزمون آزمایشی",
+    "IELTS",
+    "TOEFL",
+    "English language test",
+    "international language exam",
+  ],
+
+  authors: [{ name: "تست هلپر" }],
+  creator: "تست هلپر",
+  publisher: "تست هلپر",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "fa_IR",
+    url: "https://testhelper.com",
+    siteName: "تست هلپر",
+    title: "تست هلپر | آزمون های بین المللی زبان انگلیسی - IELTS, TOEFL, GRE, PTE",
+    description: "پلتفرم جامع آمادگی برای آزمون های بین المللی زبان انگلیسی آیلتس، تافل، GRE و PTE با آزمون های آزمایشی کامل، منابع معتبر و به روز",
+    images: [
+      {
+        url: "/lassets/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "تست هلپر - همیار آزمون های بین المللی",
+      },
     ],
+  },
 
-    authors: [{ name: "تست هلپر" }],
-    creator: "تست هلپر",
-    publisher: "تست هلپر",
-    formatDetection: {
-        email: false,
-        address: false,
-        telephone: false,
-    },
+  twitter: {
+    card: "summary_large_image",
+    title: "تست هلپر | آزمون های بین المللی زبان انگلیسی",
+    description: "پلتفرم جامع آمادگی برای آزمون های بین المللی زبان انگلیسی آیلتس، تافل، GRE و PTE",
+    images: ["/lassets/images/twitter-image.jpg"],
+    creator: "@testhelper",
+  },
 
-    openGraph: {
-        type: "website",
-        locale: "fa_IR",
-        url: "https://testhelper.com",
-        siteName: "تست هلپر",
-        title: "تست هلپر | آزمون های بین المللی زبان انگلیسی - IELTS, TOEFL, GRE, PTE",
-        description: "پلتفرم جامع آمادگی برای آزمون های بین المللی زبان انگلیسی آیلتس، تافل، GRE و PTE با آزمون های آزمایشی کامل، منابع معتبر و به روز",
-        images: [
-            {
-                url: "/lassets/images/og-image.jpg",
-                width: 1200,
-                height: 630,
-                alt: "تست هلپر - همیار آزمون های بین المللی",
-            },
-        ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
+  },
 
-    twitter: {
-        card: "summary_large_image",
-        title: "تست هلپر | آزمون های بین المللی زبان انگلیسی",
-        description: "پلتفرم جامع آمادگی برای آزمون های بین المللی زبان انگلیسی آیلتس، تافل، GRE و PTE",
-        images: ["/lassets/images/twitter-image.jpg"],
-        creator: "@testhelper",
-    },
+  verification: {
+    google: "G-X12ABC3DEF4",
+    yandex: "yandex-verification-code",
+  },
 
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-            index: true,
-            follow: true,
-            "max-video-preview": -1,
-            "max-image-preview": "large",
-            "max-snippet": -1,
-        },
+  alternates: {
+    canonical: "https://testhelper.com",
+    languages: {
+      "fa-IR": "https://testhelper.com",
+      "en-US": "https://testhelper.com/en",
     },
+  },
 
-    verification: {
-        google: "G-X12ABC3DEF4",
-        yandex: "yandex-verification-code",
-    },
-
-    alternates: {
-        canonical: "https://testhelper.com",
-        languages: {
-            "fa-IR": "https://testhelper.com",
-            "en-US": "https://testhelper.com/en",
-        },
-    },
-
-    icons: {
-        icon: [{ url: "/favicon.ico" }],
-        apple: [{ url: "/apple-touch-icon.png" }],
-        other: [
-            {
-                rel: "mask-icon",
-                url: "/safari-pinned-tab.svg",
-            },
-        ],
-    },
-    manifest: "/site.webmanifest",
+  icons: {
+    icon: [{ url: "/favicon.ico" }],
+    apple: [{ url: "/apple-touch-icon.png" }],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/safari-pinned-tab.svg",
+      },
+    ],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export const USER_PUBLIC_FILE_BASE_URL = `${serverBaseUrl}/api/files2/DownloadUserPublicFile/`;
@@ -419,13 +419,13 @@ export const sibAppLinks = {
   [LearnBranch.None]: 'https://sibapp.com/search/?query=%D8%AA%D8%B3%D8%AA%20%D9%87%D9%84%D9%BE%D8%B1',
 }
 export const getUserPublicFileUrl = (userId: string, fileName: string) => {
-    return `${USER_PUBLIC_FILE_BASE_URL}${userId}/${fileName}`;
+  return `${USER_PUBLIC_FILE_BASE_URL}${userId}/${fileName}`;
 };
 
 
 export const loginByGmail = (credential) => {
   return fetch(`${serverBaseUrl}/v1/User/loginByGmail`, {
-    headers:{
+    headers: {
       'Content-Type': 'application/json',
     },
     credentials: 'include',
@@ -474,8 +474,36 @@ export async function logOutApi() {
   return fetch(`${serverBaseUrl}/v1/User/logout`, {
     method: 'GET',
     credentials: 'include',
-    headers:{
+    headers: {
       'Content-Type': 'application/json',
     },
   });
+}
+
+export function convertPersianToEnglishNumbers(persianNumberString: string) {
+  if (typeof persianNumberString !== 'string')
+    return String(persianNumberString);
+  const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+  const englishDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+  let englishNumberString = '';
+  // persianNumberString = (persianNumberString[0] == '۰') ? persianNumberString.slice(1) : persianNumberString;
+
+  for (let i = 0; i < persianNumberString.length; i++) {
+    const char = persianNumberString[i];
+
+    const persianIndex = persianDigits.indexOf(char);
+    if (persianIndex !== -1) {
+      englishNumberString += englishDigits[persianIndex];
+      continue;
+    }
+
+    const englishIndex = englishDigits.indexOf(char);
+    if (englishIndex !== -1) {
+      englishNumberString += char;
+      continue;
+    }
+  }
+
+  return englishNumberString;
 }

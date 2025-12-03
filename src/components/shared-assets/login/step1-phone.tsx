@@ -11,6 +11,7 @@ import { Input, InputBase } from "@/components/base/input/input";
 import { InputGroup } from "@/components/base/input/input-group";
 import { TestHelperLogoMinimal } from "@/components/foundations/logo/testhelper-logo-minimal";
 import { login, loginByActivatoinCode, loginByGmail, properPhoneNumber } from "@/utils/login";
+import { convertPersianToEnglishNumbers } from "@/utils/consts";
 
 interface Props {
     onNext: (phone: string) => void;
@@ -34,6 +35,8 @@ export default function StepPhone({ onNext }: Props) {
                     const result = await login(data.phone as string);
                     if (result.ok) {
                         const resultData = await result.json();
+                        if (resultData.extraMsg)
+                            alert(resultData.extraMsg);
                         if (resultData.done)
                             onNext(data.phone as string);
                     } else {
@@ -55,7 +58,7 @@ export default function StepPhone({ onNext }: Props) {
                     maxLength={11}
                     onInput={(e) => {
                         const target = e.target as HTMLInputElement;
-                        target.value = target.value.replace(/\D+/g, ""); // remove non-digits
+                        target.value = convertPersianToEnglishNumbers(target.value).replace(/\D+/g, ""); // remove non-digits
                     }}
                     onPaste={(e) => {
                         const data = e.clipboardData.getData("text");

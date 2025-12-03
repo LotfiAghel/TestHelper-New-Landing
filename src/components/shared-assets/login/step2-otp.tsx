@@ -7,7 +7,7 @@ import { Button } from "@/components/base/buttons/button";
 import { Form } from "@/components/base/form/form";
 import { PinInput } from "@/components/base/pin-input/pin-input";
 import { TestHelperLogoMinimal } from "@/components/foundations/logo/testhelper-logo-minimal";
-import { loginByActivatoinCode } from "@/utils/consts";
+import { convertPersianToEnglishNumbers, loginByActivatoinCode } from "@/utils/consts";
 import { LoginUserResponse } from "@/types";
 import { getUserContext } from "@/context/userContext";
 import { setUserId } from "@/utils/ga";
@@ -23,9 +23,10 @@ export default function StepOtp({ phone, onBack, onResend, onSuccess }: Props) {
     const [timer, setTimer] = useState<number>(120);
     const [canResend, setCanResend] = useState(false);
     const { setUser } = getUserContext();
+    const userOtps = useRef<string[]>([]);
     const otp = useRef('');
     const handleInput = (value) => {
-        otp.current = value;
+        otp.current = convertPersianToEnglishNumbers(value);
     }
     useEffect(() => {
         if (timer === 0) {
@@ -45,6 +46,33 @@ export default function StepOtp({ phone, onBack, onResend, onSuccess }: Props) {
         setTimer(60);
         setCanResend(false);
     };
+    const handleSubmit = async (code: string) => {
+        if (userOtps.current.includes(code)) return
+
+        if (code && phone) {
+            userOtps.current.push(code);
+            const result = await loginByActivatoinCode({
+                PhoneNumber: phone,
+                OTP: code,
+                Platform: 1,
+                DeviceType: 0,
+            });
+            const data: LoginUserResponse = await result.json();
+            if (data.done) {
+                setUser(data.user);
+                const userId = data.user.id;
+                if (typeof window !== 'undefined' && window.gtag) {
+                    window.gtag('config', 'G-6PK22LDCQY', {
+                        'user_id': userId
+                    });
+                    setUserId(userId);
+                }
+                onSuccess();
+            } else {
+                alert(data.text);
+            }
+        }
+    }
     return (
         <div className="flex flex-col items-center gap-6">
             <TestHelperLogoMinimal className="size-10" />
@@ -58,29 +86,7 @@ export default function StepOtp({ phone, onBack, onResend, onSuccess }: Props) {
                 onSubmit={async (e) => {
                     e.preventDefault();
                     const code = otp.current;
-                    console.error(phone)
-                    if (code && phone) {
-                        const result = await loginByActivatoinCode({
-                            PhoneNumber: phone ,
-                            OTP: code,
-                            Platform: 1,
-                            DeviceType: 0,
-                        });
-                        const data: LoginUserResponse = await result.json();
-                        if (data.done) {
-                            setUser(data.user);
-                            const userId = data.user.id;
-                            if (typeof window !== 'undefined' && window.gtag) {
-                                window.gtag('config', 'G-6PK22LDCQY', {
-                                    'user_id': userId
-                                });
-                                setUserId(userId);
-                            }
-                            onSuccess();
-                        } else {
-                            alert(data.text);
-                        }
-                    }
+                    handleSubmit(code)
                 }}
                 className="flex flex-col gap-6"
             >
