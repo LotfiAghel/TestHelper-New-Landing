@@ -7,7 +7,6 @@ import StepPhone from "./step1-phone";
 import StepOtp from "./step2-otp";
 import StepSuccess from "./step3-success";
 import { login } from "@/utils/login";
-
 export const AuthModal = () => {
     const [step, setStep] = useState<1 | 2 | 3>(1);
     const [phone, setPhone] = useState<string>("");
@@ -23,10 +22,11 @@ export const AuthModal = () => {
                         {step === 1 && (
                             <StepPhone
                                 onNext={
-                                    async (enteredPhone) => {
-                                        setPhone(enteredPhone);
+                                    async (enteredPhone: string) => {
+                                        setPhone(enteredPhone.startsWith('0') ? enteredPhone : '0' + enteredPhone);
                                         setStep(2);
                                     }}
+                                setStep={setStep}
                             />
                         )}
 

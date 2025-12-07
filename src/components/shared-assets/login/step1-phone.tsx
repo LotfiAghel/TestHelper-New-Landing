@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { toast } from "sonner";
 import { ContentDivider } from "@/components/application/content-divider/content-divider";
@@ -12,12 +12,22 @@ import { InputGroup } from "@/components/base/input/input-group";
 import { TestHelperLogoMinimal } from "@/components/foundations/logo/testhelper-logo-minimal";
 import { login, loginByActivatoinCode, loginByGmail, properPhoneNumber } from "@/utils/login";
 import { convertPersianToEnglishNumbers } from "@/utils/consts";
+import { getUserContext } from "@/context/userContext";
 
 interface Props {
     onNext: (phone: string) => void;
+    setStep: Dispatch<SetStateAction<number>>
 }
 
-export default function StepPhone({ onNext }: Props) {
+export default function StepPhone({ onNext, setStep }: Props) {
+    const { setUser } = getUserContext();
+    const loginByGmailHandler = async (res) => {
+        const data = await res.json();
+        setUser(data.user);
+        setStep(3)
+
+    }
+
 
     return (
         <div className="flex flex-col items-center gap-6">
@@ -76,9 +86,17 @@ export default function StepPhone({ onNext }: Props) {
 
                     <p className="text-xs text-tertiary">اگه قبلاً اکانت گوگلت رو ثبت کردی، می‌تونی با همون حساب وارد بشی.</p>
 
-                    <SocialButton social="google" theme="color">
-                        Log in with Google
-                    </SocialButton>
+                    <GoogleLogin
+
+                        onSuccess={({ credential }) => {
+                            loginByGmail(credential)
+                                .then(loginByGmailHandler)
+                                .catch((err) => {
+                                    alert('اگر قبلا در پروفایل خود Gmail را ذخیره کرده اید میتوانید از این قابلیت استفاده کنید', 'error')
+                                });
+                        }}
+                        onError={() => { }}
+                    />
                 </div>
             </Form>
         </div>
