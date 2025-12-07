@@ -65,9 +65,15 @@ const MobileNavItem = (props: { className?: string; label: string; href?: string
 };
 
 const MobileFooter = () => {
+    const { user } = getUserContext();
+    if (user)
+        return <div className="flex flex-col gap-8 border-t border-secondary px-4 py-6">
+            <div className="flex flex-col gap-3">
+                <DropdownAvatar user={user} showName />
+            </div>
+        </div>
     return (
         <div className="flex flex-col gap-8 border-t border-secondary px-4 py-6">
-
             <div className="flex flex-col gap-3">
                 <DialogTrigger>
                     <Button color="primary" size="lg">
@@ -227,6 +233,7 @@ export const HeaderComponent = ({ items = headerNavItems, isFullWidth, isFloatin
                             >
                                 <AriaDialog className="outline-hidden">
                                     <nav className="w-full bg-primary shadow-lg">
+
                                         <ul className="flex flex-col gap-0.5 py-5">
                                             {items.map((navItem) =>
                                                 navItem.menu ? (
@@ -238,7 +245,6 @@ export const HeaderComponent = ({ items = headerNavItems, isFullWidth, isFloatin
                                                 ),
                                             )}
                                         </ul>
-
                                         <MobileFooter />
                                     </nav>
                                 </AriaDialog>

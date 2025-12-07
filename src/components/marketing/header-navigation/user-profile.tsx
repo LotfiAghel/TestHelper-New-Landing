@@ -9,7 +9,7 @@ import { getUserPublicFileUrl } from "@/utils/consts";
 import { cx } from "@/utils/cx";
 import { logOutApi } from "@/utils/login";
 
-export const DropdownAvatar = ({ user }: { user: User }) => {
+export const DropdownAvatar = ({ user, showName }: { user: User, showName?: boolean }) => {
     const params = usePathname()
         .split("/")
         .filter((item) => !!item);
@@ -28,8 +28,18 @@ export const DropdownAvatar = ({ user }: { user: User }) => {
                         (isPressed || isFocusVisible) && "outline-2 outline-offset-2",
                     )
                 }
+
             >
-                <Avatar alt={userName} src={userAvatar} initials={userInitials} size="md" />
+                <div className="flex items-center">
+                    <Avatar alt={userName} src={userAvatar} initials={userInitials} size="md" />
+                    {showName ?
+                        <>
+                            &nbsp;
+                            {userName}
+                        </>
+                        : <></>
+                    }
+                </div>
             </AriaButton>
 
             <Dropdown.Popover placement="bottom start">
