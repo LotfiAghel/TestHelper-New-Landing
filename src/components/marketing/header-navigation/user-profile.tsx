@@ -14,12 +14,13 @@ export const DropdownAvatar = ({ user, showName }: { user: User, showName?: bool
     const params = usePathname()
         .split("/")
         .filter((item) => !!item);
-    // console.error(params)
+
     const type = params[0] ?? "toefl";
-    const userAvatar = user.avatar; //? getUserPublicFileUrl(user.id, user.avatar) : null;
+    const userAvatar = user.avatar ? getUserPublicFileUrl(user.id, user.avatar) : null;
     const userName = user.displayName?.trim() || user.firstAndLastName?.trim() || user.phoneNumber;
     const userEmail = user.email || "";
     const userInitials = getInitials(user.displayName) || getInitials(user.firstAndLastName);
+    console.error(userAvatar)
     return (
         <Dropdown.Root>
             <AriaButton

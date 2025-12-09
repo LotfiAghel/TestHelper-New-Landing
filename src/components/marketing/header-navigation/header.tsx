@@ -189,8 +189,8 @@ export const HeaderComponent = ({ items = headerNavItems, isFullWidth, isFloatin
                                         <Button color="primary" size={isFloating ? "md" : "lg"}>
                                             ورود/ثبت‌نام
                                         </Button>
+                                        <AuthModal />
                                     </DialogTrigger>
-                                    <AuthModal />
                                 </>
                             )}
                         </div>
@@ -232,10 +232,10 @@ export const HeaderComponent = ({ items = headerNavItems, isFullWidth, isFloatin
                                 crossOffset={20}
                                 containerPadding={0}
                                 placement="bottom left"
-                                style={{zIndex:5}}
+                                style={{ zIndex: 5 }}
                             >
                                 <AriaDialog className="outline-hidden"
-                                style={{zIndex:5}}>
+                                    style={{ zIndex: 5 }}>
                                     <nav className="w-full bg-primary shadow-lg">
 
                                         <ul className="flex flex-col gap-0.5 py-5">
