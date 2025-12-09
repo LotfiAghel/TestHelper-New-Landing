@@ -8,6 +8,7 @@ import { User } from "@/types";
 import { getUserPublicFileUrl } from "@/utils/consts";
 import { cx } from "@/utils/cx";
 import { logOutApi } from "@/utils/login";
+import { LayoutDashboard } from "lucide-react";
 
 export const DropdownAvatar = ({ user, showName }: { user: User, showName?: boolean }) => {
     const params = usePathname()
@@ -48,10 +49,10 @@ export const DropdownAvatar = ({ user, showName }: { user: User, showName?: bool
                 </div>
                 <Dropdown.Menu>
                     <Dropdown.Section>
-                        <Dropdown.Item icon={User01} href={`${type}/profile`}>
-                            پروفایل
+                        <Dropdown.Item icon={LayoutDashboard} href={`${type}/dashboard`}>
+                            داشبورد
                         </Dropdown.Item>
-                        <Dropdown.Item icon={HelpCircle} href={`${type}/support`}>
+                        <Dropdown.Item icon={HelpCircle} href={`/about-us`}>
                             پشتیبانی
                         </Dropdown.Item>
                     </Dropdown.Section>

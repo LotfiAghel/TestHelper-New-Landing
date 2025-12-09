@@ -241,8 +241,7 @@ export default function LoginModal({ isOpen, setIsOpen, setUser, type }) {
         );
     }
     return (
-        <div className="w-full h-full fixed items-center justify-center flex"
-            style={{ zIndex: 99999999 }}>
+        <div className="w-full h-full fixed items-center justify-center flex">
             {renderByPhase()}
             <div className="w-full h-full blur-lg absolute"
                 onClick={() => setIsOpen(false)}
