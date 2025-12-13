@@ -407,7 +407,7 @@ export const exmaLevel = [
 ];
 
 export const handleUrlAttach = (...url: string[]) => {
-  const baseurl = 'https://testhelper.com/toefl-api/api/files2/DownloadFile2/';
+  const baseurl = '/toefl-api/api/files2/DownloadFile2/';
   return (baseurl + url.join('/')).replaceAll('//', '/');
 }
 
