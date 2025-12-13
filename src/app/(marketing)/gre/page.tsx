@@ -85,7 +85,7 @@ const GrePage = () => {
             <HeroSection
                 title={<>پلتفرم تخصصی آزمون GRE شامل آزمون‌های TC, RC, Crown, Dalao و...</>}
                 subtitle={<>کامل‌ترین منابع برای تمرین Verbal، Quant و Writing همراه با آزمون‌های Adaptive، سؤالات واقعی و فلش‌کارت‌های اختصاصی</>}
-                href="./gre/dashboard"
+                href="/gre/dashboard"
             />
             <Testimonial />
             <Features

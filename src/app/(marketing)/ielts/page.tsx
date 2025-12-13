@@ -98,7 +98,7 @@ const IeltsPage = () => {
                     </>
                 }
                 subtitle={<>آمادگی کامل برای آزمون IELTS | منابع، نکات طلایی و آزمون‌های شبیه‌سازی‌شده برای کسب Band Score بالا </>}
-                href="./ielts/dashboard"
+                href="/ielts/dashboard"
             />
             <Testimonial />
             <Features

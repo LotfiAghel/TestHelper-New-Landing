@@ -110,7 +110,7 @@ export default function ToeflPage() {
                         مسیر اپلای و تحصیل بین‌المللی
                     </>
                 }
-                href="./toefl/dashboard"
+                href="/toefl/dashboard"
             />
             <Testimonial />
             <Features
