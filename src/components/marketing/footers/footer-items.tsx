@@ -31,15 +31,15 @@ export const footerNavList = [
         items: [
             {
                 label: "آزمون تافل",
-                href: "./toefl",
+                href: "/toefl",
             },
             {
                 label: "آزمون آیلتس",
-                href: "./ielts",
+                href: "/ielts",
             },
             {
                 label: "آزمون جی‌آرای",
-                href: "./gre",
+                href: "/gre",
                 badge: (
                     <Badge color="gray" type="modern" size="sm" className="ms-1">
                         جدید
