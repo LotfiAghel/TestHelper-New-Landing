@@ -13,7 +13,7 @@ export const TestsModal = () => {
         <ModalOverlay isDismissable>
             <Modal>
                 <Dialog aria-label="Select a Test">
-                    <div className="relative w-full overflow-hidden rounded-2xl bg-primary shadow-xl sm:max-w-100">
+                    <div className="relative w-full overflow-hidden rounded-2xl bg-primary shadow-xl max-sm:px-10 sm:max-w-100">
                         <CloseButton slot="close" size="lg" className="absolute top-3 right-3" />
                         <div className="flex flex-col gap-4 px-4 pt-5 sm:px-6 sm:pt-6">
                             <div className="relative w-max ltr:self-start rtl:self-end">
@@ -35,7 +35,7 @@ export const TestsModal = () => {
                         </div>
                         <div className="z-10 flex flex-1 flex-col items-center gap-2 p-4 pt-6 *:grow sm:grid sm:grid-cols-2 sm:gap-6 sm:px-6 sm:pt-8 sm:pb-6">
                             {tests.map((test) => (
-                                <Button key={test.name} href={test.path} color="primary" size="md" className="max-md:w-32">
+                                <Button key={test.name} href={test.dashboardPath} color="primary" size="md" className="max-md:w-32">
                                     ورود به {test.faTitle}
                                 </Button>
                             ))}

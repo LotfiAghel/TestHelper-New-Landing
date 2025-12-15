@@ -31,8 +31,8 @@ const TestsComponent = () => {
                             </div>
 
                             <div className="text-xs font-medium sm:text-sm">{test.exams}</div>
-                            <Button color="primary" href={test.dashboardPath} size="sm" className="mt-auto self-end">
-                                شروع رایگان
+                            <Button color="primary" href={test.path} size="sm" className="mt-auto self-end">
+                                اطلاعات بیشتر
                             </Button>
                         </div>
                     ))}
