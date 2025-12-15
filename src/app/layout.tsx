@@ -1,13 +1,14 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import type { Metadata, Viewport } from "next";
 import { Vazirmatn } from "next/font/google";
+import Script from "next/script";
+import { Toaster } from "sonner";
+import UserContextProvider from "@/context/userContext";
 import { RouteProvider } from "@/providers/router-provider";
 import { Theme } from "@/providers/theme";
 import "@/styles/globals.css";
 import { cx } from "@/utils/cx";
-import UserContextProvider from "@/context/userContext";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import Script from "next/script";
 
 const inter = Vazirmatn({
     subsets: ["arabic"],
@@ -15,7 +16,7 @@ const inter = Vazirmatn({
     variable: "--font-inter",
     weight: "400",
     preload: true,
-    fallback: ['system-ui', 'arial'],
+    fallback: ["system-ui", "arial"],
     adjustFontFallback: true,
 });
 
@@ -35,17 +36,12 @@ export default function RootLayout({
 }>) {
     return (
         <>
-            <GoogleOAuthProvider
-                clientId={
-                    "706367811187-qj0fme26bcctej0egr9ho9vdu3sga4ct.apps.googleusercontent.com"
-                }
-            >
+            <GoogleOAuthProvider clientId={"706367811187-qj0fme26bcctej0egr9ho9vdu3sga4ct.apps.googleusercontent.com"}>
                 <Script
                     id="goftino-widget"
                     strategy="afterInteractive"
                     dangerouslySetInnerHTML={{
-                        __html:
-                            '!function(){var i="Nqpq88",a=window,d=document;function g(){var g=d.createElement("script"),s="https://www.goftino.com/widget/"+i,l=localStorage.getItem("goftino_"+i);g.async=!0,g.src=l?s+"?o="+l:s;d.getElementsByTagName("head")[0].appendChild(g);}"complete"===d.readyState?g():a.attachEvent?a.attachEvent("onload",g):a.addEventListener("load",g,!1);}();',
+                        __html: '!function(){var i="Nqpq88",a=window,d=document;function g(){var g=d.createElement("script"),s="https://www.goftino.com/widget/"+i,l=localStorage.getItem("goftino_"+i);g.async=!0,g.src=l?s+"?o="+l:s;d.getElementsByTagName("head")[0].appendChild(g);}"complete"===d.readyState?g():a.attachEvent?a.attachEvent("onload",g):a.addEventListener("load",g,!1);}();',
                     }}
                 />
                 <html lang="fa" dir="rtl" suppressHydrationWarning>
@@ -57,6 +53,8 @@ export default function RootLayout({
                         <RouteProvider>
                             <Theme>{children}</Theme>
                         </RouteProvider>
+                        <Toaster richColors id="login" position="top-center" />
+                        <Toaster richColors />
                     </body>
                 </html>
                 <GoogleAnalytics gaId="G-6PK22LDCQY" />
