@@ -18,16 +18,18 @@ export default function StepSuccess() {
     }, []);
 
     return (
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center justify-center gap-4 px-4 pt-5 sm:px-6 sm:pt-6">
             <TestHelperLogoMinimal className="size-10" />
-            <div className="flex flex-col gap-2 text-center">
-                <h1 className="text-display-xs font-semibold text-primary">همه چی مرتبه!</h1>
-                <p className="text-md text-tertiary">چند لحظه صبر کن...</p>
+            <div className="flex flex-col items-center justify-center gap-0.5">
+                <h2 className="text-md font-semibold text-primary">همه چی مرتبه!</h2>
+                <p className="text-sm text-tertiary">چند لحظه صبر کن...</p>
             </div>
-            <LoadingIndicator type="dot-circle" size="md" />
-            {/* <Button size="lg" onClick={() => router.push("/dashboard")}>
+            <div className="flex flex-col gap-4 px-4 pb-4 sm:gap-5 sm:px-6 sm:pb-6">
+                <LoadingIndicator type="dot-circle" size="md" />
+                {/* <Button size="lg" onClick={() => router.push("/dashboard")}>
                 برو به داشبورد
             </Button> */}
+            </div>
         </div>
     );
 }
