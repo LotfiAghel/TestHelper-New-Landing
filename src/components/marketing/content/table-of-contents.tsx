@@ -18,7 +18,7 @@ export default function TableOfContents() {
         const article = document.querySelector("article");
         if (!article) return;
 
-        const headingElements = Array.from(article.querySelectorAll("h2, h3")) as HTMLElement[];
+        const headingElements = Array.from(article.querySelectorAll("h2")) as HTMLElement[];
 
         const newHeadings = headingElements.map((el) => {
             const id = el.id || el.textContent?.trim().toLowerCase().replace(/\s+/g, "-") || "";
@@ -47,7 +47,7 @@ export default function TableOfContents() {
             },
         );
 
-        const elements = document.querySelectorAll("article h2, article h3");
+        const elements = document.querySelectorAll("article h2");
         elements.forEach((el) => observer.observe(el));
 
         return () => {
@@ -59,7 +59,7 @@ export default function TableOfContents() {
 
     return (
         <nav className="w-72 space-y-3 rounded-2xl border border-secondary bg-secondary p-5 text-sm shadow-sm">
-            <h2 className="font-semibold text-secondary">فهرست مطالب</h2>
+            <h2 className="font-semibold text-brand-secondary">فهرست مطالب</h2>
 
             <ul className="space-y-1">
                 {headings.map((heading) => {
