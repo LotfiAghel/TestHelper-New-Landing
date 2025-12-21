@@ -12,6 +12,7 @@ import { Article } from "@/components/marketing/blog/base-components/blog-cards"
 import { FAQList } from "@/components/marketing/faq/faq-accordion";
 import { DetailArticle } from "@/types";
 import { strapiBaseUrl } from "@/utils/consts";
+import TableOfContents from "./table-of-contents";
 
 export const BlogContent = ({ blogItem, allPosts, headers }: { blogItem: DetailArticle; allPosts: Article[]; headers: any[] }) => {
     // const { copied, copy } = useClipboard();
@@ -25,7 +26,7 @@ export const BlogContent = ({ blogItem, allPosts, headers }: { blogItem: DetailA
                     <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
                         <div className="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
                             <h1 className="mt-3 text-display-md font-semibold text-primary md:text-display-lg">{blogItem.title}</h1>
-                            <p className="mt-4 text-lg text-tertiary md:mt-6 md:text-xl">{blogItem.SeoDescription}</p>
+                            <p className="mt-4 text-justify text-lg text-tertiary md:mt-6 md:text-xl">{blogItem.SeoDescription}</p>
                         </div>
                     </div>
                     <img
@@ -37,7 +38,7 @@ export const BlogContent = ({ blogItem, allPosts, headers }: { blogItem: DetailA
 
                 <div className="mx-auto max-w-container px-4 pb-16 md:px-8 md:pb-24">
                     <div className="mx-auto flex justify-center gap-12">
-                        {headers.length > 0 && (
+                        {/* {headers.length > 0 && (
                             <div className="sticky top-24 hidden h-full lg:flex">
                                 <nav className="w-72 space-y-3 rounded-2xl border border-secondary bg-secondary p-5 text-sm shadow-sm">
                                     <h2 className="font-semibold text-secondary">فهرست مطالب</h2>
@@ -54,9 +55,12 @@ export const BlogContent = ({ blogItem, allPosts, headers }: { blogItem: DetailA
                                     </ul>
                                 </nav>
                             </div>
-                        )}
+                        )} */}
+                        <div id="toc" className="sticky top-24 hidden h-full lg:flex">
+                            <TableOfContents />
+                        </div>
                         <div>
-                            <article className="md:prose-md prose mb-12 max-w-container prose-h2:scroll-mt-24 prose-h3:scroll-mt-24 prose-h4:scroll-mt-24 prose-p:text-justify prose-li:text-justify">
+                            <article className="md:prose-md prose mb-12 max-w-container md:leading-loose! prose-h2:scroll-mt-24 prose-h2:text-brand-secondary! prose-h3:text-brand-secondary! prose-h4:scroll-mt-24 prose-h4:text-brand-secondary! prose-p:text-justify prose-a:text-brand-secondary! prose-li:text-justify">
                                 {blogItem.NewContent.map((item, index) => {
                                     if (item.__component.endsWith("faq")) {
                                         return (
@@ -90,13 +94,13 @@ export const BlogContent = ({ blogItem, allPosts, headers }: { blogItem: DetailA
                                             {HTMLReactParser(item.content ?? "", {
                                                 transform(reactNode): any {
                                                     if (!reactNode) return;
-                                                    if (reactNode.type == "ul") {
-                                                        return (
-                                                            <ul dir="auto" style={reactNode.props.style} className={reactNode.props?.className}>
-                                                                {reactNode.props.children}
-                                                            </ul>
-                                                        );
-                                                    }
+                                                    // if (reactNode.type == "ul") {
+                                                    //     return (
+                                                    //         <ul dir="auto" style={reactNode.props.style} className={reactNode.props?.className}>
+                                                    //             {reactNode.props.children}
+                                                    //         </ul>
+                                                    //     );
+                                                    // }
                                                     return reactNode;
                                                 },
                                             })}
@@ -106,14 +110,12 @@ export const BlogContent = ({ blogItem, allPosts, headers }: { blogItem: DetailA
                                 })}
                             </article>
                             <div className="-mt-px flex flex-row items-start justify-between gap-y-8 border-t border-secondary pt-6 md:flex-row">
-                                <div className="flex items-center gap-3 md:gap-4">
+                                <div className="flex items-center gap-3 text-tertiary md:gap-4">
                                     نویسنده:
-                                    <div>
-                                        <p className="text-md font-semibold text-primary md:text-lg">{blogItem.author}</p>
-                                    </div>
+                                    <span className="text-md font-semibold text-primary md:text-lg">{blogItem.author}</span>
                                 </div>
 
-                                <div className="flex gap-3">{blogItem.publishedAt}</div>
+                                <div className="flex gap-3 text-tertiary">{blogItem.publishedAt}</div>
                             </div>
                         </div>
                     </div>
