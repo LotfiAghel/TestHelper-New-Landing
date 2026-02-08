@@ -20,7 +20,7 @@ export const DropdownAvatar = ({ user, showName }: { user: User, showName?: bool
     const userName = user.displayName?.trim() || user.firstAndLastName?.trim() || user.phoneNumber;
     const userEmail = user.email || "";
     const userInitials = getInitials(user.displayName) || getInitials(user.firstAndLastName);
-    console.error(userAvatar)
+
     return (
         <Dropdown.Root>
             <AriaButton
@@ -50,7 +50,7 @@ export const DropdownAvatar = ({ user, showName }: { user: User, showName?: bool
                 </div>
                 <Dropdown.Menu>
                     <Dropdown.Section>
-                        <Dropdown.Item icon={LayoutDashboard} href={`${type}/dashboard`}>
+                        <Dropdown.Item icon={LayoutDashboard} href={`/${type}/dashboard`}>
                             داشبورد
                         </Dropdown.Item>
                         <Dropdown.Item icon={HelpCircle} href={`/about-us`}>
