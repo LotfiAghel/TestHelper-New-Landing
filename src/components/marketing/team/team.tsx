@@ -263,7 +263,7 @@ const TeamComponent = () => {
                             <li key={item.name} className="flex flex-col items-center gap-5 rounded-2xl px-6 py-6 text-center md:pe-4">
                                 <Avatar src={item.avatarUrl} alt={item.name} size="2xl" className="size-20 md:size-24" />
                                 <div className="text-center">
-                                    <h3 className="text-lg font-semibold text-primary">{item.name}</h3>
+                                    <p className="text-lg font-semibold text-primary">{item.name}</p>
                                     <p className="text-md text-brand-secondary">{item.title}</p>
                                     <p className="text-sm text-tertiary">{item.summary}</p>
                                 </div>
