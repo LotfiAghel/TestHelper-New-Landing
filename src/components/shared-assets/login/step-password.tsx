@@ -7,18 +7,19 @@ import { Form } from "@/components/base/form/form";
 import { Input, InputBase } from "@/components/base/input/input";
 import { InputGroup } from "@/components/base/input/input-group";
 import { getUserContext } from "@/context/userContext";
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { LoadingIndicator } from "@/components/application/loading-indicator/loading-indicator";
 import { TestHelperLogoMinimal } from "@/components/foundations/logo/testhelper-logo-minimal";
 import { loginWithUserNamePassword } from "@/utils/consts";
 import { toast } from "sonner";
-import { LoginUserResponse } from "@/types";
+import { LoginUserResponse, steps } from "@/types";
 import { setUserId } from "@/utils/ga";
 import { Eye, EyeOff } from "lucide-react";
 
-export default function StepPassword({ onSuccess }: {
+export default function StepPassword({ onSuccess, setStep }: {
     onSuccess: () => void;
+    setStep: Dispatch<SetStateAction<number>>;
 }) {
     const router = useRouter();
     const userNameRef = useRef('');
@@ -90,7 +91,7 @@ export default function StepPassword({ onSuccess }: {
                         }}
                     />
                     <Input
-                    
+
                         isRequired
                         type={isPasswordOn ? "password" : 'text'}
                         label="رمز عبور"
@@ -110,8 +111,16 @@ export default function StepPassword({ onSuccess }: {
                     <Button onClick={handleLoginWithUsernamePassword} type="submit" size="lg">
                         ورود یا ثبت‌نام
                     </Button>
+                    <ContentDivider type="single-line">
+                        <span className="text-sm font-medium text-tertiary">یا</span>
+                    </ContentDivider>
+                    <div className="flex flex-col gap-3">
+                        <Button onClick={() => setStep(steps.login_with_password)} className="border-dashed bg-transparent border-2 dark:text-white text-black hover:opacity-60 hover:bg-transparent" size="lg">
+                            ورود با رمز پیامکی
+                        </Button>
+                    </div>
                 </Form>
-            </div>
+            </div >
         </>
     );
 }

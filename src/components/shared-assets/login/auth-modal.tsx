@@ -59,7 +59,7 @@ export const AuthModal = () => {
         if (step == steps.success)
             return (<StepSuccess />);
         if (step == steps.login_with_password)
-            return <StepPassword onSuccess={() => { setStep(steps.success) }} />
+            return <StepPassword setStep={setStep} onSuccess={() => { setStep(steps.success) }} />
     }
     return (
         <ModalOverlay isDismissable>
