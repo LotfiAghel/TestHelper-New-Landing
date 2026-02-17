@@ -33,6 +33,7 @@ export interface InputBaseProps extends TextFieldProps {
     groupRef?: Ref<HTMLDivElement>;
     /** Icon component to display on the left side of the input. */
     icon?: ComponentType<HTMLAttributes<HTMLOrSVGElement>>;
+    onIconClick?: () => void;
 }
 
 export const InputBase = ({
@@ -49,6 +50,7 @@ export const InputBase = ({
     tooltipClassName,
     inputClassName,
     iconClassName,
+    onIconClick,
     // Omit this prop to avoid invalid HTML attribute warning
     isRequired: _isRequired,
     ...inputProps
@@ -107,12 +109,14 @@ export const InputBase = ({
             {/* Leading icon and Payment icon */}
             {Icon && (
                 <Icon
+                    onClick={onIconClick ? onIconClick : null}
                     className={cx(
-                        "pointer-events-none absolute size-5 text-fg-quaternary",
+                        "absolute size-5 text-fg-quaternary ",
                         isDisabled && "text-fg-disabled",
                         sizes[inputSize].iconLeading,
                         context?.iconClassName,
                         iconClassName,
+                        onIconClick ? 'cursor-pointer z-50' : 'pointer-events-none',
                     )}
                 />
             )}
@@ -193,8 +197,8 @@ interface BaseProps {
 
 interface TextFieldProps
     extends BaseProps,
-        AriaTextFieldProps,
-        Pick<InputBaseProps, "size" | "wrapperClassName" | "inputClassName" | "iconClassName" | "tooltipClassName"> {
+    AriaTextFieldProps,
+    Pick<InputBaseProps, "size" | "wrapperClassName" | "inputClassName" | "iconClassName" | "tooltipClassName"> {
     ref?: Ref<HTMLDivElement>;
 }
 
@@ -237,6 +241,7 @@ export const Input = ({
     inputClassName,
     wrapperClassName,
     tooltipClassName,
+    onIconClick,
     ...props
 }: InputProps) => {
     return (
@@ -258,6 +263,7 @@ export const Input = ({
                             wrapperClassName,
                             tooltipClassName,
                             tooltip,
+                            onIconClick,
                         }}
                     />
 

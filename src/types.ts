@@ -141,3 +141,12 @@ export const enum LearnBranch {
     GRE,
     None
 }
+
+
+export enum steps {
+    enter_phone = 1,
+    enter_otp,
+    success,
+    login_with_password
+
+}

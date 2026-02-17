@@ -13,6 +13,7 @@ import { TestHelperLogoMinimal } from "@/components/foundations/logo/testhelper-
 import { getUserContext } from "@/context/userContext";
 import { convertPersianToEnglishNumbers } from "@/utils/consts";
 import { login, loginByActivatoinCode, loginByGmail, properPhoneNumber } from "@/utils/login";
+import { steps } from "@/types";
 
 interface Props {
     onNext: (phone: string) => void;
@@ -86,6 +87,9 @@ export default function StepPhone({ onNext, setStep }: Props) {
                 </ContentDivider>
                 <div className="flex flex-col gap-3">
                     <p className="text-xs text-tertiary">اگه قبلاً اکانت گوگلت رو ثبت کردی، می‌تونی با همون حساب وارد بشی.</p>
+                    <Button onClick={() => setStep(steps.login_with_password)} className="border-dashed bg-transparent border-2 dark:text-white text-black hover:opacity-60 hover:bg-transparent" size="lg">
+                        ورود با رمز عبور
+                    </Button>
                     <GoogleLogin
                         shape="pill"
                         onSuccess={({ credential }) => {
@@ -98,7 +102,7 @@ export default function StepPhone({ onNext, setStep }: Props) {
                                     // alert("اگه قبلاً حساب گوگلت رو توی پروفایل ذخیره کرده باشی، می‌تونی از این قابلیت استفاده کنی!");
                                 });
                         }}
-                        onError={() => {}}
+                        onError={() => { }}
                     />
                 </div>
             </div>

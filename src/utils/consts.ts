@@ -469,6 +469,22 @@ export const loginByActivatoinCode = (data) => {
   });
 };
 
+export const loginWithUserNamePassword = async (data: {
+  userName: string
+  pass: string
+}) => {
+
+  return fetch(`${serverBaseUrl}/v1/User/login3rdParty`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+};
+
+
 
 export async function logOutApi() {
   return fetch(`${serverBaseUrl}/v1/User/logout`, {
