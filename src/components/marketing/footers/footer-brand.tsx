@@ -59,6 +59,17 @@ export const FooterBrand = () => {
                                 </ul>
                             </li>
                         ))}
+                        <li>
+                            <a
+                                referrerPolicy='origin'
+                                target='_blank'
+                                href='https://trustseal.enamad.ir/?id=576441&Code=oD7AiDvNH2bEN5L00KFaCudnopwyWFqc'>
+                                    <img referrerPolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=576441&Code=oD7AiDvNH2bEN5L00KFaCudnopwyWFqc' alt='' style={{
+                                    cursor: 'pointer'
+                                }}
+                                    code='oD7AiDvNH2bEN5L00KFaCudnopwyWFqc' /></a>
+                        </li>
+
                     </ul>
                 </nav>
                 <div className="mt-12 flex flex-col-reverse justify-between gap-6 border-t border-brand_alt pt-8 md:mt-16 md:flex-row">
