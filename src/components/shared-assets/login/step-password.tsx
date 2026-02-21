@@ -115,7 +115,7 @@ export default function StepPassword({ onSuccess, setStep }: {
                         <span className="text-sm font-medium text-tertiary">یا</span>
                     </ContentDivider>
                     <div className="flex flex-col gap-3">
-                        <Button onClick={() => setStep(steps.login_with_password)} className="border-dashed bg-transparent border-2 dark:text-white text-black hover:opacity-60 hover:bg-transparent" size="lg">
+                        <Button onClick={() => setStep(steps.enter_phone)} className="border-dashed bg-transparent border-2 dark:text-white text-black hover:opacity-60 hover:bg-transparent" size="lg">
                             ورود با رمز پیامکی
                         </Button>
                     </div>
