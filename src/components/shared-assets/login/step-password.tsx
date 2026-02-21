@@ -109,7 +109,7 @@ export default function StepPassword({ onSuccess, setStep }: {
                         }}
                     />
                     <Button onClick={handleLoginWithUsernamePassword} type="submit" size="lg">
-                        ورود یا ثبت‌نام
+                        ورود 
                     </Button>
                     <ContentDivider type="single-line">
                         <span className="text-sm font-medium text-tertiary">یا</span>
