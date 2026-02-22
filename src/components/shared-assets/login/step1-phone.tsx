@@ -86,10 +86,10 @@ export default function StepPhone({ onNext, setStep }: Props) {
                     <span className="text-sm font-medium text-tertiary">یا</span>
                 </ContentDivider>
                 <div className="flex flex-col gap-3">
-                    <p className="text-xs text-tertiary">اگه قبلاً اکانت گوگلت رو ثبت کردی، می‌تونی با همون حساب وارد بشی.</p>
                     <Button onClick={() => setStep(steps.login_with_password)} className="border-dashed bg-transparent border-2 dark:text-white text-black hover:opacity-60 hover:bg-transparent" size="lg">
                         ورود با رمز عبور
                     </Button>
+                    <p className="text-xs text-tertiary">اگه قبلاً اکانت گوگلت رو ثبت کردی، می‌تونی با همون حساب وارد بشی.</p>
                     <GoogleLogin
                         shape="pill"
                         onSuccess={({ credential }) => {
